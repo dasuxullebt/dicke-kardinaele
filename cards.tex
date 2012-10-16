@@ -1,18 +1,94 @@
 %% -*- coding: utf-8 -*
 
-\documentclass{article}
+\documentclass[a4paper,fontsize=11pt]{scrartcl}
 \usepackage[utf8]{inputenc}
 \usepackage{ngerman}
 \usepackage{CJKutf8}
 \usepackage{graphicx}
 \usepackage{wrapfig}
+\usepackage{fancyhdr}
+\usepackage{amsfonts}
 \newenvironment{Japanese}{%  
 \CJKfamily{min}%  
 \CJKtilde  
 \CJKnospace}{}
+\pagestyle{fancy}
 
-\hyphenation{A-mi-tryp-ti-lin}
-
+\fancyhf{}
+\fancyhead[L]{Große Kardinalzahlen}
+\fancyhead[C]{}
+\fancyhead[R]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+%%\author{Prof. Dr. H.-D. Donder}       %Authors
 \begin{document}
+\flushleft
+\section*{Vorwort}
+{\bf Vorkenntnisse:} Logik, Modelle der Mengenlehre (Konstruktibles
+Universum, Innere Modelle, kein Forcing)
+
+{\bf Inhalt:} Ursprungliche Motivation für groke Kardinalzahl-Axiome
+war, dass $\omega$ ein Sprung in den Kardinalzahlen ist. Man überlegte
+ob so ein Sprungverhalten öfter vorkommen könnte. Die erste
+Vorgehensweise war, bestimmte Eigenschaften von $\omega$ zu isolieren,
+und dann eine Zahl mit den gleichen Eigenschaften ungleich $\omega$
+gefordert hat. Dies ist allerdings inzwischen weitgehend obsolet.
+
+Die Theorien die man durch große Kardinalzahlen bekommt ist eine
+Verstärkung der ursprünglichen Theorie. Man kann mit immer neuen
+großen Kardinalzahlen immer neue Aussagen über natürliche Zahlen
+beweisen.
+
+Das hier Behandelte ist im Wesentlichen die Einführung immer größerer
+Kardinalzahlen, relevant wird immer sein, ob man noch die natürlichen
+inneren Modelle für große Kardinalzahlen hat.
+
+{\bf Literatur:}
+\begin{itemize}
+  \item Drake, Set Theory - An Introduction To Large Cardinals
+  \item Jech, Set Theory
+  \item Kanamori, The Higher Infinite
+\end{itemize}
+
+{\bf Notation:}
+\begin{itemize}
+  \item $[X]^n$ = Menge aller $n$-Elementigen Teilmengen von $X$
+  \item $[X]^{<\omega} = \bigcup_n[X]^n$ = Menge aller endlichen
+    Teilmengen von $X$
+\end{itemize}
+
+Wir betrachten oft Strukturen der Form
+$\left<M,\in,A_1,\ldots,A_n\right>$ mit $A_i\subseteq M$.
+
+{\bf Konvention:} Lasse das $\in$ weg, identifiziere
+$\left<M,A_1,\ldots,A_n\right>$ mit
+$\left<M,\in,A_1,\ldots,A_n\right>$.
+
+{\bf Elementare Substruktur:} Sei
+$\mathfrak{M}=\left<M,A_1,\ldots,A_n\right>$, $N\subseteq M$ und
+$\mathfrak{N}=\left<N,A_1\cap N,\ldots,A_n\cap N\right>$ die zugehörige
+Substruktur von $\mathfrak{M}$. Dann ist $\frak N$ elementare Substruktur
+von $\frak M$ (Bez. $\mathfrak{N}\prec\mathfrak{M}$ genau dann wenn für alle
+$\varphi$ und $a_1,\ldots,a_k\in N$
+$$ \mathfrak{M}\models \phi[a_1,\ldots,a_k] \mbox{gdw} \mathfrak{N}\models\phi[a_1,\ldots,a_k]$$
+
+{\bf Konvention:} Schreibe $N\prec\left<M,A_1,\ldots,A_n\right>$ statt $\left<N,A_1\cap N,\ldots,A_n\cap N\right>\prec\left<M,A_1,\ldots,A_n\right>$.
+
+{\bf Skolemfunktionen:} Sei
+$\mathfrak{M}=\left<M,\in,A_1,\ldots,A_n\right>$ eine
+${\mathcal{L}}$-Struktur. Für eine $\mathcal{L}$-Formel
+$\varphi(\vec{x},y)$ definiere $f_\varphi$ so, dass gilt
+
+$$ \mathfrak{M}\models \exists_y \varphi[\vec{a},y] \Rightarrow \mathfrak{M}\models\varphi[\vec{a},f_\varphi(\vec{a})]$$
+
+Setze
+$\mathcal{F}=\{f_\phi|\phi\phantom{a}\mathcal{L}-\mbox{Formel}\}$. Dann
+gilt:
+
+Sei $N\subseteq M$, $N\neq\emptyset$, unter allen $f\in\mathcal{F}$
+abgeschlossen (d.h. $\vec{a}\in N,f\in\mathcal{F}\Rightarrow
+f(\vec{a})\in N$). Dann ist $N\prec\mathfrak{M}$.
+
+\underline{Wir sagen:} $\mathcal{F}$ ist Menge von Skolemfunktionen
+für $\mathfrak{M}$. Beachte, dass $\mathcal{F}$ abzählbar ist.
 
 \end{document}
