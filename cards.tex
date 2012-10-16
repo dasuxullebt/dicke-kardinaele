@@ -8,11 +8,17 @@
 \usepackage{wrapfig}
 \usepackage{fancyhdr}
 \usepackage{amsfonts}
+\usepackage{amsmath}
 \newenvironment{Japanese}{%  
 \CJKfamily{min}%  
 \CJKtilde  
 \CJKnospace}{}
 \pagestyle{fancy}
+
+\newcommand{\rng}{\operatorname{rng}}
+\newcommand{\ZFC}{\operatorname{ZFC}}
+\newcommand{\Con}{\operatorname{Con}}
+\newcommand{\On}{\operatorname{On}}
 
 \fancyhf{}
 \fancyhead[L]{Große Kardinalzahlen}
@@ -65,20 +71,25 @@ $\left<M,\in,A_1,\ldots,A_n\right>$.
 
 {\bf Elementare Substruktur:} Sei
 $\mathfrak{M}=\left<M,A_1,\ldots,A_n\right>$, $N\subseteq M$ und
-$\mathfrak{N}=\left<N,A_1\cap N,\ldots,A_n\cap N\right>$ die zugehörige
-Substruktur von $\mathfrak{M}$. Dann ist $\frak N$ elementare Substruktur
-von $\frak M$ (Bez. $\mathfrak{N}\prec\mathfrak{M}$ genau dann wenn für alle
+$\mathfrak{N}=\left<N,A_1\cap N,\ldots,A_n\cap N\right>$ die
+zugehörige Substruktur von $\mathfrak{M}$. Dann ist $\mathfrak{N}$
+elementare Substruktur von $\mathfrak{M}$
+(Bez. $\mathfrak{N}\prec\mathfrak{M}$ genau dann wenn für alle
 $\varphi$ und $a_1,\ldots,a_k\in N$
-$$ \mathfrak{M}\models \phi[a_1,\ldots,a_k] \mbox{gdw} \mathfrak{N}\models\phi[a_1,\ldots,a_k]$$
+$$ \mathfrak{M}\models \phi[a_1,\ldots,a_k] \mbox{gdw}
+\mathfrak{N}\models\phi[a_1,\ldots,a_k]$$
 
-{\bf Konvention:} Schreibe $N\prec\left<M,A_1,\ldots,A_n\right>$ statt $\left<N,A_1\cap N,\ldots,A_n\cap N\right>\prec\left<M,A_1,\ldots,A_n\right>$.
+{\bf Konvention:} Schreibe $N\prec\left<M,A_1,\ldots,A_n\right>$ statt
+$\left<N,A_1\cap N,\ldots,A_n\cap
+N\right>\prec\left<M,A_1,\ldots,A_n\right>$.
 
 {\bf Skolemfunktionen:} Sei
 $\mathfrak{M}=\left<M,\in,A_1,\ldots,A_n\right>$ eine
 ${\mathcal{L}}$-Struktur. Für eine $\mathcal{L}$-Formel
 $\varphi(\vec{x},y)$ definiere $f_\varphi$ so, dass gilt
 
-$$ \mathfrak{M}\models \exists_y \varphi[\vec{a},y] \Rightarrow \mathfrak{M}\models\varphi[\vec{a},f_\varphi(\vec{a})]$$
+$$ \mathfrak{M}\models \exists_y \varphi[\vec{a},y] \Rightarrow
+\mathfrak{M}\models\varphi[\vec{a},f_\varphi(\vec{a})]$$
 
 Setze
 $\mathcal{F}=\{f_\phi|\phi\phantom{a}\mathcal{L}-\mbox{Formel}\}$. Dann
@@ -90,5 +101,101 @@ f(\vec{a})\in N$). Dann ist $N\prec\mathfrak{M}$.
 
 \underline{Wir sagen:} $\mathcal{F}$ ist Menge von Skolemfunktionen
 für $\mathfrak{M}$. Beachte, dass $\mathcal{F}$ abzählbar ist.
+
+\section{``Kleine'' große Kardinalzahlen}
+Arbeite in ZFC. Wir nehmen an, dass ZFC widerspruchsfrei ist.
+
+{\bf Definition:} $\kappa$ ist (stark) unerreichbar gdw
+$\kappa>\omega$, $\kappa$ regulär und für alle $\lambda<\kappa$ gilt
+$2^\lambda<\kappa$.
+
+{\bf Bemerkung:} $\omega$ ist regulär und für alle $n<\omega$ ist
+$2^n<\omega$.
+
+{\bf Lemma 1:} Sei $\kappa$ unerreichbar. Dann gilt für alle
+$\alpha<\kappa$ dass $|V_\alpha<\kappa|$ (also $|V_\kappa|=\kappa$).
+
+{\bf Beweis:} Durch Induktion über $\alpha<\kappa$:
+\begin{itemize}
+  \item $\alpha=0$: $V_0=\emptyset$. Also $|V_0|=0<\kappa$.
+  \item $\alpha=\beta+1$: $V_{\beta+1}=\mathfrak{P}(V_\beta)$. Also
+    $|V_{\beta+1}|=2^{|V_\beta|}$. Nach Induktion ist
+    $|V_\beta|<\kappa$. Also nach Definition $2^{|V_\beta|}<\kappa$.
+  \item $\lim(\lambda)$: Es ist
+    $V_\lambda=\bigcup\limits_{\alpha<\lambda} V_\alpha$. Also
+    $|V_\lambda|\le |\lambda|\cdot
+    \sup\{|V_\alpha||\alpha<\lambda\}$. Wegen $\lambda<\kappa$ genügt
+    es also zu zeigen, dass
+    $\sup\{|V_\alpha||\alpha<\lambda\}<\kappa$. Also für
+    $\alpha<\lambda$ ist $|V_\alpha|<\kappa$ nach
+    Induktionsvoraussetzung und $\lambda<\kappa$. Wegen $\kappa$
+    regulär ist also $\sup\{|V_\alpha||\alpha<\lambda\}<\kappa$.
+\end{itemize}
+\hfill $\square$
+
+{\bf Lemma 2:} Sei $\kappa$ unerreichbar und $u\subseteq
+V_\kappa$. Dann gilt $u\in V_\kappa$ gdw $|u|<\kappa$.
+
+{\bf Beweis:}
+\begin{itemize}
+\item[$\rightarrow$:] Sei $u\in V_\kappa$. Dann existiert
+  $\alpha<\kappa$ mit $u\in V_\alpha$. Wegen $V_\alpha$ transitiv also
+  $u\subseteq V_\alpha$. Somit $|u|\le|V_\alpha|
+  \stackrel{\mbox{\tiny L1}}{<} \kappa$.
+\item[$\leftarrow$:] Sei $|u|<\kappa$. Definiere $g:u\rightarrow \On$
+  durch $g(x)=\min\{\alpha|x\in V_\alpha\}$. Wegen $u\subseteq V_k$
+  ist $\rng(g)\subseteq\kappa$. Aber $|\rng(g)|\le |u|<\kappa$. Wegen
+  $\kappa$ regulär ist also $\rng(g)$ beschränkt in $\kappa$. Sei
+  $\gamma=\sup \rng (g)$. Dann ist $u\subseteq V_\gamma$, denn für
+  $x\in u$ ist $x\in V_{g(x)}\subseteq V_\gamma$. Also $u\in
+  V_{\gamma+1}\subseteq V_\kappa$.
+\end{itemize}
+\hfill $\square$
+
+{\bf Satz 3:} Sei $\kappa$ unerreichbar. Dann $V_\kappa\models ZFC$.
+
+{\bf Beweis:}
+\begin{itemize}
+\item (Ext) und (Fund) sind $\Pi_1$. Sie gelten also in $V_\kappa$, da
+  $V_\kappa$ trasitiv.
+\item (Null) da $\emptyset\in V_\kappa$
+\item (Un) da $\omega=\On\cap V_\omega \in V_{\omega+1}\subseteq
+  V_\kappa$ (da $\kappa>\omega$)
+\item (Paar) Seien $x,y\in V_\kappa$. Dann existieren
+  $\alpha,\beta<\kappa$ mit $x\in V_\alpha$ und $y\in V_\beta$. Setze
+  $\gamma=\max\{\alpha,\beta\}$. Also $\{x,y\}\subseteq V_\gamma$ und
+  somit $\{x,y\}\in V_{\gamma+1}\subseteq V_\kappa$.
+\item (Ver) Sei $x\in V_\kappa$. Dann existiert $\alpha<\kappa$ mit
+  $x\in V_\alpha$. Also wegen $V_\alpha$ transitiv $\bigcup x\subseteq
+  V_\alpha$. Somit $\bigcup x\in V_{\alpha+1}\subseteq V_\kappa$.
+\item (Pot) Sei $x\in V_\kappa$. Dann existiert $\alpha<\kappa$ mit
+  $x\in V_\alpha$. Also $x\subseteq V_\alpha$ und daher
+  $\mathfrak{P}(x)\subseteq\mathfrak{P}(V_\alpha)=V_{\alpha+1}$. Somit
+  $\mathfrak{P}(X)\in V_{\alpha+2}\subseteq V_\kappa$.
+\item (Ers) Es genügt folgendes zu zeigen: Sei $F:A\rightarrow
+  V_\kappa$ Funktion mit $A\subseteq V_\kappa$ und sei $u\in
+  V_\kappa$. Dann ist $F''u\in V_\kappa$. Sei also $F:A\rightarrow
+  V_\kappa$ gegeben und $u\in V_\kappa$. Dann ist auch $u\subseteq
+  V_\kappa$ und nach Lemma 2 $|u|<\kappa$. Setze $v=F''u$. Also
+  $v\subseteq V_\kappa$ und $|v|\le |u|<\kappa$. Somit nach Lemma 2
+  $v\in V_\kappa$.
+\item (AC) Sei $u\in V_\kappa$ mit $\emptyset\not\in u$. Sei $f$ eine
+  Auswahlfunktion für $u$. Also ist $f\subseteq u\times\bigcup u$. Sei
+  $\alpha<\kappa$ mit $u\in V_\alpha$. Dann ist aber $u\times\bigcup
+  u\subseteq V_\alpha\times V_\alpha\subseteq V_{\alpha+2}$. Also
+  $f\in V_{\alpha+3}\subseteq V_\kappa$.
+\end{itemize}
+\hfill $\square$
+
+{\bf Folgerung:} $\ZFC + \exists_\kappa \kappa\mbox{ unerreichbar
+}\vdash \Con(\ZFC)$. Also nach Gödel
+$\ZFC\not\vdash\exists_\kappa\kappa\mbox{ unerreichbar}$. Sogar ohne
+Gödel, denn:
+
+{\bf Annahme:} $\ZFC\vdash\exists_\kappa\kappa\mbox{
+  unerreichbar}$. Sei $\kappa$ die kleinste unerreichbare
+Kardinalzahl. Dann $V_\kappa\models\ZFC+\mbox{existiert keine
+  unerreichbare Kardinalzahl}$. Widerspruch.
+
 
 \end{document}
