@@ -9,6 +9,7 @@
 \usepackage{fancyhdr}
 \usepackage{amsfonts}
 \usepackage{amsmath}
+\usepackage{stmaryrd}
 \newenvironment{Japanese}{%  
 \CJKfamily{min}%  
 \CJKtilde  
@@ -19,6 +20,8 @@
 \newcommand{\ZFC}{\operatorname{ZFC}}
 \newcommand{\Con}{\operatorname{Con}}
 \newcommand{\On}{\operatorname{On}}
+\newcommand{\cf}{\operatorname{cf}}
+\newcommand{\dom}{\operatorname{dom}}
 
 \fancyhf{}
 \fancyhead[L]{Große Kardinalzahlen}
@@ -196,6 +199,159 @@ Gödel, denn:
   unerreichbar}$. Sei $\kappa$ die kleinste unerreichbare
 Kardinalzahl. Dann $V_\kappa\models\ZFC+\mbox{existiert keine
   unerreichbare Kardinalzahl}$. Widerspruch.
+
+
+%% ========= EINGEFÜGT ===============
+
+
+{\bf Satz 4:} Es sind äquivalent
+\begin{itemize}
+\item[(1)] $\kappa$ ist unerreichbar
+\item[(2)] Für alle $A\subseteq V_{\kappa}$ ist $\{\alpha <\kappa \mid
+  V_{\alpha} \prec \langle V_{\kappa}, A\rangle\}$ abgeschlossen und
+  unbeschränkt in $\kappa$
+\item[(3)] Für alle $A\subseteq V_{\kappa}$ und (erststufigen) $\varphi$
+  mit $\langle V_{\kappa}, A\rangle\models \varphi$ existiert
+  $\alpha<\kappa$ mit $\langle V_{\alpha}, A\cap V_{\alpha} \rangle
+  \models \varphi$
+\end{itemize}
+
+{\bf Beweis:}
+\begin{itemize}
+\item (1)$\Rightarrow$(2): Sei $A\subseteq V_{\kappa}$. Setze $C=\{\alpha<\kappa\mid V_{\alpha}\prec \langle V_{\kappa}, A\rangle\}$.
+  \begin{itemize}
+  \item[(a)] $C\mbox{ ist abgeschlossen in }\kappa$: Sei $\alpha <
+    \kappa$ ein Limespunkt von $C$.  Dann ist $V_{\alpha} =
+    \bigcup_{\gamma\in C\cap\alpha} V_{\gamma}$.  Also $V_{\alpha}
+    \prec \langle V_{\kappa}, A\rangle$ nach dem Lemma von Tarski über
+    elementare Ketten.
+  \item[(b)] $C\mbox{ ist unbeschränkt in }\kappa$: Sei $\mathcal F$
+    eine Menge von Skolemfunktionen für $\langle V_{\kappa},
+    A\rangle$.  Für $f\in \mathcal F$ sei $C_f = \{\alpha<\kappa\mid
+    f''V_{\alpha}^{\kappa_f} \subseteq V_{\alpha}\}$.
+  \item[(c)] $C_f\mbox{ ist abeschlossen und unbeschränkt in }\kappa$:
+    Abgeschlossenheit ist klar.  Zur Unbeschränktheit: Sei
+    $\alpha<\kappa$.  Definiere rekursiv die monotone Folge
+    $\alpha_0<\alpha_1<\cdots<\kappa$ wie folgt: Setze
+    $\alpha_0=\alpha$.  Im $n$-ten Schritt $v_n=
+    f''V_{\alpha_n}^{\kappa_f}$.  Dann wegen $\kappa$ unerreichbar
+    $|v_n|<\kappa$.  Also ist $v_n\in V_{\kappa}$ nach Lemma 2.  Also
+    existiert $\beta>\alpha_n$ mit $\beta<\kappa$ und $v_n\subseteq
+    V_{\beta}$.  Setze $\alpha_{n+1}=\beta$.  Dann gilt also
+    $f''V_{\alpha_n}^{n_f}\subseteq V_{\alpha_{n+1}}$.  Sei dann
+    $\gamma = \sup_n \alpha_n$.  Dann $\gamma <\kappa$, da
+    $\cf(\kappa)>\kappa$ und natürlich $\gamma >\alpha$.  Aber
+    $\gamma\in C_f$, da
+    $f''V_{\gamma}^{n_f}=\bigcup_{n\in\omega}f''V_{\alpha}^{n_f}
+    \subseteq \bigcup_{n\in\omega}V_{\alpha_{n+1}} = V_{\gamma}$.
+  \end{itemize}
+  Setze nun $D=\bigcup_{f\in \mathcal F} C_f$.  Wegen $\mathcal F$
+  abzählbar ist $D$ nach $(c)$ abg. unb. in $\kappa$.  Aber
+  $D\subseteq C$, dann ist $\alpha\in D$, so für alle $f\in \mathcal
+  F$: $f''V^{\kappa_f}_{\alpha}\subseteq V_{\alpha}$, also
+  $V_{\alpha}\prec \langle V_{\kappa}, A\rangle$.
+\item (2)$\Rightarrow$(3): Trivial.
+\item (3)$\Rightarrow$(1): Sei (3) erfüllt.
+  \begin{itemize}
+  \item[(i)] $\kappa\mbox{ ist Limesordinalzahl}$: Offenbar
+    $\kappa\neq 0$.  $\lightning$-Annahme: $\kappa=\gamma+1$.  Setze
+    $A=\{\gamma\}$.  Dann $\langle V_{\kappa},A\rangle\models
+    A\neq\emptyset$ (genau: $\langle V_{\kappa},A\rangle\models
+    \exists x\; A(x)$). Wähle nach (3) ein $\alpha<\kappa$ mit
+    $\langle V_{\alpha}, A\cap V_{\alpha}\rangle\models A\neq
+    \emptyset$.  Dann aber $\gamma \in A\cap V_{\alpha}$, d.h. $\gamma
+    \in V_{\alpha}$, also $\gamma<\alpha$.  $\lightning$ zu
+    $\alpha<\kappa=\gamma+1$.
+  \item[(ii)] $\kappa>\omega$: $\lightning$-Ann.: $\kappa<\omega$.
+    Dann nach $(i)$ $\kappa=\omega$.  Aber
+    $(V_{\omega}\models\forall\gamma\in\On\; \exists \delta\in\On\;
+    \gamma<\delta)\land \exists x\; x=x$ %underbrace \varphi und für
+    alle $n<\omega$: $V_n\models \neg\varphi$.  $\lightning$ zu (3).
+  \item[(iii)] $\kappa\mbox{ ist regulär}$: Sei $\gamma<\kappa$ und
+    $f\colon\gamma\to\kappa$.  Wir müssen zeigen, dass $f$ beschränkt
+    in $\kappa$ ist.  Wir können o.E. annehmen, dass $f(0)=\gamma$.
+    Setze $A=f\subseteq V_{\kappa}$.  Dann \[\langle
+    V_{\kappa},A\rangle\models \mbox{''$A$ ist Funktion, dann
+      $(A)=A(0)$''}\] Gemäß (3) wähle $\alpha<\kappa$ mit $\langle
+    V_{\alpha}, A\cap V_{\alpha}\models \varphi$.  Setze $g=A\cap
+    V_{\alpha}$.  Dann $0\in\dom(g)$.  Also $g(0)=f(0)=\gamma \in
+    V_{\alpha}$.  Außerdem $dom(g)=g(0)=\gamma$.  Also $g=f$,
+    d.h. $f\subseteq V_{\alpha}$ und damit $\rng(f)\subseteq On\cap
+    V_{\alpha}=\alpha$.  Also $f$ beschränkt in $\kappa$.
+  \item[(iv)] $\mbox{für alle} \lambda<\kappa \; 2^{\lambda}<\kappa$:
+    Sei $\lambda<\kappa$ und $f\colon \mathfrak P(\lambda)\to\kappa$.
+    Wir müssen zeigen, dass $f$ nicht surjektiv ist.  Sei
+    o.E. $f(\emptyset)=\lambda$.  Setze $A=f\subseteq V_{\kappa}$.
+    Dann $\langle V_{\kappa}, A\rangle\models \mbox{''$A$ ist
+      Funktion, $\dom(A)=\mathfrak(A(\emptyset))$''}$.  Gemäß (3)
+    wähle $\alpha<\kappa$ mit $\langle V_{\alpha}, A\cap
+    V_{\alpha}\rangle\models\varphi$.  Setze $g=A\cap V_{\alpha}$.
+    Dann $\emptyset\in\dom(g)$.  Also
+    $g(\emptyset)=f(\emptyset)=\lambda\in V_{\alpha}$.  Außerdem
+    $\dom(g)=\mathfrak P(g(\emptyset)) = \mathfrak P(\lambda)$.  Also
+    $g=f$, d.h. $f\subseteq V_{\alpha}$ und somit
+    z.B. $\alpha\not\in\rng(f)$
+  \end{itemize}
+\end{itemize}
+
+{\bf Lemma 5:} Sei $W$ ein inneres Modell. Sei $\kappa$
+unerreichbar. Dann ist $\kappa$ unerreichbar in $W$.
+
+{\bf Beweis:} $\kappa$ ist regulär in $W$, denn Regularität ist eine
+$\Pi_1$-Eigenschaft. Sei $\lambda<\kappa$. Dann $(2^{\lambda})^W\le
+2^{\lambda}<\kappa$.
+
+{\bf Definition:} $\kappa$ ist \emph{schwach unerreichbar} $\iff$
+$\kappa>\omega$ und $\kappa$ ist reguläre Limesordinalzahl.
+
+{\bf Anmerkung:} Sei $W$ ein inneres Modell. Sei $\kappa$ schwach
+unerreichbar. Dann ist $\kappa$ schwach unerreichbar in $W$.
+
+{\bf Anmerkung:} Sei $\kappa$ schwach unerreichbar. Dann ist $\kappa$ unerreichbar in $L$.
+
+{\bf Beweis:} $\kappa$ ist schwach unerreichbar in $L$. Aber $L\models
+GCH$. Also ist $\kappa$ unerreichbar in $L$.
+
+Wir können z.B. definieren: $\kappa$ ist \emph{hyperunerreichbar}
+$\iff$ $\kappa$ ist unerreichbar und $\kappa
+=\sup\{\tau<\kappa\mid\tau \mbox{ unerreichbar}\}$. Das lässt sich
+beliebig weitertreiben: hyperhyperunerreichbar,
+hyperhyperhyperunerreichbar usw...
+
+{\bf Definition:} $\kappa$ ist \emph{Mahlo} $\iff$ $\kappa$ ist
+unerreichbar und $\{\tau<\kappa\mid \tau \mbox{ ist regulär}\}$ ist
+stationär in $\kappa$.
+
+{\bf Bemerkung:} $\kappa$ Mahlo $\Rightarrow$ $\{ \tau<\kappa\mid \tau\mbox{ unerreichbar}\}$ ist stationär in $\kappa$.
+
+{\bf Beweis:} Sei $\kappa$ Mahlo. Sei $E= \{\tau<\kappa\mid \tau
+\mbox{ regulär} \}$. Setze \[C=\{ \tau<\kappa\mid \tau>\omega \mbox{
+  und für alle }\lambda<\tau\; 2^{\lambda}<\tau\}\]. $C$ ist
+abg. unb. in $\kappa$, denn: Abg. ist klar.  Unb.: Sei
+$\alpha<\kappa$.  Setze $\tau_0=\max\{\alpha,\omega\}$,
+$\tau_{n+1}=2^{\tau_n}$.  Wegen $\kappa$ unerreichbar ist
+$\tau_n<\kappa$.  Setze $\tau=\sup_n\tau_n$.  Dann auch $\tau<\kappa$
+und $\tau\in C$.  Wegen $\kappa$ Mahlo ist $E$ stationär in $\kappa$.
+Also ist $\{\tau<\kappa\mid \tau\mbox{ unerreichbar }\} = C\cap E$
+stationär in $\kappa$.
+
+{\bf Lemma 6:} Sei $\kappa$ Mahlo. Dann gilt: 
+\begin{itemize}
+\item[(a)] $\kappa$ ist hyperunerreichbar
+\item[(b)] $\{\tau<\kappa\mid \tau \mbox{ ist hyperunerreichbar}\}$ ist stationär in $\kappa$.
+\end{itemize}
+
+{\bf Beweis:}
+\begin{itemize}
+\item[(a)] Ist klar, da nach Bemerkung $\{\tau<\kappa\mid \tau\mbox{ unerreichbar}\}$  sogar stationär in $\kappa$, also auch unbeschränkt in $\kappa$.
+\item[(b)] Sei $A=\{\tau<\kappa\mid \tau \mbox{ unerreichbar}\}$. Nach
+  (a) ist $A$ unbeschränkt in $\kappa$. Also ist $C=\{ \tau<\kappa\mid
+  \tau=\sup(A\cap\tau)\}$ abg. unb. in $\kappa$. Da $A$ sogar
+  stationär in $\kappa$, ist also $\{\tau<\kappa\mid \kappa \mbox{ ist
+    hyperunerreichbar}\}=C\cap A$ stationär in $\kappa$.
+\end{itemize}
+
+%% ========= /EINGEFÜGT ===============
 
 
 \end{document}
