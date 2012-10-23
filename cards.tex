@@ -293,6 +293,7 @@ Kardinalzahl. Dann $V_\kappa\models\ZFC+\mbox{existiert keine
     z.B. $\alpha\not\in\rng(f)$
   \end{itemize}
 \end{itemize}
+\hfill $\square$
 
 {\bf Lemma 5:} Sei $W$ ein inneres Modell. Sei $\kappa$
 unerreichbar. Dann ist $\kappa$ unerreichbar in $W$.
@@ -300,6 +301,8 @@ unerreichbar. Dann ist $\kappa$ unerreichbar in $W$.
 {\bf Beweis:} $\kappa$ ist regulär in $W$, denn Regularität ist eine
 $\Pi_1$-Eigenschaft. Sei $\lambda<\kappa$. Dann $(2^{\lambda})^W\le
 2^{\lambda}<\kappa$.
+
+\hfill $\square$
 
 {\bf Definition:} $\kappa$ ist \emph{schwach unerreichbar} $\iff$
 $\kappa>\omega$ und $\kappa$ ist reguläre Limesordinalzahl.
@@ -311,6 +314,8 @@ unerreichbar. Dann ist $\kappa$ schwach unerreichbar in $W$.
 
 {\bf Beweis:} $\kappa$ ist schwach unerreichbar in $L$. Aber $L\models
 GCH$. Also ist $\kappa$ unerreichbar in $L$.
+
+\hfill $\square$
 
 Wir können z.B. definieren: $\kappa$ ist \emph{hyperunerreichbar}
 $\iff$ $\kappa$ ist unerreichbar und $\kappa
@@ -335,6 +340,8 @@ und $\tau\in C$.  Wegen $\kappa$ Mahlo ist $E$ stationär in $\kappa$.
 Also ist $\{\tau<\kappa\mid \tau\mbox{ unerreichbar }\} = C\cap E$
 stationär in $\kappa$.
 
+\hfill $\square$
+
 {\bf Lemma 6:} Sei $\kappa$ Mahlo. Dann gilt: 
 \begin{itemize}
 \item[(a)] $\kappa$ ist hyperunerreichbar
@@ -351,6 +358,8 @@ stationär in $\kappa$.
     hyperunerreichbar}\}=C\cap A$ stationär in $\kappa$.
 \end{itemize}
 
+\hfill $\square$
+
 %% ========= /EINGEFÜGT ===============
 
 {\bf 1. Übung:}
@@ -365,5 +374,169 @@ Aussagen äquivalent sind:
 
 {\bf Aufgabe 2:} Seien $\alpha,\beta\in\On$ mit $\alpha<\beta$, und es
 gelte $V\alpha\prec V_\beta$. Zeigen Sie, dass $V_\alpha\models\ZFC$.
+
+{\bf Satz 7:} Es sind äquivalent
+\begin{itemize}
+  \item[(1)] $\kappa$ ist Mahlo
+  \item[(2)] für alle $A\subseteq V_\kappa$ existiert ein reguläres
+    $\alpha<\kappa$ mit $V_\alpha\prec\left<V_\kappa,A\right>$
+  \item[(3)] für alle $A\subseteq V_\kappa$ mit
+    $\left<V_\kappa,A\right>\models\varphi$ ($\varphi$ erststufig)
+    existiert ein reguläres $\alpha<\kappa$ mit $\left<V_\alpha,A\cap
+    V_\alpha\right>\models\varphi$
+\end{itemize}
+
+{\bf Beweis:}
+\begin{itemize}
+\item (1)$\Rightarrow$(2): Sei $\kappa$ Mahlo. Sei $A\subseteq
+  V_\kappa$. Wegen $\kappa$ unerreichbar ist dann nach Satz 4
+  $C=\{\alpha<\kappa|V_\alpha\prec\left<V_\kappa,A\right>\}$
+    abgeschlossen unbeschränkt in $\kappa$. Wegen $\kappa$ Mahlo
+    existiert also $\alpha\in C$ mit $\alpha$ regulär.
+\item (2)$\Rightarrow$(3): Trivial.
+\item (3)$\Rightarrow$(1): Sei (3) erfüllt. Dann ist $\kappa$
+  unerreichbar nach Satz 4. Sei $E=\{\alpha<\kappa|\alpha\mbox{
+    regulär}\}$. Noch zu zeigen, dass $E$ stationär in $\kappa$. Sei
+  hierzu $C\subseteq\kappa$ abgeschlossen unbeschränkt in
+  $\kappa$. Dann
+  $\left<V_\kappa,C\right>\models\underbrace{\forall_{\gamma\in\On}\exists_{\delta\in
+      C}\gamma<\delta}_\varphi$. Gemäß (3) wähle ein reguläres
+  $\alpha<\kappa$ mit $\left<V_\alpha,C\cap
+  V_\alpha\right>\models\varphi$. Nun ist $C\cap V_\alpha=C\cap\alpha$
+  da $C\subseteq\On$ und $V_\alpha\cap\On=\alpha$. Somit ist
+  $C\cap\alpha$ unbeschränkt in $\alpha$. Also ist $\alpha\in C$, da
+  $C$ abgeschlossen in $\kappa$. Wegen $\alpha$ regulär ist $C\cap
+  E\neq\emptyset$.
+\end{itemize}
+\hfill $\square$
+
+{\bf Lemma 8:} Sei $W$ ein inneres Modell von $\ZFC$. Sei $\kappa$
+Mahlo. Dann ist $\kappa$ Mahlo in $W$.
+
+{\bf Beweis:} Nach Lemma 5 ist $\kappa$ unerreichbar in $W$. Sei $C\in
+W$ abgeschlossen unbeschränkt in $\kappa$. Dann existiert $\alpha\in
+C$ mit $\alpha$ regulär. Dann ist aber $\alpha$ auch regulär in
+$W$. Somit ist $\{\alpha<\kappa|\alpha\mbox{ regulär in }W\}$
+stationär in $\kappa$ (in $W$).
+
+\hfill $\square$
+
+Wir können die Definition von Mahlo ``iterieren'', zum Beispiel
+
+{\bf Definition:} $\kappa$ ist $2$-Mahlo $:\Leftrightarrow$ $\kappa$
+ist unerreicbar und $\{\alpha<\kappa|\alpha\mbox{ Mahlo}\}$ ist
+stationär in $\kappa$.
+
+{\bf Bemerkung:} $\kappa$ ist $2$-Mahlo $\Rightarrow$ $\kappa$ Mahlo.
+
+{\bf Satz 9:} Es sind äquivalent:
+\begin{itemize}
+\item[(1)] $\kappa$ ist $2$-Mahlo
+\item[(2)] für alle $A\subseteq V_\kappa$ existiert Mahlo
+  $\alpha<\kappa$ mit $V_\alpha\prec\left<V_\kappa,A\right>$
+\item[(3)] für alle $A\subseteq V_\kappa$ mit
+  $\left<V_\kappa,A\right>\models\varphi$ ($\varphi$ erststufig)
+  existiert Maho $\alpha<\kappa$ mit $\left<V_\alpha,A\cap
+  V_\alpha\right>\models\varphi$.
+\end{itemize}
+{\bf Beweis:} Völlig analog zu Beweis von Satz 7.
+
+\hfill $\square$
+
+Noch größere Kardinalzahlen erhalten wir, wenn wir die Eigenschaft (3)
+aus Satz 4 ``für alle $A\subseteq V_\kappa$ und erstsufigen $\varphi$
+mit $\left<V_\kappa,A\right>\models\varphi$ existiert ein
+$\alpha<\kappa$ mit $\left<V_\alpha,A\cap
+V_\alpha\right>\models\varphi$'' wesentlich verstärken.
+
+{\bf Definition:} $\kappa$ ist schwach kompakt
+(bzw. $\Pi_1^1$-unbeschreibbar wenn folgendes gilt:
+
+Sei $A\subseteq V_\kappa$ und es gelte für alle $B\subseteq V_\kappa$
+dass $\left<V_\kappa, A, B\right>\models\varphi$ ($\varphi$
+erststufig). dann existiert $\alpha<\kappa$ mit für alle $B\subseteq
+V_\alpha$ $\left<V_\alpha,A\cap V_\alpha,B\right>\models\varphi$.
+
+{\bf Definition:} Sei $Q$ eine Eigenschaft von Ordinalzahlen. Wir
+sagen $Q$ ist eine $\Pi_1^1$-Eigenschaft, wenn existiert erststufiges
+$\phi$ mit $Q(\kappa)$ $\Leftrightarrow$ für alle $B\subseteq
+V_\kappa$ gilt $\left<V_\kappa,B\right>\models\phi$.
+
+{\bf Bemerkung:} Sei $Q$ eine $\Pi_1^1$-Eigenschaft. Sei $\kappa$
+schwach kompakt. Weiterhin gelte $Q(\kappa)$. Dann existiert ein
+$\tau<\kappa$ mit $Q(\tau)$. ``$\kappa$ ist schwach kompakt'' ist also
+keine $\Pi_1^1$-Eigenschaft. Die bisherigen Eigenschaften sind aber
+$\Pi_1^1$-Eigenschaften.
+
+{\bf Lemma 10:} ``$\kappa$ ist regulär'', ``$\kappa$ ist
+unerreichbar'', ``$\kappa$ ist Mahlo'', ``$\kappa$ ist $2$-Mahlo''
+sind $\Pi_1^1$-Eigenschaften.
+
+{\bf Beweis:} Nehme einfach die üblichen Definitionen.
+
+\hfill $\square$
+
+{\bf Satz 11:}
+\begin{itemize}
+\item[(a)] $\kappa$ schwach kompakt $\Rightarrow$ $\kappa$ ist
+  $2$-Mahlo
+\item[(b)] $\kappa$ schwach kompakt $\Rightarrow$ existiert
+  $\tau<\kappa$ mit $\tau$ ist $2$-Mahlo.
+\end{itemize}
+
+{\bf Beweis:}
+\begin{itemize}
+\item[(a)] Sei $\kappa$ schwach kompakt. Nach Definition ist dann die
+  Bedingung (3) aus Satz 4 erfüllt. Also ist $\kappa$
+  unerreichbar. Wir zeigen zuerst, dass $\kappa$ Mahlo ist. Hierzu
+  zeigen wir die Bedingung (3) aus Satz 7. Sei also $A\subseteq
+  V_\kappa$ mit $\left<V_\kappa,A\right>\models\varphi$ ($\phi$
+  erststufig). Zu zeigen ist, es existiert ein reguläres
+  $\alpha<\kappa$ mit $\left<V_\alpha,A\cap
+  V_\alpha\right>\models\varphi$. Nach Lemma 10 sei $\psi$ erststufig
+  mit:
+  $$ \tau\mbox{ ist regulär}\Leftrightarrow\mbox{für alle }B\subseteq
+  V_\kappa\left<V_\kappa,B\right>\models\psi$$
+  Da ja $\kappa$ regulär ist, gilt dann:
+  $$ \mbox{für alle }B\subseteq
+  V_\kappa\phantom{a}\left<V_\kappa,A,B\right>\models\varphi\wedge\psi$$
+  Also wegen $\kappa$ schwach kompakt existiert $\alpha<\kappa$ mit
+  $$ \mbox{für alle }B\subseteq
+  V_\alpha\phantom{a}\left<V_\alpha,A\cap
+  V_\alpha,B\right>\models\varphi\wedge\psi$$ Also ist $\alpha$
+  regulär und $\left<V_\alpha,A\cap V_\alpha\right>\models\varphi$,
+  was zu zeigen war. Nun wissen wir, dass $\kappa$ Mahlo ist. Nun ist
+  aber nach Lemma 10 auch die Eigenschaft ``$\tau$ ist Mahlo'' eine
+  $\Pi_1^1$-Eigenschaft. Also können wir völlig Analog die Eigenschaft
+  (3) aus Satz 9 zeigen. Somit ist $\kappa$ $2$-Mahlo.
+\item[(b)] Nach Lemma 10 ist auch die Eigenschaft ``$\tau$ ist
+  2-Mahlo'' eine $\Pi_1^1$-Eigenschaft. Also folgt die Behauptung aus
+  (a) und Bemerkung.
+\end{itemize}
+
+\hfill $\square$
+
+{\bf Lemma 12:} Sei $\kappa$ schwach kompakt. Seien
+$A_1,\ldots,A_n\subseteq V_\kappa$, $\varphi$ erststufig, und es
+gelte: Für alle $B\subseteq V_\kappa$ haben wir
+$\left<V_\kappa,A_1,\ldots,A_n\right>\models\varphi$. Dann existiert
+ein $\alpha<\kappa$ mit für alle $B\subseteq V_\alpha$ gilt
+$\left<V_\alpha,A_1\cap V_\alpha,\ldots,A_n\cap
+V_\alpha,B\right>\models\varphi$.
+
+{\bf Beweisskizze:} Setze $A=\bigcup_{i=1}^{n}\{i\}\times A_i$. dann
+ist $A_i$ kanonisch definierbar in $\left<V_\kappa,A\right>$ durch
+$A_i=\{x|\left<i,x\right>\in A\}$. Übersetze hiermit $\varphi$ in
+$\varphi^x$. Wähle $\alpha<\kappa$ mit für alle $B\subseteq
+V_\alpha\phantom{a}\left<V_\alpha,A\cap
+V_\alpha,B\right>\models\varphi^x \wedge
+\forall_{\gamma\in\On}\exists_{\delta\in\On}\gamma\in\delta$. Dann ist
+$\alpha$ Limesordinalzahl, also $A_i\cap
+V_\alpha=\{x|\left<i,x\right>\in A\cap V_\alpha\}$. Durch
+Rückübersetzung also für alle $B\subseteq V_\alpha$
+$\left<V_\alpha,A_1\cap V_\alpha,\ldots,A_n\cap
+V_\alpha,B\right>\models\varphi$
+
+\hfill $\square$
 
 \end{document}
