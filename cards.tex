@@ -9,7 +9,9 @@
 \usepackage{fancyhdr}
 \usepackage{amsfonts}
 \usepackage{amsmath}
+\usepackage{amssymb}
 \usepackage{stmaryrd}
+\usepackage{hyperref}
 \newenvironment{Japanese}{%  
 \CJKfamily{min}%  
 \CJKtilde  
@@ -21,7 +23,10 @@
 \newcommand{\Con}{\operatorname{Con}}
 \newcommand{\On}{\operatorname{On}}
 \newcommand{\cf}{\operatorname{cf}}
+\newcommand{\otp}{\operatorname{otp}}
 \newcommand{\dom}{\operatorname{dom}}
+\newcommand{\id}{\operatorname{id}}
+\renewcommand{\thefootnote}{[siehe \arabic{footnote}]}
 
 \fancyhf{}
 \fancyhead[L]{Große Kardinalzahlen}
@@ -32,6 +37,8 @@
 \begin{document}
 \flushleft
 \section*{Vorwort}
+Fehler und Anmerkungen bitte an \textsc{christoph {\it punkt} senjak {\it at} ifi {\it punkt} lmu {\it punkt} de}.
+
 {\bf Vorkenntnisse:} Logik, Modelle der Mengenlehre (Konstruktibles
 Universum, Innere Modelle, kein Forcing)
 
@@ -58,11 +65,19 @@ inneren Modelle für große Kardinalzahlen hat.
   \item Kanamori, The Higher Infinite
 \end{itemize}
 
-{\bf Notation:}
+{\bf Notation und Notizen:}
 \begin{itemize}
   \item $[X]^n$ = Menge aller $n$-Elementigen Teilmengen von $X$
   \item $[X]^{<\omega} = \bigcup_n[X]^n$ = Menge aller endlichen
     Teilmengen von $X$
+  \item gdw: genau dann wenn
+  \item abg. unb.: abgeschlossen unbeschränkt
+  \item $\otp$: Ordnungstyp
+  \item $\overline{\cdot}$ ist {\bf kein} operator, sondern wird
+    benutzt um zusätzliche Variablennamen zu generieren,
+    $\overline{\kappa}$ hängt nicht mit $\kappa$ zusammen.
+  \item $j:M\rightarrow_{\Sigma_\omega} N$: $j$ ist elementare
+    Einbettung von $M$ in $N$
 \end{itemize}
 
 Wir betrachten oft Strukturen der Form
@@ -79,8 +94,8 @@ zugehörige Substruktur von $\mathfrak{M}$. Dann ist $\mathfrak{N}$
 elementare Substruktur von $\mathfrak{M}$
 (Bez. $\mathfrak{N}\prec\mathfrak{M}$ genau dann wenn für alle
 $\varphi$ und $a_1,\ldots,a_k\in N$
-$$ \mathfrak{M}\models \phi[a_1,\ldots,a_k] \mbox{gdw}
-\mathfrak{N}\models\phi[a_1,\ldots,a_k]$$
+$$ \mathfrak{M}\models \varphi[a_1,\ldots,a_k] \Leftrightarrow
+\mathfrak{N}\models\varphi[a_1,\ldots,a_k]$$
 
 {\bf Konvention:} Schreibe $N\prec\left<M,A_1,\ldots,A_n\right>$ statt
 $\left<N,A_1\cap N,\ldots,A_n\cap
@@ -95,7 +110,7 @@ $$ \mathfrak{M}\models \exists_y \varphi[\vec{a},y] \Rightarrow
 \mathfrak{M}\models\varphi[\vec{a},f_\varphi(\vec{a})]$$
 
 Setze
-$\mathcal{F}=\{f_\phi|\phi\phantom{a}\mathcal{L}-\mbox{Formel}\}$. Dann
+$\mathcal{F}=\{f_\varphi|\varphi\phantom{a}\mathcal{L}-\mbox{Formel}\}$. Dann
 gilt:
 
 Sei $N\subseteq M$, $N\neq\emptyset$, unter allen $f\in\mathcal{F}$
@@ -108,7 +123,7 @@ für $\mathfrak{M}$. Beachte, dass $\mathcal{F}$ abzählbar ist.
 \section{``Kleine'' große Kardinalzahlen}
 Arbeite in ZFC. Wir nehmen an, dass ZFC widerspruchsfrei ist.
 
-{\bf Definition:} $\kappa$ ist (stark) unerreichbar gdw
+{\bf Definition:} $\kappa$ ist (stark) unerreichbar $\Leftrightarrow$
 $\kappa>\omega$, $\kappa$ regulär und für alle $\lambda<\kappa$ gilt
 $2^\lambda<\kappa$.
 
@@ -137,7 +152,7 @@ $\alpha<\kappa$ dass $|V_\alpha<\kappa|$ (also $|V_\kappa|=\kappa$).
 \hfill $\square$
 
 {\bf Lemma 2:} Sei $\kappa$ unerreichbar und $u\subseteq
-V_\kappa$. Dann gilt $u\in V_\kappa$ gdw $|u|<\kappa$.
+V_\kappa$. Dann gilt $u\in V_\kappa\Leftrightarrow|u|<\kappa$.
 
 {\bf Beweis:}
 \begin{itemize}
@@ -459,8 +474,8 @@ V_\alpha$ $\left<V_\alpha,A\cap V_\alpha,B\right>\models\varphi$.
 
 {\bf Definition:} Sei $Q$ eine Eigenschaft von Ordinalzahlen. Wir
 sagen $Q$ ist eine $\Pi_1^1$-Eigenschaft, wenn existiert erststufiges
-$\phi$ mit $Q(\kappa)$ $\Leftrightarrow$ für alle $B\subseteq
-V_\kappa$ gilt $\left<V_\kappa,B\right>\models\phi$.
+$\varphi$ mit $Q(\kappa)$ $\Leftrightarrow$ für alle $B\subseteq
+V_\kappa$ gilt $\left<V_\kappa,B\right>\models\varphi$.
 
 {\bf Bemerkung:} Sei $Q$ eine $\Pi_1^1$-Eigenschaft. Sei $\kappa$
 schwach kompakt. Weiterhin gelte $Q(\kappa)$. Dann existiert ein
@@ -490,7 +505,7 @@ sind $\Pi_1^1$-Eigenschaften.
   Bedingung (3) aus Satz 4 erfüllt. Also ist $\kappa$
   unerreichbar. Wir zeigen zuerst, dass $\kappa$ Mahlo ist. Hierzu
   zeigen wir die Bedingung (3) aus Satz 7. Sei also $A\subseteq
-  V_\kappa$ mit $\left<V_\kappa,A\right>\models\varphi$ ($\phi$
+  V_\kappa$ mit $\left<V_\kappa,A\right>\models\varphi$ ($\varphi$
   erststufig). Zu zeigen ist, es existiert ein reguläres
   $\alpha<\kappa$ mit $\left<V_\alpha,A\cap
   V_\alpha\right>\models\varphi$. Nach Lemma 10 sei $\psi$ erststufig
@@ -538,5 +553,148 @@ $\left<V_\alpha,A_1\cap V_\alpha,\ldots,A_n\cap
 V_\alpha,B\right>\models\varphi$
 
 \hfill $\square$
+
+{\bf Lemma 13:} Sei $\kappa$ schwach kompakt. Sei
+$A_1,\ldots,A_n\subseteq V_\kappa$, $\varphi$ erststufig, und es
+gelte: für alle $B\subseteq V_\kappa$ ist
+$\left<V_\kappa,A_1,\ldots,A_n,B\right>\models\varphi$. Setze
+$E=\{\alpha<\kappa|\mbox{für alle }B\subseteq V_\alpha\mbox{ gilt
+}\left<V_\alpha,A_1\cap V_\alpha,\ldots,A_n\cap V_\alpha,
+B\right>\models\varphi\}$. Dann ist $E$ stationär in $\kappa$.
+
+{\bf Beweis:} Sei $C\subseteq\kappa$ abgeschlossen unbeschränkt in
+$\kappa$. Zu zeigen $E\cap C\neq\emptyset$. Nun aber: für alle
+$B\subseteq V_\kappa$
+$\left<V_\kappa,A_1,\ldots,A_n,C,B\right>\models\underbrace{\varphi\wedge\forall_{\gamma\in\On}\exists_{\delta\in
+    C}\gamma<\delta}_\psi$. Also nach Lemma 12 existiert
+$\alpha<\kappa$ mit: für alle $B\subseteq
+V_\alpha\phantom{a}\left<V_\alpha,A_1\cap V_\alpha,\ldots,A_n\cap
+V_\alpha,C\cap V_\alpha, B\right>\models\psi$. Dann natürlich
+$\alpha\in E$. Aber auch $\sup(C\cap\alpha)=\alpha$. Also $\alpha\in
+C$, da $C$ abgeschlossen in $\kappa$.
+
+\hfill $\square$
+
+{\bf Definition:} Sei $f:[z]^n\rightarrow\gamma$ eine Partition von
+$[z]^n$. $x\subseteq z$ heißt {\it homogen} für $f$ genau dann wenn
+$\exists_{\beta<\gamma} f''[x]^n\subseteq\{\beta\}$.
+$$ \kappa \rightarrow (\delta)_\gamma^n \Leftrightarrow \mbox{für alle
+} f:[\kappa]^n\rightarrow\gamma\mbox{ existiert
+}X\subseteq\kappa\mbox{ homogen für }f\mbox{ mit }\otp(X)=\delta $$
+
+{\bf Bemerkung:} Falls $\kappa\rightarrow(\delta)_\gamma^n$ und
+$\overline{\kappa}\ge\kappa,\lim(\kappa),\overline{\delta}\le\delta,\overline{\kappa}\le\kappa$,
+so
+$\overline{\kappa}\rightarrow(\overline{\delta})_{\overline{\gamma}}^{\overline{n}}$.
+
+{\bf Wiederholung:}
+Folgende Begriffe werden als bekannt vorausgesetzt:
+\begin{itemize}
+\item Ein {\it Baum} ist eine partiell geordnete Menge, sodass die
+  Vorgänger jedes Elementes wohlgeordnet sind. Äquivalent dazu, es ist
+  eine global fundierte partielle Ordnung und die Vorgänger jedes
+  Elements sind total geordnet. Für einen Baum $T$ sind $T_\alpha$ die
+  Elemente sodass die Vorgänger den Ordnungstyp $\alpha$ haben. Die
+  Höhe des Baumes ist die kleinste Ordinalzahl $\alpha$ derart dass
+  $T_\alpha$ leer ist.
+\item Ein {\it Filter} auf einer Menge $X$ ist eine Menge von
+  Teilmengen von $X$ die die folgenden Eigenschaften hat: $X$ liegt
+  drin, $\emptyset$ liegt nicht drin, mit je zwei Elementen ist der
+  Durchschnitt wieder drin, jede Obermenge einer Menge die drin ist
+  ist wieder drin. Beispiel: Die Menge der Teilmengen von $[0;1]$ die
+  das Maß $1$ haben sind ein Filter.
+\item Ein {\it Ultrafilter} ist ein bezüglich Inklusion maximaler
+  Filter. Ein Filter auf einer Menge $X$ ist genau dann ein
+  Ultrafilter wenn für jede Teilmenge $A\subseteq X$ gilt entweder $A$
+  oder $X\backslash A$ ist in dem Filter.
+\end{itemize}
+
+{\bf Definition:} Ein $\kappa$-Baum ist ein Baum der Höhe $\kappa$ mit
+$\forall_{\alpha<\kappa} |T_\alpha|<\kappa$.
+
+{\bf Definition:} Sei $\mathfrak{F}$ ein Filter auf $X$.
+\begin{itemize}
+  \item[(a)] $\mathfrak{F}$ ist {\it $\kappa$-vollständig}, wenn gilt:
+    $(\mathfrak{G}\subseteq\mathfrak{F}\mbox{ und }
+    0<|\mathfrak{G}|<\kappa)\Rightarrow\bigcap\mathfrak{G}\in\mathfrak{F}$.
+  \item[(b)] $\mathfrak{F}$ ist {\it nichttrivial}, wenn gilt:
+    $\forall_{a\in X} X\backslash\{a\}\in\mathfrak{F}$.
+\end{itemize}
+
+{\bf Beispiel:} Ist $\kappa>\omega$ regulär, so ist
+$\varphi_\kappa=\{A\subseteq\kappa|A\supseteq C\mbox{ für ein
+  abg. unb. }C\subseteq\kappa\}$ nichttrivialer $\kappa$-vollständiger
+Filter auf $\kappa$.
+
+{\it ``Wir kommen jetzt zum ersten Hauptsatz, der etwas komplizierter
+  wird, und wo uns der Beweis auch mehrere Sitzungen lang beschäftigen
+  wird''}
+
+{\bf Satz 14:} Sei $\kappa$ Kardinalzahl. Dann sind äquivalent:
+\begin{itemize}
+\item[(1)] $\kappa$ ist schwach kompakt
+\item[(2)] $\kappa\rightarrow(\kappa)_2^2$ und $k>\omega$
+\item[(3)] $\kappa$ ist unerreichbar und jeder $\kappa$-Baum besitzt
+  einen Zweig der Länge $\kappa$
+\item[(4)] $\kappa>\omega$, und es gilt: falls
+  $\mathfrak{H}\subseteq\mathfrak{P}(\kappa)$ mit
+  $|\mathfrak{H}|\le\kappa$, so existiert nichttrivaler
+  $\kappa$-vollständiger Filter $\mathfrak{F}$ auf $\kappa$ mit
+  $\forall_{A\in\mathfrak{H}}(A\in\mathfrak{F}\mbox{ oder
+}\kappa\backslash A\in\mathfrak{F})$.
+\item[(5)] $\kappa$ ist unerreichbar und es gilt: falls $M$ transitiv,
+  $M\models\ZFC^-$, $\kappa\in M$, $|M|=\kappa$, so existiert
+  $j:M\rightarrow_{\Sigma_\omega} N$ mit $N$ transitiv,
+  $j\upharpoonright\kappa=\id\upharpoonright\kappa$,
+  $j(\kappa)>\kappa$.
+\item[(6)] Für alle $A\subseteq V_\kappa$ existiert transitives $M$
+  und $B\subseteq M$ mit
+  $\left<V_\kappa,A\right>\prec\left<M,B\right>$, $M\neq V_\kappa$.
+\end{itemize}
+
+{\bf Beweis:}
+\begin{itemize}
+  \item (1)$\Rightarrow$(2): Nur zu zeigen
+    $\kappa\rightarrow(\kappa)_2^2$. Sei also $f:[\kappa]^2\rightarrow
+    2$. Für $\alpha<\kappa$ definiere eine monotone Folge
+    $\left<\gamma_\xi^\alpha|\xi<\delta_\alpha\right>$\footnote{$\delta_\alpha$
+      selbst wird erst durch die Rekursion festgelegt.} rekursiv
+    durch: Sei $\left<\gamma_\xi^\alpha|\xi<\eta\right>$ schon
+    konstruiert. Setze
+    $B_\eta^\alpha=\{\gamma<\alpha|\forall_{\xi<\eta}
+    (\gamma^\alpha_\xi<\gamma\mbox{ und
+    }f(\{\gamma_\xi^\alpha,\gamma\})=0)\}$. Falls
+    $B_\eta^\alpha\neq\emptyset$, setze $\gamma_\eta^\alpha=\min
+    B_\eta^\alpha$. Andernfalls sei $\delta_\alpha=\eta$. Setze
+    $h(\alpha)=\sup\{\gamma_\xi^\alpha|\xi<\delta_\alpha\}\le\alpha$
+    und $g(\alpha)=\left<\gamma_\xi^\alpha|\xi<\delta_\alpha\right>$.
+    \begin{itemize}
+      \item 1. Fall: $E=\{\alpha<\kappa|h(\alpha)<\alpha\}$ ist
+        stationär. Dann nach Fodor\footnote{\href
+          {https://de.wikipedia.org/wiki/Satz\_von\_Fodor} {Satz aus
+            der Mengenlehre}} existiert stationäres $E_0\subseteq E$
+        mit $h\upharpoonright E_0$ konstant. Wegen $\kappa$
+        unerreichbar existiert dann $E_1\subseteq E_0$ mit
+        $|E_1|=\kappa$ und $g\upharpoonright E_1$ konstant. Nach
+        Konstruktion aber dann für alle
+        $\{\alpha,\beta\}\in[E_1]^2\phantom{a}f(\{\alpha,\beta\})=1$. Also
+        hat $f$ homogene Menge der Mächtigkeit $\kappa$.
+      \item 2. Fall: es existiert abgeschlossen unbeschränktes
+        $C\subseteq\kappa$ mit $\forall_{\alpha\in C}
+        h(\alpha)=\alpha$. Zeige: es existiert unbeschränktes
+        $B\subseteq\kappa$ mit $\forall_{a\in[B]^2}f(a)=0$. Angenommen
+        nicht. Dann gilt für alle $B\subseteq
+        V_\kappa\phantom{a}\left<
+        V_\kappa,f,B\right>\models\underbrace{(B\subseteq\On\mbox{ und
+          }\forall_{\gamma\in\On}\exists_{\delta\in
+            B}\gamma<\delta\Rightarrow\exists_{\eta,\rho\in B}
+          f(\{\eta,\rho\})=1)}_\varphi$. Also existiert nach Lemma 13
+        wegen $\kappa$ schwach kompakt ein $\alpha\in C$ mit für alle
+        $B\subseteq V_\alpha\phantom{a}\left<V_\alpha,f\cap
+        V_\alpha,B\right>\models\varphi$. Dies ist ein Widerspruch, da
+        $B=\{\gamma_\xi^\alpha|\xi<\delta_\alpha\}$ ein Gegenbeispiel
+        ist.
+    \end{itemize}
+\end{itemize}
 
 \end{document}
