@@ -12,11 +12,20 @@
 \usepackage{amssymb}
 \usepackage{stmaryrd}
 \usepackage{hyperref}
+\usepackage{undertilde}
+\usepackage{setspace}
 \newenvironment{Japanese}{%  
 \CJKfamily{min}%  
 \CJKtilde  
 \CJKnospace}{}
 \pagestyle{fancy}
+\usepackage{tikz}
+\usetikzlibrary{arrows}% For nice arrow tips
+% One style for all TikZ pictures for working with overlays:
+\tikzset{every picture/.style=remember picture}
+% Define a TikZ node for math content:
+\newcommand{\mathnode}[2]{%
+  \mathord{\tikz[baseline=(#1.base), inner sep = 0pt]{\node (#1) {$#2$};}}}
 
 \newcommand{\rng}{\operatorname{rng}}
 \newcommand{\ZFC}{\operatorname{ZFC}}
@@ -26,6 +35,7 @@
 \newcommand{\otp}{\operatorname{otp}}
 \newcommand{\dom}{\operatorname{dom}}
 \newcommand{\id}{\operatorname{id}}
+\newcommand{\height}{\operatorname{ht}}
 \renewcommand{\thefootnote}{[siehe \arabic{footnote}]}
 
 \fancyhf{}
@@ -131,7 +141,7 @@ $2^\lambda<\kappa$.
 $2^n<\omega$.
 
 {\bf Lemma 1:} Sei $\kappa$ unerreichbar. Dann gilt für alle
-$\alpha<\kappa$ dass $|V_\alpha<\kappa|$ (also $|V_\kappa|=\kappa$).
+$\alpha<\kappa$ dass $|V_\alpha|<\kappa$ (also $|V_\kappa|=\kappa$).
 
 {\bf Beweis:} Durch Induktion über $\alpha<\kappa$:
 \begin{itemize}
@@ -695,6 +705,138 @@ Filter auf $\kappa$.
         $B=\{\gamma_\xi^\alpha|\xi<\delta_\alpha\}$ ein Gegenbeispiel
         ist.
     \end{itemize}
+    \item (2)$\Rightarrow$(3): Zeige zuerst: $\kappa$ ist
+      unerreichbar. $\kappa$ ist regulär, denn angenommen
+      $\kappa=\sup_{i<\tau}\kappa_i$ mit
+      $\left<\kappa_i|i<\tau\right>$ normal\footnote{streng monoton
+        und stetig}, $\kappa_0=0$, $\tau<\kappa$. Definiere
+      $f:[k]^2\rightarrow 2$ durch $f(\{\alpha,\beta\})=0
+      \Leftrightarrow\sup\{i|\kappa_i\le\alpha\}=
+      \sup\{i|\kappa_i\le\beta\}$ liefert Widerspruch. \newline Sei
+      $\tau<\kappa$. Zu zeigen $2^\tau\le\kappa$. Gilt wegen
+      $2^\tau\not\rightarrow(\tau^+)_2^2$. Hierzu definiere $F:[^\tau
+        2]^2\rightarrow 2$\footnote{$^\tau 2$ ist die Menge der
+        Funktionen von $\tau$ nach $2$} wie folgt. Sei $\prec$ eine
+      Wohlordnung auf $^\tau 2$ und $<_\ell$ die lexikographische
+      Ordnung auf $^\tau 2$. Setze dann
+      $F(\{g,h\})=0\Leftrightarrow(g\prec h\mbox{ und }h<_\ell
+      h)$. Dies tut es, da die lexikographische Ordnung die
+      Eigenschaft hat, dass es keine aufsteigende oder absteigende
+      Folge der Länge $\tau^+$ gibt (siehe späteres Argument).
+    \item (2)$\Rightarrow$(3): Sei $\utilde{T}=\left<T,\le_T\right>$
+      ein $\kappa$-Baum. Ohne Einschränkung $T=\kappa$. Für $t\in
+      T_\alpha$ sei $b_t=\left<t_\gamma|\gamma\le\alpha\right>$ die
+      bezüglich $\le_T$ aufsteigende fFolge der $\le_T$-Vorgänger von
+      $t$. Definiere $f:[\kappa]^2\rightarrow 2$ durch
+      $f(\{\overline{t},t\})=0\Leftrightarrow(\overline{t}<t\mbox{ und
+      }b_{\overline{t}}<_\ell b_t)$. Hierbei:
+      $b<_\ell\overline{b}\Leftrightarrow(b\subsetneq\overline{b}\mbox{
+        oder }b(\gamma)<\overline{b}(gamma)\mbox{, wobei
+      }\gamma=\min\{\mu|b(\mu)\neq\overline{b}(\mu)\})$. Gemäß (2)
+      existiert $X\subseteq\kappa$ mit $|X|=\kappa$ und $i<2$ mit
+      $f''[X]^2=\{i\}$. Setze $R_0=\le_\ell$, $R_1=_\ell\ge$,
+      $\overline{R}_0=\le$, $\overline{R}_1=\ge$. Also gilt:
+      $\gamma,\delta\in X,\gamma<\delta\rightarrow b_\gamma R_i
+      b_\delta$. Sei nun $\left<t_\delta,\delta<\kappa\right>$ die
+      monotone Aufzählung von $X$. Wegen $\forall_{\alpha<\kappa}
+      |T_\alpha|<\kappa$ können wir ohne Einschränkung annehmen, dass
+      $\forall_{\delta<\kappa}\height(t_\delta)\ge\delta$. Für
+      $\gamma<\kappa$ setze $a_\gamma= \left<b_{t_\delta}(\gamma)|
+      \delta\in\kappa\backslash\gamma\right>$. Zeige durch Induktion
+      über $\gamma<\kappa$: \newline (*) $a_\gamma$ ist schließlich
+      konstant.\newline Für $\beta<\gamma$ wähle hierzu
+      $\beta\le\mu_\beta<\kappa$ mit $\left<\beta_{t_\delta}(\beta)|
+      \delta\in\kappa\backslash\mu_\beta\right>$ konstant ist. Sei
+      $\mu=\sup_{\beta<\gamma}\mu_\beta$. Dann ist
+      $\left<\beta_{t_\delta}\upharpoonright\gamma|
+      \delta\in\kappa\backslash\mu\right>$ konstant. Nach Definition
+      von $<_\ell$ gilt daher: $\mu\le\delta<\eta<\kappa\rightarrow
+      b_{t_\delta}(\gamma)\overline{R}_i b_{t_\eta}(\gamma)$. Ist aber
+      $i=0$, so ist also
+      $\left<b_{t_\delta}(\gamma)|\delta\in\kappa\backslash\mu\right>$
+      schwach monoton steigend, also schließlich konstant, da
+      $|T_\gamma|<\kappa$ und $\kappa$ regulär. Ist aber $i=1$, so ist
+      $\left<b_{t_\delta}(\gamma)|\delta\in\kappa\backslash\gamma\right>$
+      schwach monoton fallend, also schließlich konstant. Für
+      $\gamma<\kappa$ setze nun
+      $r_\gamma=\mbox{``}\lim\mbox{\textquotedblright} a_\gamma \in
+      T_\gamma$. Dann ist $\{r_\gamma|\gamma<\kappa\}$ Zweig der Länge
+      $\kappa$ in T.
+    \item (3)$\Rightarrow$(4): Sei
+      $\mathfrak{H}\subseteq\mathfrak{P}(\kappa)$ mit
+      $|\mathfrak{H}|\le\kappa$. Sei
+      $\mathfrak{H}\cup\{\kappa\}=\{A_\alpha|\alpha<\kappa\}$. Für
+      $\alpha<\kappa$ setze $B_\alpha^0=A_\alpha$,
+      $B_\alpha^1=\kappa\backslash A_\alpha$. Setze
+      $T=\{p:\gamma\rightarrow 2|\gamma<\kappa,
+      |\bigcup\limits_{\alpha<\gamma}B_\alpha^{p(\alpha)}|=\kappa\}$,
+      $\utilde{T}=\left<T,\subseteq\right>$. Beachte, dass $p\in
+      T\mbox{ und }\beta<\dom(p)\Rightarrow p\upharpoonright\beta\in
+      T$. $\utilde{T}$ ist $\kappa$-Baum, denn:
+      \begin{itemize}
+      \item[(i)] Höhe von $\utilde{T}$ ist $\le\kappa$.
+      \item[(ii)] für $\gamma<kappa$ ist $|T_\gamma|<\kappa$, denn:
+        \vspace{20pt}$T_\gamma=\{p\in T|\dom(p)=\gamma\}$, also $|T_\gamma|\le
+        2^{|\gamma|}\mathnode{l1}{<}\kappa \mathnode{l2}{{\phantom{aaa\mbox{daa}}\kappa\mbox{ unerreichbar}}}$.
+        \item[(iii)] Höhe von $\utilde{T}$ ist $\ge\kappa$.
+          \begin{tikzpicture}[overlay]
+            \path [>=stealth, <-, shorten <= 3pt, shorten >=3 pt]
+            (l1) edge [bend left=70] (l2);
+          \end{tikzpicture}
+      \end{itemize}
+      Für $\delta<\kappa$ definiere $p_\delta:\gamma\rightarrow 2$
+      durch die Forderung $\delta\in
+      B_\alpha^{p_\delta(\alpha)}$. Wegen $\kappa$ unerreichbar
+      existiert $p$ mit $|\{\delta<\kappa|p_\delta=p\}|=\kappa$. Dann
+      aber $p\in T_\gamma$. Das beweist (iii). Damit ist $\utilde{T}$
+      ein $\kappa$-Baum. \newline Wegen (3) hat $\utilde{T}$ einen
+      Zweig $b$ der Länge $\kappa$. Setze
+      $\mathcal{F}=\{D\subseteq\kappa|\exists_{p\in
+        b}\exists_{\delta<\kappa}
+      D\supseteq(\bigcap\{B_\alpha^{p(\alpha)}|
+      \alpha\in\dom(p)\}\backslash\delta)\}$. $\mathcal{F}$ ist wie
+      gewünscht.
+    \item (4)$\Rightarrow$(5): Zeige zuerst: $\kappa$ ist
+      unerreichbar.
+      \begin{itemize}
+      \item[(i)] $\kappa$ ist regulär: Sei $\mathcal{F}$
+        nichttrivialer $\kappa$-vollständiger Filter auf $\kappa$. Da
+        $\forall_{\delta<\kappa}\kappa\backslash\delta=\bigcap\limits_{\gamma<\delta}\kappa\backslash\{\gamma\}\in\mathcal{F}$. Angenommen
+        $\kappa$ sei singulär. Wähle also $B\subseteq\kappa$ konfinal
+        mit $|B|<\kappa$. Dann ist
+        $\emptyset=\bigcap\limits_{\delta\in
+          B}\kappa\backslash\delta\in\mathcal{F}$. Widerspruch.
+      \item[(ii)] Sei $\tau<\kappa$. Angenommen
+        $2^\tau\ge\kappa$. Wähle dann $f_i:\tau\rightarrow 2$ für
+        $i<\kappa$ mit $i\neq j\rightarrow f_i\neq f_j$. Für
+        $\delta<\tau$ setze $A_\delta=\{i<\kappa|f_i(\delta)=0\}$ und
+        sei $\mathfrak{H}=\{A_\delta|\delta<\tau\}$. Sei hierzu
+        $\mathcal{F}$ wie in (4). Definiere $f:\tau\rightarrow 2$ so,
+        dass
+        $B_\delta=\{i<\kappa|f_i(\delta)=f(\delta)\}\in\mathcal{F}$. Setze
+        $B=\bigcap\limits_{\delta<\tau}B_\delta\in\mathcal{F}$. Sei
+        $i\in B$. Dann ist $f=f_i$. Also hat $B$ höchstens ein
+        Element. Dies ist ein Widerspruch zur Nichttrivialität von
+        $\mathcal{F}$.
+      \end{itemize}
+\end{itemize}
+
+{\bf Übung 2:}
+
+{\bf Aufgabe 1:} Sei $\kappa$ schwach kompakt. Seien
+$D,E\subseteq\kappa$ stationär in $\kappa$. Man zeige: es existiert
+reguläres $\alpha<\kappa$ mit $D\cap\alpha$,$E\cap\alpha$ stationär in
+$\alpha$.
+
+{\bf Aufgabe 2:} Sei $U$ ein Ultrafilter auf $X$. Weiterhin sei
+$\kappa$ eine Kardinalzahl. Zeigen Sie, dass folgende Aussagen
+äquivalent sind:
+\begin{itemize}
+\item[(1)] $U$ ist $\kappa$-vollständig
+\item[(2)] Falls $\mathfrak{G}\subseteq U$, $|\mathfrak{G}|<\kappa$,
+  so $\bigcap\mathfrak{G}\neq\emptyset$.
+\item[(3)] Falls $\bigcup\mathfrak{H}\in U$, $|\mathfrak{H}|<\kappa$,
+  so existiert $A\in\mathfrak{H}$ mit $A\in U$.
 \end{itemize}
 
 \end{document}
