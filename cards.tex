@@ -29,6 +29,7 @@
 
 \newcommand{\rng}{\operatorname{rng}}
 \newcommand{\ZFC}{\operatorname{ZFC}}
+\newcommand{\ZF}{\operatorname{ZF}}
 \newcommand{\Con}{\operatorname{Con}}
 \newcommand{\On}{\operatorname{On}}
 \newcommand{\cf}{\operatorname{cf}}
@@ -801,10 +802,11 @@ Filter auf $\kappa$.
       \begin{itemize}
       \item[(i)] $\kappa$ ist regulär: Sei $\mathcal{F}$
         nichttrivialer $\kappa$-vollständiger Filter auf $\kappa$. Da
-        $\forall_{\delta<\kappa}\kappa\backslash\delta=\bigcap\limits_{\gamma<\delta}\kappa\backslash\{\gamma\}\in\mathcal{F}$. Angenommen
-        $\kappa$ sei singulär. Wähle also $B\subseteq\kappa$ konfinal
-        mit $|B|<\kappa$. Dann ist
-        $\emptyset=\bigcap\limits_{\delta\in
+        $\forall_{\delta<\kappa}\kappa\backslash\delta=
+        \bigcap\limits_{\gamma<\delta}\kappa\backslash
+        \{\gamma\}\in\mathcal{F}$. Angenommen $\kappa$ sei
+        singulär. Wähle also $B\subseteq\kappa$ konfinal mit
+        $|B|<\kappa$. Dann ist $\emptyset=\bigcap\limits_{\delta\in
           B}\kappa\backslash\delta\in\mathcal{F}$. Widerspruch.
       \item[(ii)] Sei $\tau<\kappa$. Angenommen
         $2^\tau\ge\kappa$. Wähle dann $f_i:\tau\rightarrow 2$ für
@@ -819,6 +821,162 @@ Filter auf $\kappa$.
         Element. Dies ist ein Widerspruch zur Nichttrivialität von
         $\mathcal{F}$.
       \end{itemize}
+    \item (4)$\Rightarrow$(5): Schon gezeigt, dass $\kappa$
+      unerreichbar ist. Sei also $M$ transitiv, $M\models\ZFC^-$,
+      $\kappa\in M$, $|M|=\kappa$. Setze
+      $\mathfrak{H}=\mathfrak{P}(\kappa)\cap M$, also
+      $|\mathfrak{H}|<\kappa$. Gemäß (4) wähle nichttrivialen
+      $\kappa$-vollständigen Filter $\mathcal{F}$ auf $\kappa$ mit
+      \begin{itemize}
+        \item[(*)] $\forall_{A\in\mathfrak{H}}(A\in\mathcal{F}\mbox{
+          oder }\kappa\backslash A\in\mathcal{F})$ \newline [beachte:
+          gilt ``entweder oder'', da sonst
+          $\emptyset=A\cap(\kappa\backslash A)\in\mathcal{F}$]
+      \end{itemize}
+      Dann gilt $\forall_{\alpha<\kappa}
+      \kappa\backslash\alpha\in\mathcal{F}$, da
+      $\kappa\backslash\alpha=
+      \bigcap\limits_{\beta<\alpha}\kappa\backslash\{\beta\}$. Wir
+      bilden nun die ``interne Ultrapotenz'' von $M$ mit
+      $\mathcal{F}$, das heißt setze $B=\{f\in M|f:\kappa\rightarrow
+      M\}$. Für $f,g\in B$ definiere:
+      $$ f \sim g \Leftrightarrow
+      \{\alpha<\kappa|f(\alpha)=g(\alpha)\}\in\mathcal{F} $$ $\sim$
+      ist Äquivalenzrelation. Setze $[f]=\{g|f\sim g\}$,
+      $\overline{N}=\{[f]|f\in B\}$. Definiere zweistellige Relation
+      $E$ auf $\overline{N}$ durch
+      $$ [f]E[g]\Leftrightarrow\{\alpha<\kappa|f(\alpha)\in
+      g(\alpha)\}\in\mathcal{F} $$ ist wohldefiniert.  Es gilt dann
+      (Satz von Łos):
+      \begin{itemize}
+        \item[(+)] Sei $\varphi(x_1,\ldots,x_n)$ ZF-Formel. Dann für
+          $f_1,\ldots,f_n\in B$
+          $$ \left<\overline{N},E\right>\models
+          \varphi([f_1],\ldots,[f_n])\Leftrightarrow
+          \{\alpha<\kappa|M\models
+          \varphi(f_1(\alpha),\ldots,f_n(\alpha))\}\in\mathcal{F} $$
+                 {\bf Beweis:} Vorbemerkung: $\{\alpha<\kappa|M\models
+                 \varphi(f_1(\alpha),\ldots,f_n(\alpha))\}\in M$ wegen
+                 Aussonderung in $M$. \newline Induktion über den
+                 Formelaufbau: Für $\varphi$ atomar folgt es aus
+                 Definition. Für $\varphi=\lnot\psi$ wegen (*) und
+                 Vorbemerkung. Für $\varphi=\psi_1\wedge\psi_2$ wegen
+                 Durchschnittseigenschaft. Für
+                 $\varphi=\exists_v\psi(x_1,\ldots,x_n,v)$:
+                   \begin{itemize}
+                     \item ``$\Rightarrow$'': Sei
+                       $\left<\overline{N},E\right>\models\exists_v\psi([f_1],\ldots,[f_n],v)$. Also
+                       nach Induktionsvoraussetzung $\underbrace{
+                         \{\alpha<\kappa|
+                         \psi(f_1(\alpha),\ldots,f_n(\alpha),g(\alpha)\}}_{
+                         \subseteq\{\alpha<\kappa|M\models
+                         \exists_v\psi(f_1(\alpha),\ldots,f_n(\alpha),v)\}}
+                       \in\mathcal{F}$.
+                     \item ``$\Leftarrow$'' Sei
+                       $A=\{\alpha<\kappa|M\models
+                       \exists_v\psi(f_1(\alpha),\ldots,f_n(\alpha),v)\}
+                       \in\mathcal{F}$. Wegen $M\models\ZF^-$
+                       existiert mit Beschränkung ein $w\in M$ mit
+                       $\alpha\in A\rightarrow\exists_{v\in w}M\models
+                       \psi(f_1(\alpha),\ldots,f_n(\alpha),v)$. Definiere
+                       dann $h:A\rightarrow V$ durch $h(\alpha)=
+                       \{v\in w| M\models
+                       \psi(f_1(\alpha),\ldots,f_n(\alpha),
+                       v)\}$. Dann $h\in M$. Sei $\overline{g}\in M$
+                       eine Auswahlfunktion für $h$ (nach
+                       $M\models\operatorname{AC}$). Definiere dann
+                       $g:\kappa\rightarrow M$ durch
+                       $f(\alpha)=\left\{\begin{array}{cl}\overline{g}(\alpha)&
+                       \mbox{falls }\alpha\in A \\ \emptyset &
+                       \mbox{falls }\alpha\in A\end{array}\right.$
+                       Dann gilt:
+                       $\{\alpha<\kappa|M\models\psi(f_1(\alpha),\ldots,f_n(\alpha),
+                       g(\alpha)\}\in\mathcal{F}$, da Obermenge von
+                       $A$. Aber nach Induktionsvoraussetzung
+                       $\left<\overline{N},E\right>\models\psi([f_1],\ldots,[f_n],[g])$,
+                       das heißt insbesondere
+                       $\left<\overline{N},E\right>\models\varphi([f_1],\ldots,[f_n])$.
+                   \end{itemize}
+                 \item[(++)] $E$ ist fundiert. \newline {\bf Beweis:}
+                   Angenommen nicht. Dann existiert eine Folge
+                   $\left<f_n|n\in\omega\right>$ aus $B$ mit
+                   $\forall_n[f_{n+1}]E[f_n]$,
+                   d.h. $X_n)=\{\alpha<\kappa|f_{n+1}(\alpha)\in
+                   f_n(\alpha)\}\in\mathcal{F}$. Wegen $\mathcal{F}$
+                   $\kappa$-vollständig und $\kappa>\omega$ ist also
+                   $\bigcap\limits_{n\in\omega}X_n\in\mathcal{F}$,
+                   insbesondere also
+                   $\bigcap_{n\in\omega}X_n\neq\emptyset$. Sei
+                   $\alpha\in\bigcap_{n\in\omega}X_n$. Dann $\forall_n
+                   f_{n+1}(\alpha)\in f_n(\alpha)$ im Widerspruch zum
+                   Fundierungsaxiom. Wegen (+) ist $E$ auch
+                   extensional. Somit wegen Mostovski existiert
+                   transitives $N$ und $\pi$ mit
+                   $\pi:\left<\overline{N},E\right>
+                   \stackrel{\sim}{\rightarrow}N$ (einfach
+                   $\pi([f])=\pi''\{[g]|[g]\in[f]\}$). Für $x\in M$
+                   definiere $c_x:\kappa\rightarrow M$ durch
+                   $c_x(\alpha)=x$. Beachte, dass $c_x\in
+                   M$. Definiere nun $j:M\rightarrow N$ durch
+                   $j(x)=\pi([c_x])$. Wegen (+) gilt $j:M\rightarrow
+                   N$ elementar, denn
+                   $(M\models\varphi[a_1,\ldots,a_n]) \Leftrightarrow
+                   \{\alpha<\kappa|M\models
+                   \varphi(c_{a_1}(\alpha),\ldots,c_{a_n}(\alpha)\}\in
+                   \mathcal{F}) \mathop{\Leftrightarrow}\limits_{\tiny
+                     \mbox{(+)}}\left<\overline{N},E\right>\models\varphi([c_{a_1}],\ldots,[c_{a_n}])
+                   \mathop{\Leftrightarrow}\limits_{\tiny \pi\mbox{
+                       Iso}}N\models\varphi(\underbrace{\pi([c_{a_1}])}_{=j(a_1)},\ldots,\underbrace{\pi([c_{a_n}])}_{=j(a_n)}))$. Noch
+                   zu zeigen $j\upharpoonright \kappa =
+                   \id\upharpoonright \kappa$,
+                   $j(\kappa)>\kappa$. Zeige hierzu zuerst:
+                   \begin{itemize}
+                     \item[(+++)]$\forall_{\tau<\kappa}[g]E[c_\tau]\Leftrightarrow\exists_{\gamma<\tau}[g]=[c_\gamma]$.
+                     \item[] {\bf Beweis} ``$\Leftarrow$'': Trivial
+                     \item[] {\bf Beweis} ``$\Rightarrow$'': Indirekt:
+                       Sei
+                       $\forall_{\gamma<\tau}[g]\neq[c_\gamma]$. Also
+                       $B_\gamma=\{\alpha<\kappa|g(\alpha)\neq\gamma\}\in\mathcal{F}$. Wegen
+                       $\mathcal{F}$ $\kappa$-vollständig also
+                       $B=\bigcap\limits_{\gamma<\tau}B_\gamma\in\mathcal{F}$. Also
+                       $\forall_{\alpha\in
+                         B}g(\alpha)\not\in\tau$. Also nun
+                       $[g]E[c_\tau]$.
+                   \end{itemize}
+                   Aus (+++) folgt rekursiv für $\tau<\kappa$:
+                   $\pi([c_\tau])=\pi''\{[c_\gamma]|\gamma<\tau\}=\tau$. Außerdem
+                   $[\id\upharpoonright\kappa]E[c_\kappa]$. Aber es
+                   gilt
+                   $\forall_{\tau<\kappa}[c_\tau]E[\id\upharpoonright\kappa]$,
+                   da $\{\alpha<\kappa|c_\tau(\alpha)\in\id(\alpha)\}=
+                   \kappa\backslash(\tau+1)\in\mathcal{F}$. Also
+                   $\pi([c_\kappa])>\kappa$, das heißt
+                   $j(\kappa)>\kappa$.
+      \end{itemize}
+    \item (5)$\Rightarrow$(6): Sei $A\subseteq V_\kappa$. Es existiert
+      ein transizives $M\models\ZFC^-$ mit $A,\kappa,V_\kappa\in M$
+      und $|M|=\kappa$, denn: Wegen $\kappa$ unerreichbar ist
+      $|V_\kappa|=\kappa$. Außerdem $H_{\kappa^+}\models\ZFC^-$, wobei
+      $H_{\kappa^+}=\{x||TC(x)|\le\kappa\}$. Wähle also
+      $\tilde{M}\prec H_{\kappa^+}$ mit
+      $V_\kappa\cup\{V_\kappa,A\}\subseteq\tilde{M}$ und
+      $|\tilde{M}|=\kappa$. Sei
+      $\pi:\tilde{M}\stackrel{\sim}{\rightarrow}M$ mit $M$ transitiv,
+      $M$ ist wie gewünscht (Bemerkung: $\tilde{M}$ ist schon
+      transitiv). Gemäß (5) sei $j:M\rightarrow N$ elementar mit $N$
+      transitiv, $j\upharpoonright\kappa$, $j(\kappa)>\kappa$. Folgt
+      leicht $j\upharpoonright V_\kappa = \id\upharpoonright
+      V_\kappa$. Setze
+      $\left<\overline{M},B\right>=j(\left<V_\kappa,A\right>)$. Dann
+      $j(\kappa)\subseteq\overline{M}$, also $\overline{M}\neq
+      V_\kappa$. Außerdem $\left<V_\kappa,
+      A\right>\prec\left<\overline{M},B\right>$, denn:
+      $(\left<V_\kappa,A\right>\models\varphi[\vec{a}])\Rightarrow
+      (M\models\mbox{``}\left<V_\kappa,A\right>\models
+      \varphi[\vec{a}]\mbox{\textquotedblright}) \Leftrightarrow
+      (N\models\mbox{``}\left<\overline{M},B\right>) \models
+      \varphi[j(\vec{a})]\mbox{\textquotedblright}) \Rightarrow
+      \left<\overline{M},B\right>\models\varphi[j(\vec{a})]$.
 \end{itemize}
 
 {\bf Übung 2:}
