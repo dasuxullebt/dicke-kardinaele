@@ -37,6 +37,8 @@
 \newcommand{\dom}{\operatorname{dom}}
 \newcommand{\id}{\operatorname{id}}
 \newcommand{\height}{\operatorname{ht}}
+\newcommand{\tp}{\operatorname{tp}} %
+\renewcommand{\bar}[1]{\overline{#1}} %
 \renewcommand{\thefootnote}{[siehe \arabic{footnote}]}
 
 \fancyhf{}
@@ -977,7 +979,20 @@ Filter auf $\kappa$.
       (N\models\mbox{``}\left<\overline{M},B\right>) \models
       \varphi[j(\vec{a})]\mbox{\textquotedblright}) \Rightarrow
       \left<\overline{M},B\right>\models\varphi[j(\vec{a})]$.
+% 8.11.12
+    \item (6)$\Rightarrow$(1): Sei hierzu $A\subseteq V_{\kappa}$, $\varphi$ erststufig, und es gelte:
+      für alle $B\subseteq V_{\kappa}\; \langle V_{\kappa}, A, B\rangle\models \varphi$.
+      Gemäß (6) wähle transitives $M$ und $D\subseteq M$ mit $\langle V_{\kappa}, A\rangle\prec\langle M,D\rangle$, $M\neq V_{\kappa}$.
+      Dann lässt sich in $M$ die Folge $\langle V_{\alpha}^M\mid\alpha\in \On\cap M\rangle$
+      definieren, und es gilt $V_{\kappa}^M=V_{\kappa}$ (insbesondere $\kappa\in M$).
+      Dann aber wegen $D\cap V_{\kappa} = A$:
+      $$\langle M,D\rangle \models \exists_{\alpha}\forall_{B\subseteq V_{\alpha}} 
+      \langle V_{\alpha}, D\cap V_{\alpha}, B\rangle\models \varphi$$
+      (nämlich für $\alpha =\kappa$). Also
+      $\langle V_{\kappa}, A\rangle\models \exists_{\alpha} \forall_{B\subseteq V_{\alpha}} \langle V_{\alpha}, A\cap V_{\alpha}, B\rangle \models \varphi$.
+      D.h. aber es existiert $\alpha<\kappa$ mit: $$\mbox{für alle } B\subseteq V_{\alpha}\; \langle V_{\alpha},  A\cap V_{\alpha}, B\rangle\models \varphi$$      
 \end{itemize}
+
 
 {\bf Übung 2:}
 
@@ -986,6 +1001,16 @@ $D,E\subseteq\kappa$ stationär in $\kappa$. Man zeige: es existiert
 reguläres $\alpha<\kappa$ mit $D\cap\alpha$,$E\cap\alpha$ stationär in
 $\alpha$.
 
+  {\bf Lösung 1:} Nach Lemma 10 ist ''$\alpha$ ist regulär'' ist $\Pi^1_1$. Also gilt:
+    $\exists_{\psi} \alpha \mbox{ ist regulär } \iff \left( \forall_{B\subseteq V_{\alpha}} \langle V_{\alpha},B\rangle\models \varphi\right)$
+    Setze $\psi' = (B \mbox{unbeschränkt und abg. in } \On \to E\cap B\neq \emptyset \land D\cap B\neq \emptyset)$
+    %abg = $\forall 0\neq \alpha \in \On: (\sup(B\cap\alpha)=\alpha\to\alpha\in B)
+    
+    $\forall_{B\subseteq V_{\kappa}} \langle V_{\kappa},D,E,B\rangle\models \psi\land\psi'$
+    Mit $\kappa$ schwach kompakt folgt:
+    $\exists_{\alpha<\kappa} \forall_{B\in V_{\alpha}} \langle V_{\alpha},D\cap V_{\alpha}, E\cap V_{\alpha}, B\rangle \models \psi\land\psi'$.
+    Also $\alpha$ regulär und $D\cap V_{\alpha}=D\cap\alpha$, $E\cap V_{\alpha}=E\cap\alpha$, also $D\cap\alpha$, $E\cap\alpha$ stationär.
+   
 {\bf Aufgabe 2:} Sei $U$ ein Ultrafilter auf $X$. Weiterhin sei
 $\kappa$ eine Kardinalzahl. Zeigen Sie, dass folgende Aussagen
 äquivalent sind:
@@ -996,5 +1021,257 @@ $\kappa$ eine Kardinalzahl. Zeigen Sie, dass folgende Aussagen
 \item[(3)] Falls $\bigcup\mathfrak{H}\in U$, $|\mathfrak{H}|<\kappa$,
   so existiert $A\in\mathfrak{H}$ mit $A\in U$.
 \end{itemize}
+
+
+
+{\bf Satz 15:} Sei $\kappa$ schwach kompakt. 
+  Dann gilt $\kappa \to (\kappa)^n_{\tau}$ für alle $n\in \omega$, $\tau<\kappa$.
+   
+  {\bf Beweis:} Zeige durch Induktion über $n$ 
+    $$\kappa \to (\kappa)^n_{\tau} \mbox{ für alle } \tau<\kappa$$
+    \begin{itemize}
+      \item $n=1$: Sei $f\colon [\kappa]^1\to \tau$ mit $\tau<\kappa$.
+         Wegen $\kappa$ regulär existiert dann $X\subseteq \kappa$ mit $|X| = \kappa$ und $X$ homogen für $f$.
+      \item $n\to n+1$: Sei $f\colon [\kappa]^{n+1}\to \tau$ mi $\tau<\kappa$.
+         Gemäß (6) aus Satz 14 wähle $\langle V_{\kappa}, f\rangle \prec \langle M, h\rangle$
+         mit $M$ transitiv, $M\neq V_{\kappa}$.
+         Dann ist $\kappa\in M$, denn falls $x\in M-V_{\kappa}$, so $\rng(x)\in M$, $\rng(x)\ge\kappa$
+         Definiere $g\colon [\kappa]^n\to\tau$ durch $g(a) = h(a\cup\{\kappa\})$.
+         (beachte, dass $h\colon [\lambda]^{n+1}\to\lambda$, wobei $\lambda = \On \cap M$)
+         Wir zeigen zuerst:
+         
+         $(*)$ es existiert unbeschränktes $X\subseteq \kappa$ mit 
+           $$a\in [X]^n \mbox{, } a<\nu\in X\to f(a\cup\{\nu\}) = g(a)$$
+           Konstruiere hierzu rekursiv monotone Folge $\langle \nu_{\delta}\mid \delta<\kappa\rangle$ wie folgt:
+           Sei $\delta<\kappa$. 
+           Setze zuerst $\overline\nu = \sup\{\nu_{\gamma}\mid \gamma <\delta\} + 1 <\kappa$.
+           Setze $B = \{ \overline\nu < \nu < n \mid \mbox{ für alle } a\in [\overline\nu]^n \; f(a\cup\{\nu\})=g(a)\}$.
+           $B\neq \emptyset$, denn: $\langle M, h\rangle\models \exists_{\nu<\overline\nu} \forall_{a\in [\overline\nu]^n} h(a\cup \{\nu\}) = g(a)$
+           nämlich $\nu = \kappa$.
+           Also $\langle V_{\kappa}, f\rangle \models \cdots$.
+           Setze $\nu_{\delta} = \min B$.
+           Nach Konstruktion ist dann $X=\{ \nu_{\delta}\mid \nu<\kappa\}$ wie gewünscht.
+         
+         Sei nun $X$ wie in $(*)$.
+         Nach Ind.-vor. wähle $\overline X\subseteq X$ mit $|\overline X| = \kappa$ und $\overline X$ homogen für $g$.
+         Dann ist $\overline X$ homogen für $f$.
+    \end{itemize}
+
+{\bf Lemma 16:} Sei $\kappa$ schwach kompakt. Dann ist $\kappa$ schwach kompakt in $L$.
+
+  {\bf Beweis:} Wir zeigen, dass (6) aus Satz 14 in $L$ gilt.
+  Wegen $\kappa$ unerreichbar gilt $L_{\kappa} = (V_{\kappa})^L$.
+  Sei also $A\subseteq L_{\kappa}$ mit $A\in L$.
+  Also $A\in L_{\kappa^+}$.
+  Wähle $\lambda<\kappa^+$ mit $\kappa, A\in L_{\lambda}$ und $L_{\lambda}\prec L_{\kappa^+}$ (!), also $L_{\lambda}\models$ ZFC$^-$.
+  Gemäß (5) existiert dann elementare Einbettung $j\colon L_{\lambda} \to N$ mit $N$ transitiv, 
+  $j\upharpoonright\kappa = id\upharpoonright\kappa$, $j(\kappa)>\kappa$.
+  Wegen $N\models$ ZFC$^-$ + V$=$L existiert $\delta$ mit $N=L_{\delta}$.
+  Setze $\gamma =j(\kappa)$, $B=j(A)$.
+  Dann $j(L_{\kappa})=L_{\gamma}$, also $\langle L_{\kappa},A\rangle\prec \langle L_{\gamma}, B\rangle$.
+  Aber $B\in L_{\delta} \subseteq L$.
+  Also fertig.
+  
+{\bf Bemerkung:} Es gilt aber nicht für beliebige innere Modelle $W$, dass: 
+  $\kappa$ schwach kompakt $\to$ $\kappa$ schwach kompakt in $W$
+  % Beweis hierfür zu aufwendig für VL
+
+{\bf Definition:} $\kappa$ is t $\Pi^1_2$-unbeschreibbar, wenn folgendes gilt:
+  Sei $A\subseteq V_{\kappa}$ und es gelte:
+  Für alle $D\subseteq V_{\kappa}$ existiert $E\subseteq V_{\kappa}$ mit $\langle V_{\kappa},A,D,E\rangle \models \varphi$.
+  Dann existiert $\alpha<\kappa$ mit: 
+  Für alle $D\subseteq V_{\alpha}$ existiert $E\subseteq V_{\alpha}$ mit $\langle V_{\alpha}, A\cap V_{\alpha},D,E\rangle \models\varphi$.
+  
+{\bf Bemerkung:} \begin{enumerate}
+    \item[(a)] $\kappa$ ist $\Pi^1_2$-unbeschreibbar $\to$ $\kappa$ ist schwach kompakt
+    \item[(b)] $\kappa$ ist $\Pi^1_2$-unbeschreibbar $\to$ es existiert $\tau<\kappa$ mit $\tau$ schwach kompakt.
+  \end{enumerate}
+  
+  {\bf Beweis:} (a) ist trivial. 
+    (b): Sei $\kappa$ $\Pi^1_2$-unbeschreibbar.
+    Dann ist nach (a) $\kappa$ schwach kompakt. 
+    Also nach Satz 14 (2) gilt $\kappa\to (\kappa)^2_2$.
+    Dies ist eine $\Pi^1_2$-Eigenschaft.
+    Also existiert $\omega<\tau<\kappa$ mit $\tau \to (\tau)^2_2$.
+    Somit ist $\tau$ schwach kompakt.
+
+Die stärkste Eigenschaft dieser Art ist:
+
+{\bf Definition:} $\kappa$ ist \emph{total unbeschreibbar}, wenn folgendes gilt: 
+  Sei $A\subseteq V_{\kappa}$ und $\gamma>\kappa$ mit $V_{\gamma}\models \varphi(A)$ ($\varphi$ erststufig).
+  Dann existieren $\alpha<\delta<\kappa$ mit $V_{\delta} \models \varphi(A\cap\alpha)$.
+  
+{\bf Bemerkung:} Mit dem gleichen Trick, wie in Lemma 12 können wir $A$ durch endlich viele $A_1,\ldots,A_n$ ersetzen.
+
+{\bf Bemerkung:} \begin{enumerate}
+    \item[(a)] $\kappa$ ist total unbeschreibbar $\to$ $\kappa$ ist $\Pi^1_2$-unbeschreibbar
+    \item[(a)] $\kappa$ ist total unbeschreibbar $\to$ es existiert $\tau<\kappa$ mit $\tau$ ist $\Pi^1_2$-unbeschreibbar
+    \item[(a)] $\kappa$ ist total unbeschreibbar $\to$ $\kappa$ total unbeschreibbar in $L$
+  \end{enumerate}
+  {\bf Beweis:} Übung. % Also "bietet sich zum üben an", nicht Teil der Übungsaufgaben zur VL..
+  
+Damit ist dieses Verfahren ausgeschöpft.
+Wie geht es weiter?
+Einen Weg hierzu weisen (4), (5) aus Satz 14.
+Ein subtiler ist der folgende:
+
+{\bf Definition:} Sei $\kappa>\omega$ eine Kardinalzahl.
+  $\kappa$ ist \emph{subtil} :gdw 
+  für abg. unb. $C\subseteq \kappa$ und Folgen $\langle S_{\alpha}\mid \alpha\in C\}$
+  mit $S_{\alpha}\subseteq \alpha$ existieren $\alpha,\beta\in C$ mit $\alpha<\beta$ und $S_{\alpha}=S_{\beta}\cup\alpha$.
+  % $\kappa<\omega$ redundant, es reicht evtl. sogar zu fordern, dass $\kappa$ ordinalzahl
+  % "diese eigenschaft ist nun wieder deutlich simpler, ähnlich wie mahlo. intuitiv ist nicht einmal klar, das daraus auch nur schwache unerreichbarkeit folgt"
+  % (subtilität ist ausserdem \Pi^1_1)
+
+{\bf Lemma 17:} Sei $\kappa$ subtil. Dann ist $\kappa$ unerreichbar.
+  
+  {\bf Beweis:} \begin{enumerate}
+    \item[(i)] $\kappa$ ist regulär, denn: Annahme: $\kappa$ ist singulär.
+      Dann existiert abg. unb. $S\subseteq \kappa$ mit $\otp(C)<\min(C)$.
+      Setze nun für $\alpha\in C$:
+      $S_{\alpha} = \{\otp(C\cap \alpha)\}\subseteq \alpha$.
+      Dann ist offenbar für $\alpha,\beta,\in C$, $\alpha<\beta$.
+      $S_{\beta}\cap\alpha= S_{\beta}\neq S_{\alpha}$. 
+      Widerspruch zu $\kappa$ subtil.
+    \item[(ii)] Sei $\lambda<\kappa$. z.z. $2^\lambda<\kappa$.
+      Annahme: $2^\lambda\ge\kappa$. 
+      Setze dann $C=\kappa-\lambda$ und seien $\langle S_{\alpha}\mid\alpha\in C\rangle$ so, 
+      dass $S_{\alpha}\subseteq \lambda$ und $\alpha\neq\beta\to S_{\alpha}\neq S_{\beta}$.
+      Liefert Widerspruch zu $\kappa$ subtil.
+  \end{enumerate}
+  
+% 13.11.12 
+{\bf Lemma 18:} Sei $\kappa$ subtil. 
+  Sei $C\subseteq\kappa$ abg. unb. in $\kappa$.
+  Sei $\langle S_{\alpha}\mid \alpha\in C\rangle$ mit $S_{\alpha}\subseteq V_{\alpha}$.
+  Dann existieren $\alpha,\beta\in C$, $\alpha <\beta$ mit $S_{\alpha}=S_{\beta}\cap V_{\alpha}$.
+  
+  {\bf Beweis:} Nach Lemma 17 ist $\kappa$ unerreichbar, also $|V_{\kappa}|=\kappa$.
+    Sei also $f\colon V_{\kappa}\to\kappa$ bijektiv.
+    Setze $D=\{\alpha<\kappa\mid f''V_{\alpha}=\alpha\}$.
+    Wegen $\kappa$ regulär folgt wie üblich, dass $D$ abg. unb. in $\kappa$.
+    Also ist $\overline C=C\cap D$ abg. unb. in $\kappa$.
+    Setze $\overline S_{\alpha}=f''S_{\alpha}$ für $\alpha\in \overline C$ und betrachte $\langle \overline S_{\alpha}\mid \alpha\in \bar C \rangle$.
+    Wegen $\kappa$ subtil existieren $\alpha,\beta\in\bar C$,$\alpha<\beta$, mit $\bar S_{\alpha}=\bar S_{\beta}\cap\beta$.
+    Dann ist aber $S_{\alpha}=S_{\beta}\cap V_{\alpha}$.
+
+% Dies ist das Kriterium, welches die großen Kardinalzahlen in eine Reihe ordnet
+{\bf Satz 19:} Sei $\kappa$ subtil. Dann existiert $\tau<\kappa$ mit $V_{\kappa}\models\tau$ ist total unbeschreibbar.
+
+  {\bf Beweis:} Annahme: Beh. ist falsch.
+    Dann existiert für alle $\tau<\kappa$ ein $A_{\tau}\subseteq V_{\tau}$, $\tau<\gamma_{\tau}<\kappa$ und erststufiges $\varphi_{\tau}$ mit
+    \begin{enumerate}
+      \item[(1)] $V_{\gamma_{\tau}} \models \varphi_{\tau}(A_{\tau})$
+      \item[(2)] für alle $\bar\tau<\tau$ und $\bar\tau <\delta<\tau$ gilt $V_{\delta}\models \neg\varphi_{\tau}(A_{\tau}\cap V_{\bar\tau})$
+    \end{enumerate}
+    Sei $C\subseteq \kappa$ abg. unb. in $\kappa$ mit 
+    \begin{enumerate}
+      \item[(3)] $\eta \in C\cap\tau, \tau\in C\to \gamma_{\eta}<\tau$
+    \end{enumerate}
+    O.E. bestehe $C$ nur aus Limeszahlen.
+    Setze nun für $\tau\in C$
+    $$S_{\tau}=\langle 0,\varphi_{\tau}\rangle \cap \{\{1\}\times A_{\tau}\}\subseteq V_{\tau}$$
+    Nach Lemma 18 existieren $\eta<\tau$ mit $\eta,\tau\in C$ und $S_{\eta}=S_{\tau}\cap V_{\eta}$.
+    Wegen (1) also $V_{\gamma_{\eta}}\models\varphi_{\tau}(A_{\tau}\cap V_{\eta})$.
+    Wegen (3) ist $\gamma_{\eta}<\tau$.
+    Dies liefert Wid. zu (2).
+
+{\bf Bemerkung:} $\kappa$ subtil $\not\to$ $\kappa$ schwach kompakt.
+  Denn: ''subtil'' ist $\Pi^1_1$-Eigenschaft. Außerdem natürlich:  
+  $\kappa$ subtil, $W$ inneres Modell $\to$ $\kappa$ subtil in $W$.
+  
+{\bf Bemerkung:} Sei $\kappa$ subtil.
+  Sei $C\subseteq\kappa$ abg. unb. in $n$, $n\in\omega$.
+  Für $\alpha\in C$ seien $B_{\alpha}^1,\ldots, B_{\alpha}^n\subseteq V_{\alpha}$.
+  Dann existieren $\alpha,\beta\in C$, $\alpha<\beta$ mit
+  $$\langle V_{\alpha},B_{\alpha}^1,\ldots,B_{\alpha}^n\rangle\prec\langle V_{\beta}, B_{\beta}^1,\ldots,B_{\beta}^n\rangle$$
+  {\bf Beweis:} O.E. $\alpha\in C\to \lim(\alpha)$.
+    Setze für $\alpha\in C$ $$S_{\alpha}=\left\{\langle\varphi,a_1,\ldots,a_m\rangle\mid \langle V_{\alpha},B_{\alpha}^1,\ldots,B_{\alpha}^n\rangle\models\varphi[a_1,\ldots,a_m], \varphi\; \mathcal L\mbox{-Formel, } a_1,\ldots,a_m\in V_{\alpha}\right\}\in V_{\alpha}$$
+    Wähle $\alpha,\beta\in C$ mit $S_{\alpha}=S_{\beta}\cap V_{\alpha}$.
+    Dann sind $\alpha, \beta$ wie gewünscht.
+  
+\section{Partitionskardinalzahlen, Indiscernibles, $O\#$}
+
+
+{\bf Definition:} \begin{enumerate}
+    \item[(a)] Sei $f\colon [S]^{<\omega}\to Z$.
+      $X\subseteq S$ heißt \emph{homogen für $f$} :gdw $\forall_{n\in\omega} X$ homogen für $f\upharpoonright [S]^n$
+    \item[(b)] $\kappa\to(\alpha)^{<\omega}_{\gamma}$ :gdw 
+      für alle $f\colon [\kappa]^{<\omega}\to\gamma$ existiert $X\subseteq\kappa$ mit $\otp(X)=\alpha$ und $X$ homogen für $f$.
+    \item[(c)] $\kappa$ ist \emph{Ramsey} :gdw $\kappa\to(\kappa)^{<\omega}_2$
+      % ''Ramsey ist ein schlechter Name, denn man könnte vermuten, das \kappa nun die Eigenschaft aus dem Satz von Ramsey hat, dies ist aber nicht der Fall, weil, nun, \kappa die Eigenschaft aus dem Satz von Ramsey nicht hat''
+  \end{enumerate}
+
+{\bf Bemerkung:} $\kappa$ Ramsey $\to$ $\kappa$ schwach kompakt.
+  Wir werden später sehen, dass Ramsey sehr viel stärker ist.
+
+{\bf Konvention:} Sind $\alpha_1,\ldots,\alpha_n\in \On$, so bedeutet  $\{\alpha_1,\ldots,\alpha_n\}$ bedeutet meistens, dass $\alpha_1<\alpha_2<\ldots<\alpha_n$.
+
+{\bf Lemma 1:} Sei $\lim(\alpha)$ und $\kappa\to(\kappa)^{<\omega}_2$.
+  Dann gilt $\kappa\to(\alpha)^{<\omega}_{2^{\omega}}$.
+  
+  {\bf Beweis:} Sei $f\colon [\kappa]^{<\omega}\to 2^{\omega}$.
+    Identifiziere $2^{\omega}$ mit $\{h\mid h\colon \omega\to 2\}$.
+    Für $k\in \omega$ definiere $f_k\colon [\kappa]^{<\omega}\to 2$ durch $f_k(x)=f(x)(k)$.
+    Sei $\pi\colon \omega\to\omega\times\omega$ Bijektion mit $\pi(m)=\langle n,k\rangle\to m\supseteq n$.
+    Definiere $g\colon[\kappa]^{<\omega}\to 2$ durch
+    $$ g(\{\alpha_1,\ldots,\alpha_n\})=f(\{\alpha_1,\ldots,\alpha_n\}) \mbox{ wobei } \pi(m)=\langle n,k\rangle$$
+    Sei $X\subseteq \kappa$ homogen für $g$ mit $\otp(X)=\alpha$.
+    Dann ist $X$ auch homogen für $f$, denn:
+    Annahme: $f(\{\alpha_1,\ldots,\alpha_n\})\neq f(\{\beta_1,\ldots,\beta_n\})$ mit $\alpha_i,\beta_i\in X$.
+    Dann existiert $k$ mit $f_k(\{\alpha_1,\ldots,\alpha_n\})\neq f_k(\{\beta_1,\ldots,\beta_n\})$.
+    Sei $\pi(m)=\langle n,k\rangle$.
+    Wähle $\alpha_{n+1}<\ldots<\alpha_m$ aus $X$ mit $\alpha_n<\alpha_{n+1}$ und entsprechend $\beta_{n+1},\ldots,\beta_m$ (geht wegen $\lim(\alpha)$).
+    Dann gilt nach Definition $g(\{\alpha_1,\ldots,\alpha_n\}=\neq g(\{\beta_1,\ldots,\beta_n\})$, im Widerspruch zu $X$ homogen.
+    
+{\bf Definition:}
+  Sei $\mathfrak M=\langle M,E,\ldots\rangle$ eine Struktur mit $\langle M,E\rangle\models$ schwache Mengenlehre.
+  Sei $I\subseteq M$ mit $\forall_{i\in I}\;$ $\mathfrak M\models i\in On$. 
+  Definiere $<$ auf $I$ durch $i<j$ :gdw $iEj$.
+  $I$ heißt \emph{Menge von Indiscernibles} für $\mathfrak M$ :gdw 
+  für alle $i_0<i_1<\ldots<i_{n-1}, j_0<\ldots<j_{n-1}, i_k, j_k\in I, n\in\omega$ und für alle Formeln $\varphi(\vec v)$ gilt
+  $$\mathfrak M\models \varphi[i_0,\ldots,i_{n-1}] \mbox{ gdw } \mathfrak M\models \varphi[j_0,\ldots,j_{n-1}]$$
+
+  Seien $\mathfrak M$ wie oben, $i_0<\ldots<i_{n-1}$.
+  Setze dann $\tp_{\mathfrak M}(i_0,\ldots,i_{n-1}) :=\{\varphi(\vec v)\mid \mathfrak M\models\varphi[i_0,\ldots,i_{n-1}]$ \emph{Typ von $(i_0,\ldots,i_{n-1})$}.
+  Setze noch $tp_{\mathfrak M}^n (I) := \{ \varphi(v_0,\ldots,v_{n-1})\mid \mathfrak M\models \varphi(i_0,\ldots, i_{n-1})\}$
+  für $I$ unendlich Menge von Indiscernibles für $\mathfrak M$ für $i_0<\ldots<i_{n-1}\in I$.
+  
+{\bf Lemma 2:} Es gelte $\kappa\to(\alpha)^{<\omega}_2$ und $\lim(\alpha)$.
+  Sei $\mathfrak M =\langle M,\in,\ldots\rangle$ eine $\mathcal L$-Struktur, $|\mathcal L| \le \omega$, mit $\kappa\le M$, $M$ transitiv.
+  Dann existiert $I\subseteq \kappa$ mit $\otp(I)=\alpha$, und $I$ ist Menge von Indiscernibles für $\mathfrak M$.
+  
+  {\bf Beweis:} Sei $F=$ Menge aller $\mathcal L$-Formeln, Also $|F|=\omega$.
+    Definiere $f\colon [\kappa]^{<\omega}\to\mathbb P(F)$. %% wie geht potenzmenge?
+    durch $f(\{\alpha_0,\ldots,\alpha_{n-1}\})=\tp_{\mathfrak M}(\alpha_0,\ldots,\alpha_{n-1})$.
+    Wegen $|\mathbb P(F)|=2^{\omega}$ existiert nach Lemma 1 ein $X\subseteq\kappa$ mit $\otp(X)=\alpha$ und $X$ homogen für $f$.
+    Dann ist $X$ eine Menge von Indiscernibles für $\mathfrak M$.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 \end{document}
