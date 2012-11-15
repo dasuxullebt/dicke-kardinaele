@@ -30,7 +30,9 @@
 \newcommand{\rng}{\operatorname{rng}}
 \newcommand{\ZFC}{\operatorname{ZFC}}
 \newcommand{\ZF}{\operatorname{ZF}}
+\newcommand{\Card}{\operatorname{Card}}
 \newcommand{\Con}{\operatorname{Con}}
+\newcommand{\Fml}{\operatorname{Fml}}
 \newcommand{\On}{\operatorname{On}}
 \newcommand{\cf}{\operatorname{cf}}
 \newcommand{\otp}{\operatorname{otp}}
@@ -925,8 +927,7 @@ Filter auf $\kappa$.
                    $(M\models\varphi[a_1,\ldots,a_n]) \Leftrightarrow
                    \{\alpha<\kappa|M\models
                    \varphi(c_{a_1}(\alpha),\ldots,c_{a_n}(\alpha)\}\in
-                   \mathcal{F}) \mathop{\Leftrightarrow}\limits_{\tiny
-                     \mbox{(+)}}\left<\overline{N},E\right>\models\varphi([c_{a_1}],\ldots,[c_{a_n}])
+                   \mathcal{F}) \mathop{\Leftrightarrow}\limits_{\mbox{\tiny (+)}}\left<\overline{N},E\right>\models\varphi([c_{a_1}],\ldots,[c_{a_n}])
                    \mathop{\Leftrightarrow}\limits_{\tiny \pi\mbox{
                        Iso}}N\models\varphi(\underbrace{\pi([c_{a_1}])}_{=j(a_1)},\ldots,\underbrace{\pi([c_{a_n}])}_{=j(a_n)}))$. Noch
                    zu zeigen $j\upharpoonright \kappa =
@@ -994,7 +995,7 @@ Filter auf $\kappa$.
 \end{itemize}
 
 
-{\bf Übung 2:}
+{\bf 2. Übung:}
 
 {\bf Aufgabe 1:} Sei $\kappa$ schwach kompakt. Seien
 $D,E\subseteq\kappa$ stationär in $\kappa$. Man zeige: es existiert
@@ -1247,31 +1248,195 @@ Ein subtiler ist der folgende:
     Wegen $|\mathbb P(F)|=2^{\omega}$ existiert nach Lemma 1 ein $X\subseteq\kappa$ mit $\otp(X)=\alpha$ und $X$ homogen für $f$.
     Dann ist $X$ eine Menge von Indiscernibles für $\mathfrak M$.
 
+{\bf Definition:} 
+\begin{itemize}
+  \item[(a)] Sei $f:[C]^{<\omega}\rightarrow\On,C\subseteq\On$. $f$
+    ist {\it regressiv}, wenn für alle $x\in[C]^{<\omega}$ gilt
+    $f(x)<\min(x)$, falls $\min(x)>0$, $=0$ sonst.
+  \item[(b)] $\kappa$ ist $\alpha$-Erdös $\Leftrightarrow$ für alle
+    regressiven $f:[C]^{<\omega}\rightarrow\kappa$, $C\subseteq\kappa$
+    abgeschlossen unbeschränkt in $\kappa$, existiert
+    $X\subseteq\kappa$ mit $\otp(X)=\alpha$ und $X$ homogen für $f$.
+  \item[(c)] Sei
+    $\mathfrak{A}=\left<L_\kappa[\vec{A}],\in,\vec{A}\right>$. Für
+    $\gamma<\kappa$ setze
+    $\mathfrak{A}_\gamma=\left<L_\gamma[\vec{A}],\in,\vec{A}\cap
+    L_\gamma[\vec{A}]\right>$. $I\subseteq\kappa $ ist gute Menge von
+    Indiscernibles für $\mathfrak{A}$ (gut für $\mathfrak{A}$), wenn
+    gilt:
+    \begin{itemize}
+      \item[(G1)] $\forall_{\gamma\in I}\mathfrak{A}_\gamma\prec\mathfrak{A}$
+      \item[(G2)] $\forall_{\gamma\in I}\mbox{ ist
+      }I\backslash\gamma\mbox{ Menge von Indiscernibles für
+      }\left<\mathfrak{A},(\zeta)_{\zeta<\gamma}\right>$.
+    \end{itemize}
+\end{itemize}
 
+{\bf Bemerkung:}
+\begin{itemize}
+\item[(a)] $\kappa$ ist $1$-Erdös $\Leftrightarrow$ $\kappa\ge 1$
+\item[(b)] $\kappa$ ist $2$-Erdös $\Leftrightarrow$ $\kappa>\omega$ regulär (Übung)
+\end{itemize}
 
+{\bf Satz 3:} $\kappa$ ist $3$-Erdös $\Leftrightarrow$ $\kappa$ ist subtil.
+{\bf Beweis:}
+\begin{itemize}
+  \item ``$\Rightarrow$'': Sei $\left<S_\alpha|\alpha\in C\right>$,
+    $S_\alpha\subseteq\alpha$ abgeschlossen unbeschränkt in $\kappa$,
+    gegeben. Ohne Einschränkung
+    $C\subseteq\{\alpha<\kappa|\lim(\alpha)\}$. Definiere
+    $f:[C]^2\rightarrow\kappa$ regressiv durch
 
+    $$ f(\{\alpha,\beta\}) = \left\{ \begin{array}{cl} 0 & \mbox{falls
+      } S_\alpha = S_\beta \cap \alpha \\ \min(S_\alpha\Delta
+      S_\beta)+1\footnotemark &
+      \mbox{sonst} \end{array}\right.$$\footnotetext{$A\Delta B :=
+      (A\backslash B)\cup(B\backslash A)$, symmetrische Differenz.}
+    Sei $\{\alpha,\beta,\gamma\}$ homogen für $f$. Dann ist
+    $f(\{\alpha,\beta\})\neq 0$ nicht möglich. Also ist
+    $f(\{\alpha,\beta\})=0$, das heißt $S_\alpha=S_{\beta\cap\alpha}$.
+  \item ``$\Leftarrow$'': Sei $f:[C]^{<\omega}\rightarrow\kappa$
+    regressiv. Setze $g_\alpha=f(\{\ldots,\alpha\})$,
+    $f_\alpha=f\upharpoonright[\alpha]^{<\omega}$. Wegen $\kappa$
+    subtil existieren $\beta,\gamma\in C, \beta < \gamma$ mit
+    (*)$\left<V_\beta, g_\beta, f_\beta, f(\{\beta\})\right> \prec
+    \left< V_\gamma, g_\gamma, f_\gamma, f(\{\gamma\}) \right>$. Also
+    $f(\{\beta\})=f(\{\gamma\})=:\mu$. Sei
+    $\underbrace{f(\{\beta,\gamma\})}_{g_\gamma(\beta)} = \delta <
+    \beta$. Wegen (*) existiert dann $\alpha<\beta$ mit
+    $f(\{\alpha\})=\mu$ und
+    $f(\{\alpha,\beta\})=g_\beta(\alpha)=\delta$. Wegen
+    $g_\beta\subseteq g_\gamma$ also auch
+    $f(\{\alpha,\gamma\})=\delta$. Insgesamt folgt, dass $\{\alpha,
+    \beta, \gamma\}$ homogen für $f$.
+\end{itemize}
+\hfill $\square$
 
+{\bf Lemma 4:} Sei $\lim(\alpha)$. Dann sind äquivalent
+\begin{itemize}
+  \item[(1)] $\kappa$ ist $\alpha$-Erdös.
+  \item[(2)] für alle $\mathfrak{A}=\left< L_\kappa[\vec{A}], \in,
+    \vec{A} \right>$ existiert $I\subseteq\kappa$ mit $\otp(I) =
+    \alpha$ und $I$ gut für $\mathfrak{A}$.
+\end{itemize}
+{\bf Beweis:}
+\begin{itemize}
+  \item (2)$\Rightarrow$(1): Sei $f:[C]^{<\omega}\rightarrow\kappa$
+    regressiv, $C\subseteq\kappa$ abgeschlossen unbeschränkt in
+    $\kappa$. Setze $\mathfrak{A} = \left<L_\kappa[C,f], \in, C,
+    f\right>$. Sei $I \subseteq \kappa$ gut für $\mathfrak{A}$ mit
+    $\otp(I) = \alpha$. Wir zeigen $I \subseteq C$ ist homogen für $f$.
+    \begin{itemize}
+      \item[(a)] $I \subseteq C$: \newline Sei $\gamma\in I$. Wegen
+        (G1) gilt $\mathfrak{A}_\gamma \prec \mathfrak{A}$, also
+        insbesondere $\mathfrak{A}_\gamma \models \forall_\delta
+        \exists_{\mu>\delta} \mu\in C$. Also $\gamma = \sup(C \cap
+        \gamma) \in C$, da $C$ abgeschlossen in $\kappa$.
+      \item[(b)] $I$ ist homogen für $f$: \newline Sei $\gamma_0 <
+        \ldots < \gamma_n$, $\delta_0 < \ldots < \delta_n$ aus $I$,
+        und ohne Einschränkung $\gamma_0 \le \delta_0$. Dann ist $\mu
+        = f(\{\gamma_0, \ldots, \gamma_n\}) < \gamma_0$, das heißt
+        $\mathfrak{A} \models f(\{\gamma_0, \ldots, \gamma_n\}) =
+        \mu$. Somit wegen (G2) $\mathfrak{A} \models f(\{\delta_0,
+        \ldots, \delta_n\}) = \mu$. Das heißt $f(\{\delta_0, \ldots,
+        \delta_n\}) = \mu$.
+    \end{itemize}
+  \item (1)$\Rightarrow$(2): Aus (1) folgt, dass $\kappa$ subtil ist,
+    insbesondere regulär $>\omega$. Sei $\mathfrak{A}$ gegeben,
+    $\mathfrak{A}$ eine $\mathcal{L}$-Struktur. Ohne Einschränkung
+    $\Fml_{\mathcal{L}}\subseteq
+    V_\omega$\footnote{$\Fml_{\mathcal{L}}$ sind die Formeln über
+      $\mathcal{L}$}. Wegen $\kappa>\omega$ regulär ist
+    $\overline{C}=\{\gamma<\kappa|\mathfrak{A}_\gamma\prec\mathfrak{A}\}$
+    abgeschlossen unbeschränkt in $\kappa$. Sei $g:\Fml_{\mathcal{L}}
+    \times \kappa^{<\omega} \rightarrow \kappa\backslash\{0\}$
+    Bijektion. Dann ist $D = \{\alpha < \kappa | g''(\Fml \times
+    a^{<\omega})\subseteq \alpha\}$ abgeschlossen unbeschränkt in
+    $\kappa$. Setze $C = \overline{C} \cap D$, also $C$ abgeschlossen
+    unbeschränkt in $\kappa$. Definiere nun
+    $f:[C]^{<\omega}\rightarrow\kappa$ durch:
 
+    $$f(\{\underbrace{\vec{\nu},\vec{\mu}}_{\mbox{\tiny gleiche
+        Länge}}\}) = \left\{\begin{array}{cl} 0 & \mbox{falls
+    }\forall_{\vec{\delta<\nu_0}} \mathfrak{A}\models
+    \varphi(\vec{\delta},\vec{\nu}) \leftrightarrow
+    \varphi(\vec{\delta}, \vec{\mu}) \\ g(\varphi, \vec{\delta}) &
+    \mbox{falls } \varphi, \vec{\delta} \mbox{ das kleinste
+      Gegenbeispiel} \end{array}\right. $$
 
+    für ungerade Länge $= 0$. Sei nun $I\subseteq C$ homogen für $f$
+    mit $\otp(I) = \alpha$. Wegen $\lim(\alpha)$ folgt leicht, dass
+    $f''[I]^{<\omega} = 0$. Also (!) ist (G2) für $I$ erfüllt. (G1)
+    ist klar, da $I \subseteq C \subseteq \overline{C}$.
+\end{itemize}
+\hfill $\square$
 
+{\bf Zusatz:} (2)$\Rightarrow$(1) gilt ohne Voraussetzung $\lim(\alpha)$.
 
+{\bf Satz 5:} Sei $\lim(\alpha)$. Es gelte $\tau \rightarrow
+(a)^{<\omega}_2$ für ein $\tau$. Sei $\kappa = \min\{\tau | \tau
+\rightarrow (\alpha)^{<\omega}_2\}$. Dann ist $\kappa$ $\alpha$-Erdös.
 
+{\bf Beweis:} Sei $f:[C]^{<\omega} \rightarrow \kappa$ regressiv, $C$
+abgeschlossen unbeschrönkt in $\kappa$. Sei $<$ eine Wohlordnung von
+$V_\kappa$. Für $\gamma < \kappa$ sei $g_\gamma : [\gamma]^{<\omega}
+\rightarrow 2$ das $<$-kleinste $g : [\gamma]^{<\omega} \rightarrow
+2$, welches keine homogene Menge $X$ mit $\otp(X) = \alpha$
+besitzt. Setze $\mathfrak{A} = \left< V_\kappa, \in, <, C, f, \alpha
+\right>$. Beachte: $g_\gamma$ ist definierbar in $\mathfrak{A}$ mit
+Parameter $\gamma$. Wähle nun nach Lemma 2 ein $I \subseteq \kappa$
+mit $\otp(I) = \alpha$, $I$ Menge von Indiscernibles für
+$\mathfrak{A}$ und $\min(I)$ minimal.
+\begin{itemize}
+  \item[(1)] $I\subseteq C$: \newline Angenommen nicht. Für $\gamma\in
+    I$ setze $h(\gamma) = \sup(C\cap\gamma) \mathnode{m1}{<}
+    \gamma\phantom{aa}\mathnode{m2}{\mbox{ da }}C\mbox{
+        abgeschlossen}$. Wegen $I$ Indiscernibles für $\mathfrak{A}$
+      gilt:
+      \begin{tikzpicture}[overlay]
+        \path [draw=black!50, fill=black!50, >=stealth, <-, shorten <= 3pt, shorten >=3 pt]
+        (m1) edge [bend left=-70] (m2);
+      \end{tikzpicture}
+      \begin{itemize}
+        \item[(a)] $\gamma,\delta\in I \Rightarrow h(\gamma) = h(\delta)$
+        \item[oder (b)] $\gamma,\delta\in \Rightarrow h(\gamma) < h(\delta)$
+        \item[oder (c)] $\gamma,\delta\in I \Rightarrow h(\delta) <
+          h(\gamma)$
+      \end{itemize}
+      (c) ist wegen $I$ unendlich nicht möglich. Falls
+      (b), so $\overline{I} = \{h(\gamma) | \gamma \in I\}$ Menge von
+      Indiscernibles für $\mathfrak{A}$ mit $\otp(\overline{I}) =
+      \alpha$, $\min(\overline{I}) < \min(I)$. Widerspruch. Falls (a)
+      setze $\overline{h}\gamma) = \min(C\backslash\gamma)$. Dann
+      $\overline{h}(\gamma) = \delta$ konstant für alle $\gamma \in
+      I$. Folgt sofort, dass $I$ homogen für $g_\delta$
+      ist. Widerspruch. 
+    \item[(2)] $I$ ist homogen für $f$: \newline Wegen $\lim(\alpha)$
+      genügt es zu zeigen: Falls $\vec{\nu},\vec{\mu}\in [I]^n$,
+      $\vec{\nu} < \vec{\mu}$, so $f(\vec{\nu}) = f(\vec{\mu})$, $n\ge
+      1$. Wieder drei fälle:
+      \begin{itemize}
+        \item[(a)] $\vec{\nu}, \vec{\mu} \in [I]^n, \vec{\nu} < \vec{\mu} \Rightarrow f(\vec{\nu}) = f(\vec{\mu})$
+        \item[(b)] $\vec{\nu}, \vec{\mu} \in [I]^n, \vec{\nu} < \vec{\mu} \Rightarrow f(\vec{\nu}) < f(\vec{\mu})$
+        \item[(c)] $\vec{\nu}, \vec{\mu} \in [I]^n, \vec{\nu} < \vec{\mu} \Rightarrow f(\vec{\mu}) > f(\vec{\nu})$          
+      \end{itemize}
+      (c) nicht möglich, (b) nicht möglich wegen Minimalität. Also
+      gilt (a) wie gewünscht.
+\end{itemize}
 
+{\bf Korollar:} $\kappa$ Ramsey $\Rightarrow$ $\kappa$ ist
+$\kappa$-Erdös.
 
+{\bf 4. Übung:}
 
+{\bf Aufgabe 1:} Sei $\kappa$ subtil. Man zeige, dass $\kappa$ 2-Mahlo
+ist.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+{\bf Aufgabe 2:} Sei $E(\tau)$ die Eigenschaft: für alle
+$\left<S_\alpha | \alpha < \tau\right>$ mit $S_\alpha \subseteq
+\alpha$ existieren $\omega \le \alpha < \beta < \tau$ mit $S_\alpha =
+S_\beta \cap \alpha$. Sei $A = \{\tau \in \Card | E(\tau)\} \neq
+\emptyset$, und sei $\kappa = \min A$. Man zeige, dass $\kappa$ subtil
+ist.
 
 \end{document}
