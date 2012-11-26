@@ -1208,7 +1208,7 @@ Ein subtiler ist der folgende:
 
 {\bf Konvention:} Sind $\alpha_1,\ldots,\alpha_n\in \On$, so bedeutet  $\{\alpha_1,\ldots,\alpha_n\}$ bedeutet meistens, dass $\alpha_1<\alpha_2<\ldots<\alpha_n$.
 
-{\bf Lemma 1:} Sei $\lim(\alpha)$ und $\kappa\to(\kappa)^{<\omega}_2$.
+{\bf Lemma 1:} Sei $\lim(\alpha)$ und $\kappa\to(\alpha)^{<\omega}_2$.
   Dann gilt $\kappa\to(\alpha)^{<\omega}_{2^{\omega}}$.
   
   {\bf Beweis:} Sei $f\colon [\kappa]^{<\omega}\to 2^{\omega}$.
@@ -1438,5 +1438,93 @@ $\left<S_\alpha | \alpha < \tau\right>$ mit $S_\alpha \subseteq
 S_\beta \cap \alpha$. Sei $A = \{\tau \in \Card | E(\tau)\} \neq
 \emptyset$, und sei $\kappa = \min A$. Man zeige, dass $\kappa$ subtil
 ist.
+
+{\bf Satz 6:} Sei $\kappa$ $\beta$-Erdös, $\alpha<\beta$, $\beta\supseteq 3$. 
+  Dann ist $\{\tau<\kappa\mid\tau\mbox{ $\alpha$-Erdös }\}$ stationär in $\kappa$.
+
+  {\bf Beweis:} Wegen $\beta\supseteq 3$ ist $\kappa$ unerreichbar.
+    Annahme: Behauptung falsch.
+    Sei also $C\subseteq \kappa$ abg. unb. in $\kappa$ mit $\forall_{\alpha\in C}$ $\tau$ nicht $\alpha$-Erdös.
+    o.E. sei $\forall \tau\in C$ $\tau$ Kardinalzahl, $\tau\neq 0$.
+    Sei also für $\tau\in C$ $f_{\tau}\colon [C_{\tau}]^{<\omega}\to\tau$ regressiv mit 
+    $C_{\tau}\subseteq\tau$ abg. unb. in $\tau$ und $f_{\tau}$ besitzt keine homogene Menge von Ordnungstyp $\alpha$.
+    Sei $h\colon \kappa\times\kappa\to\kappa$ bijektiv.
+    o.E. $\forall_{\tau\in C} h''\tau\times\tau\subseteq\tau$.
+    Definiere nun $g_0\colon [C]^{<\omega}\to\tau$ durch
+    \[  g_0(\{\tau,\eta\})= \left\{\begin{array}{cl} 0 & \mbox{ falls }C_{\tau}=C_{\eta}\cap\tau \\ \min(C_{\tau}\triangle C_{\eta})+1 & \mbox{ sonst} \end{array}\right. \]
+    $g_0$ beliebig sonst.
+    und $g_1\colon [C]^{<\omega}\to\kappa$ durch
+    \[ g_1(\{\tau_0,\ldots,\tau_n\})=\left\{\begin{array}{cl} f_{\tau_n}(\{\tau_0,\ldots,\tau_{n-1}\}) &\mbox{ falls }\tau_0,\ldots,\tau_{n-1}\in C_{\tau_n} \\
+      0 & \mbox{ sonst}\end{array}\right.\]
+    Setze dann $g(\{\tau_0,\ldots,\tau{n-1}\})= h(g_0(\{\tau_0,\ldots,\tau_{n-1}\}), g_1(\{\tau_0,\ldots,\tau_{n-1}\}))$ für $\tau_0,\ldots,\tau_{n-1}\in C$.
+    Setze nach Vor. $X\subseteq C$ homogen für $g$ mit $\otp(X)=\beta$.
+    Dann ist $X$ homogen für $g_0$ und $g_1$.
+    Weg $X$ homogen für $g_0$ gilt
+    \begin{itemize}\item[(*)] $\nu, \tau\in X, \nu \in\tau \to C_{\nu}=C_{\tau}\cap\nu\to \nu\in C_{\tau}$\end{itemize}
+    Sei nun $\tau$ das $(\alpha+1)$-te Element von $X$.
+    Dann $X\cap\tau\subseteq C_{\tau}$ wegen (*) und $X\cap\tau$ homogen für $f_{\tau}$, da $X$ homogen für $f_{\tau}$, da $X$ homogen für $g_1$.
+    Widerspruch zur Wahl von $f_{\tau}$ da $\otp(X\cap\tau)=\alpha$.
+    
+{\bf Satz 7:} Sei $W$ ein inneres Modell (von ZFC) % nicht wie in MDM von ZF!
+  und $\alpha<\omega_1^{W}$.
+  Sei $\kappa$ $\alpha$-Erdös.
+  Dann ist $\kappa$ $\alpha$-Erdös in $W$.
+  
+  {\bf Beweis:} trivial für $\alpha<\omega$.
+    Sei also $\alpha\ge\omega$.
+    Wähle $h\in W$ mit $h\colon\omega\to\alpha$ bijektiv.
+    Definiere $<^*$ auf $\omega$ durch $n<^*m$ :gdw $h(n)<h(m)$.
+    Also ist $\langle\omega,<^*\rangle\in W$ und $\otp(\langle \omega,<^*\rangle)=\alpha$.
+    Sei $f\colon [C]^{<\omega}\to\kappa$ regressiv, $C\subseteq \kappa$ abg. unb. in $\kappa$ mit $f\in W$.
+    Setze $T=\{ s\colon\kappa\to C\mid n\in\omega, \rng(s)\mbox{ homogen für $h$, }\forall_{i,j<n}(i<^*j \mbox{ gdw } s(i)<s(j))\}$
+    Da in $V$ $f$ eine homogene Menge von Ordnungstyp $\alpha$ hat, gilt:
+    \begin{itemize}\item[(*)] $\exists_{s\colon\omega\to C} \forall_n s\upharpoonright n\in T$\end{itemize}
+    Denn: Sei $I\subseteq C$ homogen für $f$ mit $\otp(I)=\alpha$.
+    Definiere $s\colon\omega\to I$ durch $s(n)=$ das $h(n)$-te Element von $I$.
+    Wegen (*) ist also $\langle T,\supsetneq\rangle$ nicht fundiert.
+    Also wegen Absolutheit, da $T\in W$, $W\models \langle T,\supsetneq\rangle$ ist nicht fundiert.
+    Also existiert $s\in W$ mit $s\colon \omega\to C$ und $\forall_n s\upharpoonright n\in T$.
+    Setze $\bar I=\rng(s)$.
+    Dann $\otp(\bar I)=\alpha$, $\bar I\in W$, $\bar I$ homogen für $f$.
+    
+{\bf Satz 8:} Sei $\kappa$ $\alpha$-Erdös, wobei $\alpha=\omega_1^L$.
+  Dann ist $V\neq L$, sogar $|\mathcal P\cap L|=\omega$
+    
+  {\bf Beweis:} Es genügt z.z., dass $|\alpha|=\omega$, da $\mathcal P(\omega)\cap L\subseteq L_{\alpha}$ und $|L_{\alpha}|=|\alpha|$.
+    Betrachte $L_{\kappa}$. 
+    $L_{\kappa}$ hat definierende Wohlordnung $<_L$. 
+    Also hat $L_{\kappa}$ definierbare Skolemfunktion, nämlich für $L$-Formel $\varphi(\vec x,y)$:
+    \[  f_{\varphi}(\vec a)=\left\{\begin{array}{lr} \mbox{das $<_L$-kleinste $b\in L_{\kappa}$ mit $L_{\kappa}\models\varphi[\vec a,b]$} & \mbox{ falls solch ein $b$ existiert} \\ 0 & \mbox{ sonst}\end{array}\right. \]
+    Diese sind abgeschlossen unter Komposition.
+    Nach Voraussetzung und Lemma 4 existiert ein $I\subseteq\kappa$ mit $I$ ist gut für $L_{\kappa}$ und $\otp(I)=\alpha$.
+    Sei $X=\{f_{\varphi}(\vec a)\mid \vec a\in I, \varphi(\vec x, y) L-\mbox{Formel}\}$.
+    Dann $X\prec L_{\kappa}$.
+    Sei $\gamma=\min I$.
+    \begin{itemize}\item[(1)] $\alpha<\gamma$ \end{itemize}
+    
+    {\bf Beweis:} Da $L_{\alpha}\prec L_{\kappa}$ und $\alpha$ definierbar in $L_{\kappa}$ % also (1)
+    
+    Sei nach Kondensationslemma $\pi\colon L_{\delta} \tilde\to X$ für ein $\delta$.
+    Dann natürlich $\delta \ge\otp(I)=\alpha$.
+    \begin{itemize}\item[(2)] $\alpha\subseteq X$ \end{itemize} 
+    
+    {\bf Beweis:} Annahme: nicht.
+      Sei also $\eta=\min\{ \rho<\alpha\mid \rho\not\in X\}$.
+      Dann ist aber $\eta$ abzählbar in $L_{\alpha}\subseteq L_{\delta}$.
+      Also existiert $h\in L_{\delta}$ mit $h\colon \omega\to\eta$ surjektiv.
+      Dann aber $\pi(h)=h$, da $\pi(\omega)=\omega$ und $\pi\upharpoonright\eta = \id\upharpoonright \eta$, da $\eta\subseteq X$.
+      Somit aber $\eta=\rng(h)=\rng(\pi(h))\in X$, und daher $\pi(\eta)=\eta$. % also (2)
+      
+    Sei nun $\langle \gamma_n\mid n\in\omega\rangle$ das Anfangsstück von $I$ der Länge $\omega$.
+    \begin{itemize}\item[(3)] $X\cap \gamma\subseteq\{ f_{\varphi}(\gamma_0,\ldots,\gamma_{n-1})\mid \varphi(\vec x, y) L\mbox{-Formel}\}$ \end{itemize}
+    
+    {\bf Beweis:} Sei $\delta\in X\cap \gamma$.
+      Dann existieren $\nu_0,\ldots,\nu_{n-1}\in I$ mit $\delta =f_{\varphi}(\nu_0,\ldots,\nu_{n-1})$.
+      Also wegen $I$ gute Indiscernibles $\delta=f_{\varphi}(\gamma_0,\ldots,\gamma_{n-1})$. % also (3)
+      
+    Wegen (3) ist aber $X\cap \gamma$ abzählbar.
+    Aber nach (1), (2) $\alpha\subseteq X\cap\gamma$.
+    Also ist $\alpha$ abzählbar.
+
 
 \end{document}
