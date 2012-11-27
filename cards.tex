@@ -60,12 +60,12 @@ Fehler und Anmerkungen bitte an \textsc{christoph {\it punkt} senjak {\it at} if
 {\bf Vorkenntnisse:} Logik, Modelle der Mengenlehre (Konstruktibles
 Universum, Innere Modelle, kein Forcing)
 
-{\bf Inhalt:} Ursprungliche Motivation für groke Kardinalzahl-Axiome
+{\bf Inhalt:} Ursprungliche Motivation für große Kardinalzahl-Axiome
 war, dass $\omega$ ein Sprung in den Kardinalzahlen ist. Man überlegte
 ob so ein Sprungverhalten öfter vorkommen könnte. Die erste
 Vorgehensweise war, bestimmte Eigenschaften von $\omega$ zu isolieren,
-und dann eine Zahl mit den gleichen Eigenschaften ungleich $\omega$
-gefordert hat. Dies ist allerdings inzwischen weitgehend obsolet.
+und dann eine Zahl mit den gleichen Eigenschaften ungleich $\omega$ zu
+fordern. Dies ist allerdings inzwischen weitgehend obsolet.
 
 Die Theorien die man durch große Kardinalzahlen bekommt ist eine
 Verstärkung der ursprünglichen Theorie. Man kann mit immer neuen
@@ -128,7 +128,7 @@ $$ \mathfrak{M}\models \exists_y \varphi[\vec{a},y] \Rightarrow
 \mathfrak{M}\models\varphi[\vec{a},f_\varphi(\vec{a})]$$
 
 Setze
-$\mathcal{F}=\{f_\varphi|\varphi\phantom{a}\mathcal{L}-\mbox{Formel}\}$. Dann
+$\mathcal{F}=\{f_\varphi\mid\varphi\phantom{a}\mathcal{L}-\mbox{Formel}\}$. Dann
 gilt:
 
 Sei $N\subseteq M$, $N\neq\emptyset$, unter allen $f\in\mathcal{F}$
@@ -160,12 +160,12 @@ $\alpha<\kappa$ dass $|V_\alpha|<\kappa$ (also $|V_\kappa|=\kappa$).
   \item $\lim(\lambda)$: Es ist
     $V_\lambda=\bigcup\limits_{\alpha<\lambda} V_\alpha$. Also
     $|V_\lambda|\le |\lambda|\cdot
-    \sup\{|V_\alpha||\alpha<\lambda\}$. Wegen $\lambda<\kappa$ genügt
+    \sup\{|V_\alpha|\mid\alpha<\lambda\}$. Wegen $\lambda<\kappa$ genügt
     es also zu zeigen, dass
-    $\sup\{|V_\alpha||\alpha<\lambda\}<\kappa$. Also für
+    $\sup\{|V_\alpha|\mid\alpha<\lambda\}<\kappa$. Also für
     $\alpha<\lambda$ ist $|V_\alpha|<\kappa$ nach
     Induktionsvoraussetzung und $\lambda<\kappa$. Wegen $\kappa$
-    regulär ist also $\sup\{|V_\alpha||\alpha<\lambda\}<\kappa$.
+    regulär ist also $\sup\{|V_\alpha|\mid\alpha<\lambda\}<\kappa$.
 \end{itemize}
 \hfill $\square$
 
@@ -179,7 +179,7 @@ V_\kappa$. Dann gilt $u\in V_\kappa\Leftrightarrow|u|<\kappa$.
   $u\subseteq V_\alpha$. Somit $|u|\le|V_\alpha|
   \stackrel{\mbox{\tiny L1}}{<} \kappa$.
 \item[$\leftarrow$:] Sei $|u|<\kappa$. Definiere $g:u\rightarrow \On$
-  durch $g(x)=\min\{\alpha|x\in V_\alpha\}$. Wegen $u\subseteq V_k$
+  durch $g(x)=\min\{\alpha\mid x\in V_\alpha\}$. Wegen $u\subseteq V_k$
   ist $\rng(g)\subseteq\kappa$. Aber $|\rng(g)|\le |u|<\kappa$. Wegen
   $\kappa$ regulär ist also $\rng(g)$ beschränkt in $\kappa$. Sei
   $\gamma=\sup \rng (g)$. Dann ist $u\subseteq V_\gamma$, denn für
@@ -193,10 +193,10 @@ V_\kappa$. Dann gilt $u\in V_\kappa\Leftrightarrow|u|<\kappa$.
 {\bf Beweis:}
 \begin{itemize}
 \item (Ext) und (Fund) sind $\Pi_1$. Sie gelten also in $V_\kappa$, da
-  $V_\kappa$ trasitiv.
-\item (Null) da $\emptyset\in V_\kappa$
+  $V_\kappa$ transitiv.
+\item (Null) da $\emptyset\in V_\kappa$.
 \item (Un) da $\omega=\On\cap V_\omega \in V_{\omega+1}\subseteq
-  V_\kappa$ (da $\kappa>\omega$)
+  V_\kappa$ (da $\kappa>\omega$).
 \item (Paar) Seien $x,y\in V_\kappa$. Dann existieren
   $\alpha,\beta<\kappa$ mit $x\in V_\alpha$ und $y\in V_\beta$. Setze
   $\gamma=\max\{\alpha,\beta\}$. Also $\{x,y\}\subseteq V_\gamma$ und
@@ -363,8 +363,8 @@ stationär in $\kappa$.
 {\bf Bemerkung:} $\kappa$ Mahlo $\Rightarrow$ $\{ \tau<\kappa\mid \tau\mbox{ unerreichbar}\}$ ist stationär in $\kappa$.
 
 {\bf Beweis:} Sei $\kappa$ Mahlo. Sei $E= \{\tau<\kappa\mid \tau
-\mbox{ regulär} \}$. Setze \[C=\{ \tau<\kappa\mid \tau>\omega \mbox{
-  und für alle }\lambda<\tau\; 2^{\lambda}<\tau\}\]. $C$ ist
+\mbox{ regulär} \}$. Setze $$C=\{ \tau<\kappa\mid \tau>\omega \mbox{
+  und für alle }\lambda<\tau\; 2^{\lambda}<\tau\}$$ $C$ ist
 abg. unb. in $\kappa$, denn: Abg. ist klar.  Unb.: Sei
 $\alpha<\kappa$.  Setze $\tau_0=\max\{\alpha,\omega\}$,
 $\tau_{n+1}=2^{\tau_n}$.  Wegen $\kappa$ unerreichbar ist
@@ -406,7 +406,7 @@ Aussagen äquivalent sind:
 \end{enumerate}
 
 {\bf Aufgabe 2:} Seien $\alpha,\beta\in\On$ mit $\alpha<\beta$, und es
-gelte $V\alpha\prec V_\beta$. Zeigen Sie, dass $V_\alpha\models\ZFC$.
+gelte $V_\alpha\prec V_\beta$. Zeigen Sie, dass $V_\alpha\models\ZFC$.
 
 {\bf Satz 7:} Es sind äquivalent
 \begin{itemize}
@@ -423,12 +423,12 @@ gelte $V\alpha\prec V_\beta$. Zeigen Sie, dass $V_\alpha\models\ZFC$.
 \begin{itemize}
 \item (1)$\Rightarrow$(2): Sei $\kappa$ Mahlo. Sei $A\subseteq
   V_\kappa$. Wegen $\kappa$ unerreichbar ist dann nach Satz 4
-  $C=\{\alpha<\kappa|V_\alpha\prec\left<V_\kappa,A\right>\}$
+  $C=\{\alpha<\kappa\mid V_\alpha\prec\left<V_\kappa,A\right>\}$
     abgeschlossen unbeschränkt in $\kappa$. Wegen $\kappa$ Mahlo
     existiert also $\alpha\in C$ mit $\alpha$ regulär.
 \item (2)$\Rightarrow$(3): Trivial.
 \item (3)$\Rightarrow$(1): Sei (3) erfüllt. Dann ist $\kappa$
-  unerreichbar nach Satz 4. Sei $E=\{\alpha<\kappa|\alpha\mbox{
+  unerreichbar nach Satz 4. Sei $E=\{\alpha<\kappa\mid \alpha\mbox{
     regulär}\}$. Noch zu zeigen, dass $E$ stationär in $\kappa$. Sei
   hierzu $C\subseteq\kappa$ abgeschlossen unbeschränkt in
   $\kappa$. Dann
@@ -449,7 +449,7 @@ Mahlo. Dann ist $\kappa$ Mahlo in $W$.
 {\bf Beweis:} Nach Lemma 5 ist $\kappa$ unerreichbar in $W$. Sei $C\in
 W$ abgeschlossen unbeschränkt in $\kappa$. Dann existiert $\alpha\in
 C$ mit $\alpha$ regulär. Dann ist aber $\alpha$ auch regulär in
-$W$. Somit ist $\{\alpha<\kappa|\alpha\mbox{ regulär in }W\}$
+$W$. Somit ist $\{\alpha<\kappa\mid \alpha\mbox{ regulär in }W\}$
 stationär in $\kappa$ (in $W$).
 
 \hfill $\square$
@@ -457,7 +457,7 @@ stationär in $\kappa$ (in $W$).
 Wir können die Definition von Mahlo ``iterieren'', zum Beispiel
 
 {\bf Definition:} $\kappa$ ist $2$-Mahlo $:\Leftrightarrow$ $\kappa$
-ist unerreicbar und $\{\alpha<\kappa|\alpha\mbox{ Mahlo}\}$ ist
+ist unerreichbar und $\{\alpha<\kappa\mid \alpha\mbox{ Mahlo}\}$ ist
 stationär in $\kappa$.
 
 {\bf Bemerkung:} $\kappa$ ist $2$-Mahlo $\Rightarrow$ $\kappa$ Mahlo.
@@ -469,15 +469,15 @@ stationär in $\kappa$.
   $\alpha<\kappa$ mit $V_\alpha\prec\left<V_\kappa,A\right>$
 \item[(3)] für alle $A\subseteq V_\kappa$ mit
   $\left<V_\kappa,A\right>\models\varphi$ ($\varphi$ erststufig)
-  existiert Maho $\alpha<\kappa$ mit $\left<V_\alpha,A\cap
-  V_\alpha\right>\models\varphi$.
+  existiert Mahlo $\alpha<\kappa$ mit $\left<V_\alpha,A\cap
+  V_\alpha\right>\models\varphi$
 \end{itemize}
 {\bf Beweis:} Völlig analog zu Beweis von Satz 7.
 
 \hfill $\square$
 
 Noch größere Kardinalzahlen erhalten wir, wenn wir die Eigenschaft (3)
-aus Satz 4 ``für alle $A\subseteq V_\kappa$ und erstsufigen $\varphi$
+aus Satz 4 ``für alle $A\subseteq V_\kappa$ und erststufigen $\varphi$
 mit $\left<V_\kappa,A\right>\models\varphi$ existiert ein
 $\alpha<\kappa$ mit $\left<V_\alpha,A\cap
 V_\alpha\right>\models\varphi$'' wesentlich verstärken.
@@ -487,7 +487,7 @@ V_\alpha\right>\models\varphi$'' wesentlich verstärken.
 
 Sei $A\subseteq V_\kappa$ und es gelte für alle $B\subseteq V_\kappa$
 dass $\left<V_\kappa, A, B\right>\models\varphi$ ($\varphi$
-erststufig). dann existiert $\alpha<\kappa$ mit für alle $B\subseteq
+erststufig). Dann existiert $\alpha<\kappa$ mit für alle $B\subseteq
 V_\alpha$ $\left<V_\alpha,A\cap V_\alpha,B\right>\models\varphi$.
 
 {\bf Definition:} Sei $Q$ eine Eigenschaft von Ordinalzahlen. Wir
@@ -514,7 +514,7 @@ sind $\Pi_1^1$-Eigenschaften.
 \item[(a)] $\kappa$ schwach kompakt $\Rightarrow$ $\kappa$ ist
   $2$-Mahlo
 \item[(b)] $\kappa$ schwach kompakt $\Rightarrow$ existiert
-  $\tau<\kappa$ mit $\tau$ ist $2$-Mahlo.
+  $\tau<\kappa$ mit $\tau$ ist $2$-Mahlo
 \end{itemize}
 
 {\bf Beweis:}
@@ -552,20 +552,20 @@ sind $\Pi_1^1$-Eigenschaften.
 {\bf Lemma 12:} Sei $\kappa$ schwach kompakt. Seien
 $A_1,\ldots,A_n\subseteq V_\kappa$, $\varphi$ erststufig, und es
 gelte: Für alle $B\subseteq V_\kappa$ haben wir
-$\left<V_\kappa,A_1,\ldots,A_n\right>\models\varphi$. Dann existiert
+$\left<V_\kappa,A_1,\ldots,A_n,B\right>\models\varphi$. Dann existiert
 ein $\alpha<\kappa$ mit für alle $B\subseteq V_\alpha$ gilt
 $\left<V_\alpha,A_1\cap V_\alpha,\ldots,A_n\cap
 V_\alpha,B\right>\models\varphi$.
 
 {\bf Beweisskizze:} Setze $A=\bigcup_{i=1}^{n}\{i\}\times A_i$. dann
 ist $A_i$ kanonisch definierbar in $\left<V_\kappa,A\right>$ durch
-$A_i=\{x|\left<i,x\right>\in A\}$. Übersetze hiermit $\varphi$ in
+$A_i=\{x\mid\left<i,x\right>\in A\}$. Übersetze hiermit $\varphi$ in
 $\varphi^x$. Wähle $\alpha<\kappa$ mit für alle $B\subseteq
 V_\alpha\phantom{a}\left<V_\alpha,A\cap
 V_\alpha,B\right>\models\varphi^x \wedge
 \forall_{\gamma\in\On}\exists_{\delta\in\On}\gamma\in\delta$. Dann ist
 $\alpha$ Limesordinalzahl, also $A_i\cap
-V_\alpha=\{x|\left<i,x\right>\in A\cap V_\alpha\}$. Durch
+V_\alpha=\{x\mid\left<i,x\right>\in A\cap V_\alpha\}$. Durch
 Rückübersetzung also für alle $B\subseteq V_\alpha$
 $\left<V_\alpha,A_1\cap V_\alpha,\ldots,A_n\cap
 V_\alpha,B\right>\models\varphi$
@@ -576,7 +576,7 @@ V_\alpha,B\right>\models\varphi$
 $A_1,\ldots,A_n\subseteq V_\kappa$, $\varphi$ erststufig, und es
 gelte: für alle $B\subseteq V_\kappa$ ist
 $\left<V_\kappa,A_1,\ldots,A_n,B\right>\models\varphi$. Setze
-$E=\{\alpha<\kappa|\mbox{für alle }B\subseteq V_\alpha\mbox{ gilt
+$E=\{\alpha<\kappa\mid\mbox{für alle }B\subseteq V_\alpha\mbox{ gilt
 }\left<V_\alpha,A_1\cap V_\alpha,\ldots,A_n\cap V_\alpha,
 B\right>\models\varphi\}$. Dann ist $E$ stationär in $\kappa$.
 
@@ -623,8 +623,8 @@ Folgende Begriffe werden als bekannt vorausgesetzt:
   das Maß $1$ haben sind ein Filter.
 \item Ein {\it Ultrafilter} ist ein bezüglich Inklusion maximaler
   Filter. Ein Filter auf einer Menge $X$ ist genau dann ein
-  Ultrafilter wenn für jede Teilmenge $A\subseteq X$ gilt entweder $A$
-  oder $X\backslash A$ ist in dem Filter.
+  Ultrafilter wenn für jede Teilmenge $A\subseteq X$ gilt: entweder
+  $A$ oder $X\backslash A$ ist in dem Filter.
 \end{itemize}
 
 {\bf Definition:} Ein $\kappa$-Baum ist ein Baum der Höhe $\kappa$ mit
@@ -640,7 +640,7 @@ $\forall_{\alpha<\kappa} |T_\alpha|<\kappa$.
 \end{itemize}
 
 {\bf Beispiel:} Ist $\kappa>\omega$ regulär, so ist
-$\varphi_\kappa=\{A\subseteq\kappa|A\supseteq C\mbox{ für ein
+$\varphi_\kappa=\{A\subseteq\kappa\mid A\supseteq C\mbox{ für ein
   abg. unb. }C\subseteq\kappa\}$ nichttrivialer $\kappa$-vollständiger
 Filter auf $\kappa$.
 
@@ -675,19 +675,19 @@ Filter auf $\kappa$.
   \item (1)$\Rightarrow$(2): Nur zu zeigen
     $\kappa\rightarrow(\kappa)_2^2$. Sei also $f:[\kappa]^2\rightarrow
     2$. Für $\alpha<\kappa$ definiere eine monotone Folge
-    $\left<\gamma_\xi^\alpha|\xi<\delta_\alpha\right>$\footnote{$\delta_\alpha$
+    $\left<\gamma_\xi^\alpha\mid\xi<\delta_\alpha\right>$\footnote{$\delta_\alpha$
       selbst wird erst durch die Rekursion festgelegt.} rekursiv
-    durch: Sei $\left<\gamma_\xi^\alpha|\xi<\eta\right>$ schon
+    durch: Sei $\left<\gamma_\xi^\alpha\mid\xi<\eta\right>$ schon
     konstruiert. Setze
-    $B_\eta^\alpha=\{\gamma<\alpha|\forall_{\xi<\eta}
+    $B_\eta^\alpha=\{\gamma<\alpha\mid\forall_{\xi<\eta}
     (\gamma^\alpha_\xi<\gamma\mbox{ und
     }f(\{\gamma_\xi^\alpha,\gamma\})=0)\}$. Falls
     $B_\eta^\alpha\neq\emptyset$, setze $\gamma_\eta^\alpha=\min
     B_\eta^\alpha$. Andernfalls sei $\delta_\alpha=\eta$. Setze
-    $h(\alpha)=\sup\{\gamma_\xi^\alpha|\xi<\delta_\alpha\}\le\alpha$
-    und $g(\alpha)=\left<\gamma_\xi^\alpha|\xi<\delta_\alpha\right>$.
+    $h(\alpha)=\sup\{\gamma_\xi^\alpha\mid\xi<\delta_\alpha\}\le\alpha$
+    und $g(\alpha)=\left<\gamma_\xi^\alpha\mid\xi<\delta_\alpha\right>$.
     \begin{itemize}
-      \item 1. Fall: $E=\{\alpha<\kappa|h(\alpha)<\alpha\}$ ist
+      \item 1. Fall: $E=\{\alpha<\kappa\mid h(\alpha)<\alpha\}$ ist
         stationär. Dann nach Fodor\footnote{\href
           {https://de.wikipedia.org/wiki/Satz\_von\_Fodor} {Satz aus
             der Mengenlehre}} existiert stationäres $E_0\subseteq E$
@@ -710,17 +710,17 @@ Filter auf $\kappa$.
         wegen $\kappa$ schwach kompakt ein $\alpha\in C$ mit für alle
         $B\subseteq V_\alpha\phantom{a}\left<V_\alpha,f\cap
         V_\alpha,B\right>\models\varphi$. Dies ist ein Widerspruch, da
-        $B=\{\gamma_\xi^\alpha|\xi<\delta_\alpha\}$ ein Gegenbeispiel
+        $B=\{\gamma_\xi^\alpha\mid\xi<\delta_\alpha\}$ ein Gegenbeispiel
         ist.
     \end{itemize}
     \item (2)$\Rightarrow$(3): Zeige zuerst: $\kappa$ ist
       unerreichbar. $\kappa$ ist regulär, denn angenommen
       $\kappa=\sup_{i<\tau}\kappa_i$ mit
-      $\left<\kappa_i|i<\tau\right>$ normal\footnote{streng monoton
+      $\left<\kappa_i\mid i<\tau\right>$ normal\footnote{streng monoton
         und stetig}, $\kappa_0=0$, $\tau<\kappa$. Definiere
       $f:[k]^2\rightarrow 2$ durch $f(\{\alpha,\beta\})=0
-      \Leftrightarrow\sup\{i|\kappa_i\le\alpha\}=
-      \sup\{i|\kappa_i\le\beta\}$ liefert Widerspruch. \newline Sei
+      \Leftrightarrow\sup\{i\mid \kappa_i\le\alpha\}=
+      \sup\{i\mid \kappa_i\le\beta\}$ liefert Widerspruch. \newline Sei
       $\tau<\kappa$. Zu zeigen $2^\tau\le\kappa$. Gilt wegen
       $2^\tau\not\rightarrow(\tau^+)_2^2$. Hierzu definiere $F:[^\tau
         2]^2\rightarrow 2$\footnote{$^\tau 2$ ist die Menge der
@@ -733,14 +733,14 @@ Filter auf $\kappa$.
       Folge der Länge $\tau^+$ gibt (siehe späteres Argument).
     \item (2)$\Rightarrow$(3): Sei $\utilde{T}=\left<T,\le_T\right>$
       ein $\kappa$-Baum. Ohne Einschränkung $T=\kappa$. Für $t\in
-      T_\alpha$ sei $b_t=\left<t_\gamma|\gamma\le\alpha\right>$ die
+      T_\alpha$ sei $b_t=\left<t_\gamma\mid \gamma\le\alpha\right>$ die
       bezüglich $\le_T$ aufsteigende fFolge der $\le_T$-Vorgänger von
       $t$. Definiere $f:[\kappa]^2\rightarrow 2$ durch
       $f(\{\overline{t},t\})=0\Leftrightarrow(\overline{t}<t\mbox{ und
       }b_{\overline{t}}<_\ell b_t)$. Hierbei:
       $b<_\ell\overline{b}\Leftrightarrow(b\subsetneq\overline{b}\mbox{
         oder }b(\gamma)<\overline{b}(gamma)\mbox{, wobei
-      }\gamma=\min\{\mu|b(\mu)\neq\overline{b}(\mu)\})$. Gemäß (2)
+      }\gamma=\min\{\mu\mid b(\mu)\neq\overline{b}(\mu)\})$. Gemäß (2)
       existiert $X\subseteq\kappa$ mit $|X|=\kappa$ und $i<2$ mit
       $f''[X]^2=\{i\}$. Setze $R_0=\le_\ell$, $R_1=_\ell\ge$,
       $\overline{R}_0=\le$, $\overline{R}_1=\ge$. Also gilt:
@@ -749,34 +749,34 @@ Filter auf $\kappa$.
       monotone Aufzählung von $X$. Wegen $\forall_{\alpha<\kappa}
       |T_\alpha|<\kappa$ können wir ohne Einschränkung annehmen, dass
       $\forall_{\delta<\kappa}\height(t_\delta)\ge\delta$. Für
-      $\gamma<\kappa$ setze $a_\gamma= \left<b_{t_\delta}(\gamma)|
+      $\gamma<\kappa$ setze $a_\gamma= \left<b_{t_\delta}(\gamma)\mid
       \delta\in\kappa\backslash\gamma\right>$. Zeige durch Induktion
       über $\gamma<\kappa$: \newline (*) $a_\gamma$ ist schließlich
       konstant.\newline Für $\beta<\gamma$ wähle hierzu
-      $\beta\le\mu_\beta<\kappa$ mit $\left<\beta_{t_\delta}(\beta)|
+      $\beta\le\mu_\beta<\kappa$ mit $\left<\beta_{t_\delta}(\beta)\mid
       \delta\in\kappa\backslash\mu_\beta\right>$ konstant ist. Sei
       $\mu=\sup_{\beta<\gamma}\mu_\beta$. Dann ist
-      $\left<\beta_{t_\delta}\upharpoonright\gamma|
+      $\left<\beta_{t_\delta}\upharpoonright\gamma\mid
       \delta\in\kappa\backslash\mu\right>$ konstant. Nach Definition
       von $<_\ell$ gilt daher: $\mu\le\delta<\eta<\kappa\rightarrow
       b_{t_\delta}(\gamma)\overline{R}_i b_{t_\eta}(\gamma)$. Ist aber
       $i=0$, so ist also
-      $\left<b_{t_\delta}(\gamma)|\delta\in\kappa\backslash\mu\right>$
+      $\left<b_{t_\delta}(\gamma)\mid\delta\in\kappa\backslash\mu\right>$
       schwach monoton steigend, also schließlich konstant, da
       $|T_\gamma|<\kappa$ und $\kappa$ regulär. Ist aber $i=1$, so ist
-      $\left<b_{t_\delta}(\gamma)|\delta\in\kappa\backslash\gamma\right>$
+      $\left<b_{t_\delta}(\gamma)\mid\delta\in\kappa\backslash\gamma\right>$
       schwach monoton fallend, also schließlich konstant. Für
       $\gamma<\kappa$ setze nun
       $r_\gamma=\mbox{``}\lim\mbox{\textquotedblright} a_\gamma \in
-      T_\gamma$. Dann ist $\{r_\gamma|\gamma<\kappa\}$ Zweig der Länge
+      T_\gamma$. Dann ist $\{r_\gamma\mid\gamma<\kappa\}$ Zweig der Länge
       $\kappa$ in T.
     \item (3)$\Rightarrow$(4): Sei
       $\mathfrak{H}\subseteq\mathfrak{P}(\kappa)$ mit
       $|\mathfrak{H}|\le\kappa$. Sei
-      $\mathfrak{H}\cup\{\kappa\}=\{A_\alpha|\alpha<\kappa\}$. Für
+      $\mathfrak{H}\cup\{\kappa\}=\{A_\alpha\mid\alpha<\kappa\}$. Für
       $\alpha<\kappa$ setze $B_\alpha^0=A_\alpha$,
       $B_\alpha^1=\kappa\backslash A_\alpha$. Setze
-      $T=\{p:\gamma\rightarrow 2|\gamma<\kappa,
+      $T=\{p:\gamma\rightarrow 2\mid\gamma<\kappa,
       |\bigcup\limits_{\alpha<\gamma}B_\alpha^{p(\alpha)}|=\kappa\}$,
       $\utilde{T}=\left<T,\subseteq\right>$. Beachte, dass $p\in
       T\mbox{ und }\beta<\dom(p)\Rightarrow p\upharpoonright\beta\in
@@ -784,7 +784,7 @@ Filter auf $\kappa$.
       \begin{itemize}
       \item[(i)] Höhe von $\utilde{T}$ ist $\le\kappa$.
       \item[(ii)] für $\gamma<kappa$ ist $|T_\gamma|<\kappa$, denn:
-        \vspace{20pt}$T_\gamma=\{p\in T|\dom(p)=\gamma\}$, also $|T_\gamma|\le
+        \vspace{20pt}$T_\gamma=\{p\in T\mid\dom(p)=\gamma\}$, also $|T_\gamma|\le
         2^{|\gamma|}\mathnode{l1}{<}\kappa \mathnode{l2}{{\phantom{aaa\mbox{daa}}\kappa\mbox{ unerreichbar}}}$.
         \item[(iii)] Höhe von $\utilde{T}$ ist $\ge\kappa$.
           \begin{tikzpicture}[overlay]
@@ -795,13 +795,13 @@ Filter auf $\kappa$.
       Für $\delta<\kappa$ definiere $p_\delta:\gamma\rightarrow 2$
       durch die Forderung $\delta\in
       B_\alpha^{p_\delta(\alpha)}$. Wegen $\kappa$ unerreichbar
-      existiert $p$ mit $|\{\delta<\kappa|p_\delta=p\}|=\kappa$. Dann
+      existiert $p$ mit $|\{\delta<\kappa\mid p_\delta=p\}|=\kappa$. Dann
       aber $p\in T_\gamma$. Das beweist (iii). Damit ist $\utilde{T}$
       ein $\kappa$-Baum. \newline Wegen (3) hat $\utilde{T}$ einen
       Zweig $b$ der Länge $\kappa$. Setze
-      $\mathcal{F}=\{D\subseteq\kappa|\exists_{p\in
+      $\mathcal{F}=\{D\subseteq\kappa\mid\exists_{p\in
         b}\exists_{\delta<\kappa}
-      D\supseteq(\bigcap\{B_\alpha^{p(\alpha)}|
+      D\supseteq(\bigcap\{B_\alpha^{p(\alpha)}\mid
       \alpha\in\dom(p)\}\backslash\delta)\}$. $\mathcal{F}$ ist wie
       gewünscht.
     \item (4)$\Rightarrow$(5): Zeige zuerst: $\kappa$ ist
@@ -818,11 +818,11 @@ Filter auf $\kappa$.
       \item[(ii)] Sei $\tau<\kappa$. Angenommen
         $2^\tau\ge\kappa$. Wähle dann $f_i:\tau\rightarrow 2$ für
         $i<\kappa$ mit $i\neq j\rightarrow f_i\neq f_j$. Für
-        $\delta<\tau$ setze $A_\delta=\{i<\kappa|f_i(\delta)=0\}$ und
-        sei $\mathfrak{H}=\{A_\delta|\delta<\tau\}$. Sei hierzu
+        $\delta<\tau$ setze $A_\delta=\{i<\kappa\mid f_i(\delta)=0\}$ und
+        sei $\mathfrak{H}=\{A_\delta\mid\delta<\tau\}$. Sei hierzu
         $\mathcal{F}$ wie in (4). Definiere $f:\tau\rightarrow 2$ so,
         dass
-        $B_\delta=\{i<\kappa|f_i(\delta)=f(\delta)\}\in\mathcal{F}$. Setze
+        $B_\delta=\{i<\kappa\mid f_i(\delta)=f(\delta)\}\in\mathcal{F}$. Setze
         $B=\bigcap\limits_{\delta<\tau}B_\delta\in\mathcal{F}$. Sei
         $i\in B$. Dann ist $f=f_i$. Also hat $B$ höchstens ein
         Element. Dies ist ein Widerspruch zur Nichttrivialität von
@@ -845,14 +845,14 @@ Filter auf $\kappa$.
       $\kappa\backslash\alpha=
       \bigcap\limits_{\beta<\alpha}\kappa\backslash\{\beta\}$. Wir
       bilden nun die ``interne Ultrapotenz'' von $M$ mit
-      $\mathcal{F}$, das heißt setze $B=\{f\in M|f:\kappa\rightarrow
+      $\mathcal{F}$, das heißt setze $B=\{f\in M\mid f:\kappa\rightarrow
       M\}$. Für $f,g\in B$ definiere:
       $$ f \sim g \Leftrightarrow
-      \{\alpha<\kappa|f(\alpha)=g(\alpha)\}\in\mathcal{F} $$ $\sim$
-      ist Äquivalenzrelation. Setze $[f]=\{g|f\sim g\}$,
-      $\overline{N}=\{[f]|f\in B\}$. Definiere zweistellige Relation
+      \{\alpha<\kappa\mid f(\alpha)=g(\alpha)\}\in\mathcal{F} $$ $\sim$
+      ist Äquivalenzrelation. Setze $[f]=\{g\mid f\sim g\}$,
+      $\overline{N}=\{[f]\mid f\in B\}$. Definiere zweistellige Relation
       $E$ auf $\overline{N}$ durch
-      $$ [f]E[g]\Leftrightarrow\{\alpha<\kappa|f(\alpha)\in
+      $$ [f]E[g]\Leftrightarrow\{\alpha<\kappa\mid f(\alpha)\in
       g(\alpha)\}\in\mathcal{F} $$ ist wohldefiniert.  Es gilt dann
       (Satz von Łos):
       \begin{itemize}
@@ -860,9 +860,9 @@ Filter auf $\kappa$.
           $f_1,\ldots,f_n\in B$
           $$ \left<\overline{N},E\right>\models
           \varphi([f_1],\ldots,[f_n])\Leftrightarrow
-          \{\alpha<\kappa|M\models
+          \{\alpha<\kappa\mid M\models
           \varphi(f_1(\alpha),\ldots,f_n(\alpha))\}\in\mathcal{F} $$
-                 {\bf Beweis:} Vorbemerkung: $\{\alpha<\kappa|M\models
+                 {\bf Beweis:} Vorbemerkung: $\{\alpha<\kappa\mid M\models
                  \varphi(f_1(\alpha),\ldots,f_n(\alpha))\}\in M$ wegen
                  Aussonderung in $M$. \newline Induktion über den
                  Formelaufbau: Für $\varphi$ atomar folgt es aus
@@ -874,20 +874,20 @@ Filter auf $\kappa$.
                      \item ``$\Rightarrow$'': Sei
                        $\left<\overline{N},E\right>\models\exists_v\psi([f_1],\ldots,[f_n],v)$. Also
                        nach Induktionsvoraussetzung $\underbrace{
-                         \{\alpha<\kappa|
+                         \{\alpha<\kappa\mid
                          \psi(f_1(\alpha),\ldots,f_n(\alpha),g(\alpha)\}}_{
-                         \subseteq\{\alpha<\kappa|M\models
+                         \subseteq\{\alpha<\kappa\mid M\models
                          \exists_v\psi(f_1(\alpha),\ldots,f_n(\alpha),v)\}}
                        \in\mathcal{F}$.
                      \item ``$\Leftarrow$'' Sei
-                       $A=\{\alpha<\kappa|M\models
+                       $A=\{\alpha<\kappa\mid M\models
                        \exists_v\psi(f_1(\alpha),\ldots,f_n(\alpha),v)\}
                        \in\mathcal{F}$. Wegen $M\models\ZF^-$
                        existiert mit Beschränkung ein $w\in M$ mit
                        $\alpha\in A\rightarrow\exists_{v\in w}M\models
                        \psi(f_1(\alpha),\ldots,f_n(\alpha),v)$. Definiere
                        dann $h:A\rightarrow V$ durch $h(\alpha)=
-                       \{v\in w| M\models
+                       \{v\in w\mid M\models
                        \psi(f_1(\alpha),\ldots,f_n(\alpha),
                        v)\}$. Dann $h\in M$. Sei $\overline{g}\in M$
                        eine Auswahlfunktion für $h$ (nach
@@ -897,7 +897,7 @@ Filter auf $\kappa$.
                        \mbox{falls }\alpha\in A \\ \emptyset &
                        \mbox{falls }\alpha\in A\end{array}\right.$
                        Dann gilt:
-                       $\{\alpha<\kappa|M\models\psi(f_1(\alpha),\ldots,f_n(\alpha),
+                       $\{\alpha<\kappa\mid M\models\psi(f_1(\alpha),\ldots,f_n(\alpha),
                        g(\alpha)\}\in\mathcal{F}$, da Obermenge von
                        $A$. Aber nach Induktionsvoraussetzung
                        $\left<\overline{N},E\right>\models\psi([f_1],\ldots,[f_n],[g])$,
@@ -906,9 +906,9 @@ Filter auf $\kappa$.
                    \end{itemize}
                  \item[(++)] $E$ ist fundiert. \newline {\bf Beweis:}
                    Angenommen nicht. Dann existiert eine Folge
-                   $\left<f_n|n\in\omega\right>$ aus $B$ mit
+                   $\left<f_n\mid n\in\omega\right>$ aus $B$ mit
                    $\forall_n[f_{n+1}]E[f_n]$,
-                   d.h. $X_n)=\{\alpha<\kappa|f_{n+1}(\alpha)\in
+                   d.h. $X_n)=\{\alpha<\kappa\mid f_{n+1}(\alpha)\in
                    f_n(\alpha)\}\in\mathcal{F}$. Wegen $\mathcal{F}$
                    $\kappa$-vollständig und $\kappa>\omega$ ist also
                    $\bigcap\limits_{n\in\omega}X_n\in\mathcal{F}$,
@@ -921,14 +921,14 @@ Filter auf $\kappa$.
                    transitives $N$ und $\pi$ mit
                    $\pi:\left<\overline{N},E\right>
                    \stackrel{\sim}{\rightarrow}N$ (einfach
-                   $\pi([f])=\pi''\{[g]|[g]\in[f]\}$). Für $x\in M$
+                   $\pi([f])=\pi''\{[g]\mid [g]\in[f]\}$). Für $x\in M$
                    definiere $c_x:\kappa\rightarrow M$ durch
                    $c_x(\alpha)=x$. Beachte, dass $c_x\in
                    M$. Definiere nun $j:M\rightarrow N$ durch
                    $j(x)=\pi([c_x])$. Wegen (+) gilt $j:M\rightarrow
                    N$ elementar, denn
                    $(M\models\varphi[a_1,\ldots,a_n]) \Leftrightarrow
-                   \{\alpha<\kappa|M\models
+                   \{\alpha<\kappa\mid M\models
                    \varphi(c_{a_1}(\alpha),\ldots,c_{a_n}(\alpha)\}\in
                    \mathcal{F}) \mathop{\Leftrightarrow}\limits_{\mbox{\tiny (+)}}\left<\overline{N},E\right>\models\varphi([c_{a_1}],\ldots,[c_{a_n}])
                    \mathop{\Leftrightarrow}\limits_{\tiny \pi\mbox{
@@ -942,7 +942,7 @@ Filter auf $\kappa$.
                      \item[] {\bf Beweis} ``$\Rightarrow$'': Indirekt:
                        Sei
                        $\forall_{\gamma<\tau}[g]\neq[c_\gamma]$. Also
-                       $B_\gamma=\{\alpha<\kappa|g(\alpha)\neq\gamma\}\in\mathcal{F}$. Wegen
+                       $B_\gamma=\{\alpha<\kappa\mid g(\alpha)\neq\gamma\}\in\mathcal{F}$. Wegen
                        $\mathcal{F}$ $\kappa$-vollständig also
                        $B=\bigcap\limits_{\gamma<\tau}B_\gamma\in\mathcal{F}$. Also
                        $\forall_{\alpha\in
@@ -950,11 +950,11 @@ Filter auf $\kappa$.
                        $[g]E[c_\tau]$.
                    \end{itemize}
                    Aus (+++) folgt rekursiv für $\tau<\kappa$:
-                   $\pi([c_\tau])=\pi''\{[c_\gamma]|\gamma<\tau\}=\tau$. Außerdem
+                   $\pi([c_\tau])=\pi''\{[c_\gamma]\mid \gamma<\tau\}=\tau$. Außerdem
                    $[\id\upharpoonright\kappa]E[c_\kappa]$. Aber es
                    gilt
                    $\forall_{\tau<\kappa}[c_\tau]E[\id\upharpoonright\kappa]$,
-                   da $\{\alpha<\kappa|c_\tau(\alpha)\in\id(\alpha)\}=
+                   da $\{\alpha<\kappa\mid c_\tau(\alpha)\in\id(\alpha)\}=
                    \kappa\backslash(\tau+1)\in\mathcal{F}$. Also
                    $\pi([c_\kappa])>\kappa$, das heißt
                    $j(\kappa)>\kappa$.
@@ -963,7 +963,7 @@ Filter auf $\kappa$.
       ein transizives $M\models\ZFC^-$ mit $A,\kappa,V_\kappa\in M$
       und $|M|=\kappa$, denn: Wegen $\kappa$ unerreichbar ist
       $|V_\kappa|=\kappa$. Außerdem $H_{\kappa^+}\models\ZFC^-$, wobei
-      $H_{\kappa^+}=\{x||TC(x)|\le\kappa\}$. Wähle also
+      $H_{\kappa^+}=\{x\mid|TC(x)|\le\kappa\}$. Wähle also
       $\tilde{M}\prec H_{\kappa^+}$ mit
       $V_\kappa\cup\{V_\kappa,A\}\subseteq\tilde{M}$ und
       $|\tilde{M}|=\kappa$. Sei
@@ -1284,10 +1284,10 @@ Ein subtiler ist der folgende:
 {\bf Satz 3:} $\kappa$ ist $3$-Erdös $\Leftrightarrow$ $\kappa$ ist subtil.
 {\bf Beweis:}
 \begin{itemize}
-  \item ``$\Rightarrow$'': Sei $\left<S_\alpha|\alpha\in C\right>$,
+  \item ``$\Rightarrow$'': Sei $\left<S_\alpha\mid\alpha\in C\right>$,
     $S_\alpha\subseteq\alpha$ abgeschlossen unbeschränkt in $\kappa$,
     gegeben. Ohne Einschränkung
-    $C\subseteq\{\alpha<\kappa|\lim(\alpha)\}$. Definiere
+    $C\subseteq\{\alpha<\kappa\mid\lim(\alpha)\}$. Definiere
     $f:[C]^2\rightarrow\kappa$ regressiv durch
 
     $$ f(\{\alpha,\beta\}) = \left\{ \begin{array}{cl} 0 & \mbox{falls
@@ -1350,10 +1350,10 @@ Ein subtiler ist der folgende:
     $\Fml_{\mathcal{L}}\subseteq
     V_\omega$\footnote{$\Fml_{\mathcal{L}}$ sind die Formeln über
       $\mathcal{L}$}. Wegen $\kappa>\omega$ regulär ist
-    $\overline{C}=\{\gamma<\kappa|\mathfrak{A}_\gamma\prec\mathfrak{A}\}$
+    $\overline{C}=\{\gamma<\kappa\mid\mathfrak{A}_\gamma\prec\mathfrak{A}\}$
     abgeschlossen unbeschränkt in $\kappa$. Sei $g:\Fml_{\mathcal{L}}
     \times \kappa^{<\omega} \rightarrow \kappa\backslash\{0\}$
-    Bijektion. Dann ist $D = \{\alpha < \kappa | g''(\Fml \times
+    Bijektion. Dann ist $D = \{\alpha < \kappa \mid g''(\Fml \times
     a^{<\omega})\subseteq \alpha\}$ abgeschlossen unbeschränkt in
     $\kappa$. Setze $C = \overline{C} \cap D$, also $C$ abgeschlossen
     unbeschränkt in $\kappa$. Definiere nun
@@ -1377,7 +1377,7 @@ Ein subtiler ist der folgende:
 {\bf Zusatz:} (2)$\Rightarrow$(1) gilt ohne Voraussetzung $\lim(\alpha)$.
 
 {\bf Satz 5:} Sei $\lim(\alpha)$. Es gelte $\tau \rightarrow
-(a)^{<\omega}_2$ für ein $\tau$. Sei $\kappa = \min\{\tau | \tau
+(a)^{<\omega}_2$ für ein $\tau$. Sei $\kappa = \min\{\tau \mid \tau
 \rightarrow (\alpha)^{<\omega}_2\}$. Dann ist $\kappa$ $\alpha$-Erdös.
 
 {\bf Beweis:} Sei $f:[C]^{<\omega} \rightarrow \kappa$ regressiv, $C$
@@ -1407,7 +1407,7 @@ $\mathfrak{A}$ und $\min(I)$ minimal.
           h(\gamma)$
       \end{itemize}
       (c) ist wegen $I$ unendlich nicht möglich. Falls
-      (b), so $\overline{I} = \{h(\gamma) | \gamma \in I\}$ Menge von
+      (b), so $\overline{I} = \{h(\gamma) \mid \gamma \in I\}$ Menge von
       Indiscernibles für $\mathfrak{A}$ mit $\otp(\overline{I}) =
       \alpha$, $\min(\overline{I}) < \min(I)$. Widerspruch. Falls (a)
       setze $\overline{h}\gamma) = \min(C\backslash\gamma)$. Dann
@@ -1436,9 +1436,9 @@ $\kappa$-Erdös.
 ist.
 
 {\bf Aufgabe 2:} Sei $E(\tau)$ die Eigenschaft: für alle
-$\left<S_\alpha | \alpha < \tau\right>$ mit $S_\alpha \subseteq
+$\left<S_\alpha \mid \alpha < \tau\right>$ mit $S_\alpha \subseteq
 \alpha$ existieren $\omega \le \alpha < \beta < \tau$ mit $S_\alpha =
-S_\beta \cap \alpha$. Sei $A = \{\tau \in \Card | E(\tau)\} \neq
+S_\beta \cap \alpha$. Sei $A = \{\tau \in \Card \mid E(\tau)\} \neq
 \emptyset$, und sei $\kappa = \min A$. Man zeige, dass $\kappa$ subtil
 ist.
 
@@ -1543,7 +1543,7 @@ $$f_\varphi(\vec{x})=\left\{\begin{array}{cl} \mbox{das
   existiert} \\ 0 & \mbox{sonst}\end{array}\right.$$ Ergibt abzählbare
 Sprache $\mathcal{L}$ und Theorie $T_{\mathcal{L}}\supseteq T_0$. Sei
 ohne Einschränkung $\Fml_{\mathcal{L}}\subseteq\omega$,
-$\left<v_i|i\in\omega\right>$ feste Aufzählung der Variablen.
+$\left<v_i\mid i\in\omega\right>$ feste Aufzählung der Variablen.
 
 {\bf Bemerkung:} Ist $\mathcal{M}=\left<M,E\right>\models\ZF+V=L$, so
 existiert eine eindeutige $\mathcal{L}$-Expression
@@ -1559,11 +1559,11 @@ ist {\it E-M-Menge} (Ehrenfeucht-Mostovski-Menge) genau dann wenn
   \item[(E1)] $\Sigma$ ist vollständig und widerspruchsfrei [betrachte
     die freien Variablen als Konstanten]
   \item[(E2)] $\Sigma\supseteq T_{\mathcal{L}}$
-  \item[(E3)] $\Sigma\supseteq\{v_i\in\On|i\in\omega\}\cup\{v_i\in
-    v_j|i<j\}$
+  \item[(E3)] $\Sigma\supseteq\{v_i\in\On\mid i\in\omega\}\cup\{v_i\in
+    v_j\mid i<j\}$
   \item[(E4)] $\Sigma\supseteq\{\varphi(v_{i_0},\ldots,v_{i_{n-1}})
     \leftrightarrow
-    \varphi(v_{j_0},\ldots,v_{j_{n-1}})|\varphi(x)\phantom{a}
+    \varphi(v_{j_0},\ldots,v_{j_{n-1}})\mid \varphi(x)\phantom{a}
     \mathcal{L}\mbox{-Formel},
     i_0<\ldots<i_{n-1},j_0<\ldots<j_{n-1}\}$
 \end{itemize}
@@ -1604,9 +1604,9 @@ und $I_\alpha\subseteq H(\Sigma,\alpha)$ mit den Eigenschaften
 {\bf Bemerkung:} $\mathfrak{H}(\Sigma,\alpha)$ ist durch (a)-(d) bis
 auf Isomorphie eindeutig bestimmt. Wir geben eine explizite uniforme
 Definition von $\mathfrak{H}(\Sigma,\alpha)$ als Termmodell an. Sei
-hierzu $\left<c_i|i\in\On\right>$ eine Klasse von neuen
+hierzu $\left<c_i\mid i\in\On\right>$ eine Klasse von neuen
 Konstanten. Setze zuerst
-$H'(\Sigma,\alpha)=\{t(c_{\xi_0},\ldots,c_{\xi_{n-1}})|
+$H'(\Sigma,\alpha)=\{t(c_{\xi_0},\ldots,c_{\xi_{n-1}})\mid
 t\phantom{a}\mathcal{L} \mbox{-Funktionszeichen},
 \xi_0<\ldots<\xi_{n-1}<\alpha\}$. Definiere
 $\sim=\sim_{\Sigma,\alpha}$ auf $H'(\Sigma,\alpha)$ durch
@@ -1618,8 +1618,8 @@ t'(v_{g(\eta_0)},\ldots,v_{g(\eta_{m-1})}) \in \Sigma$$ wobei $g :
 \{\eta_0,\ldots,\eta_{m-1}\}\stackrel{\sim}{\rightarrow} k$. Beachte,
 dass $\sim$ nicht von $\alpha$ abhängt. $\sim$ ist Äquivalenzrelation
 nach (E4). Setze $[t(\vec{c})]_\alpha=\{t'(\vec{c'})\in
-H'(\Sigma,\alpha)|t(\vec{c})\sim_{\Sigma,\alpha} t'(\vec{c'})\}$ und
-$H(\Sigma,\alpha)=\{[t(\vec{c})]_\alpha|t(\vec{c})\in
+H'(\Sigma,\alpha)\mid t(\vec{c})\sim_{\Sigma,\alpha} t'(\vec{c'})\}$ und
+$H(\Sigma,\alpha)=\{[t(\vec{c})]_\alpha\mid t(\vec{c})\in
 H'(\Sigma,\alpha)\}$. Definiere $E_\alpha$ auf $H(\Sigma,\alpha)$
 durch
 
@@ -1634,7 +1634,7 @@ wobei $g:\{\xi_0,\ldots,\xi_{n-1}\}\cap\{\eta_0,\ldots,\eta_{m-1}\}
 \stackrel{\sim}{\rightarrow} k$. Ist wohldefiniert wegen (E4). Setze
 schließlich
 $\mathfrak{H}(\Sigma,\alpha)=\left<H(\Sigma,\alpha),E_\alpha\right>$. Weiterhin
-sei $I_\alpha=\{[c_\xi]_\alpha|\xi<\alpha\}$. Der Nachweis von (E5)
+sei $I_\alpha=\{[c_\xi]_\alpha\mid \xi<\alpha\}$. Der Nachweis von (E5)
 ist leicht (vgl. ML1). Für $\alpha\le\beta$ definiere
 $i_{\alpha\beta}:H(\Sigma,\alpha)\rightarrow H(\Sigma,\beta)$ durch
 $i_{\alpha\beta}([t(\vec{c})]_\alpha)=[t(\vec{c})]_\beta$. Ist
@@ -1645,11 +1645,11 @@ wohldefiniert. Es folgt unmittelbar:
   \item[(a)] $i_{\alpha\beta}:\mathfrak{H}(\Sigma,\alpha) \rightarrow
     \mathfrak{H}(\Sigma,\beta)$ ist elementar
   \item[(b)] $i_{\alpha\beta}''I_\alpha$ ist Anfangsstück von $I_\beta$
-  \item[(c)] $\left<i_{\alpha\beta}|\alpha\le\beta\in\On\right>$ ist
+  \item[(c)] $\left<i_{\alpha\beta}\mid \alpha\le\beta\in\On\right>$ ist
     kommutativ, das heißt $i_{\alpha\alpha}=\id$,
     $\alpha\le\beta\le\gamma\Rightarrow
     i_{\alpha\gamma}=i_{\beta\gamma}\circ i_{\alpha\beta}$
-  \item[(d)] $\left<i_{\alpha\beta}|\alpha\le\beta\in\On\right>$ ist
+  \item[(d)] $\left<i_{\alpha\beta}\mid\alpha\le\beta\in\On\right>$ ist
     stetig, das heißt falls $\lim\lambda$, so
     $H(\Sigma,\lambda)=\bigcup\limits_{a<\lambda}\rng
     i_{\alpha\lambda}$.
@@ -1671,9 +1671,9 @@ t(v_0,\ldots,v_{n-1},v_n,\ldots,v_{n+m})=t(v_0,\ldots,v_{n-1},v_{n+m+1},\ldots,v
 
 {\bf Lemma 9:} Sei $\Sigma$ bemerkenswerte E-M-Menge. Sei $\alpha<\beta$ mit $\lim \alpha$. Dann gilt
 $$i_{\alpha\beta}''\On^{\mathfrak{H}_\alpha}=\{b\in
-H_\beta|\mathfrak{H}_\beta\models b<[c_\alpha]_\beta\}$$ Insbesondere
+H_\beta\mid\mathfrak{H}_\beta\models b<[c_\alpha]_\beta\}$$ Insbesondere
 ist also $[c_\alpha]_\beta$ in $\On^{\mathfrak{H}_\beta}$ das Supremum
-von $\{[c_\gamma]_\beta|\gamma<\alpha\}$.
+von $\{[c_\gamma]_\beta\mid\gamma<\alpha\}$.
 
 {\bf Beweis:}
 \begin{itemize}
@@ -1691,7 +1691,7 @@ von $\{[c_\gamma]_\beta|\gamma<\alpha\}$.
     $b=[t(c_{\eta_0},\ldots,c_{\eta_{n-1}},c_{\eta_{n-1}+1},\ldots,c_{\eta_{n-1}+m})]_\beta\in\rng
     (i_{\alpha\beta})$.
   \item ``Insbesondere'': Folgt sofort, da wegen $\Sigma$ konfinal
-    $\{[c_\gamma]_\beta|\gamma<\alpha\}$ konfinal in
+    $\{[c_\gamma]_\beta\mid\gamma<\alpha\}$ konfinal in
     $i_{\alpha\beta}''\On$.
 \end{itemize}
 \hfill $\square$
@@ -1729,7 +1729,7 @@ $\Sigma$ ist schön $\Leftrightarrow$ $\Sigma$ ist bemerkenswert und
 fundiert.
 
 {\bf Satz 11:} Sei $\Sigma$ eine schöne E-M-Menge. Dann ist
-$\Sigma=\{\varphi(v_0,\ldots,v_{n-1}) |
+$\Sigma=\{\varphi(v_0,\ldots,v_{n-1}) \mid
 L_{\omega_\omega}\models\varphi(\omega_1,\ldots,\omega_n)\}$ [also
   gibt es höchstens eine schöne E-M-Menge].
 
@@ -1747,7 +1747,7 @@ $H_{\omega_\omega}$, so folgt sofort, dass
 $H_{\omega_\omega}=L_{\omega_\omega}$ und $I=I_{\omega_\omega}$
 abgeschlossen in $\omega_\omega$ und für jedes $n<\omega$
 $\sup(I\cap\omega_{n+1})=\omega_{n+1}$. Also ist
-$\{\omega_{n+1}|n\in\omega\}\subseteq I$. Hieraus folgt die
+$\{\omega_{n+1}\mid n\in\omega\}\subseteq I$. Hieraus folgt die
 Behauptung.
 \hfill $\square$
 
@@ -1757,7 +1757,7 @@ Also $\osharp\subseteq\omega$.
 
 {\bf Bemerkung:} Es existiert $\Pi_1$-formel $\varphi(x)$ mit:
 $$ H_{\omega_1}\models\varphi(x) \Leftrightarrow x=\osharp $$
-[hierbei: $H_{\omega_1}=\{x|\TC(x)\mbox{ ist abzählbar}\}$.]
+[hierbei: $H_{\omega_1}=\{x\mid\TC(x)\mbox{ ist abzählbar}\}$.]
 
 {\bf Beweis:} $$ \varphi(x)=\underbrace{\mbox{``x ist bemerkenswerte
     E-M-Menge''}}_{\Delta_1}\mbox{ und
@@ -1768,7 +1768,7 @@ $$ H_{\omega_1}\models\varphi(x) \Leftrightarrow x=\osharp $$
 $\osharp$.
 
 {\bf Beweis:} Sei $I\subseteq\kappa$ gut für $L_\kappa$ mit
-$\otp(I)=\omega_1$. Sei $\left<\gamma_i|i<\omega_1\right>$ die
+$\otp(I)=\omega_1$. Sei $\left<\gamma_i\mid i<\omega_1\right>$ die
 monotone Aufzählung von $I$. Setze $\Sigma=\bigcup\limits_n
 \tp_{L_\kappa}^n(I)$. Also ist $\Sigma$ E-M-Menge, da
 $L_\kappa\models\ZF$. $\Sigma$ ist konfinal, denn:
