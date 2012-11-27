@@ -28,6 +28,9 @@
   \mathord{\tikz[baseline=(#1.base), inner sep = 0pt]{\node (#1) {$#2$};}}}
 
 \newcommand{\rng}{\operatorname{rng}}
+\newcommand{\Term}{\operatorname{Term}}
+\newcommand{\TC}{\operatorname{TC}}
+\newcommand{\osharp}{\operatorname{O}^\sharp}
 \newcommand{\ZFC}{\operatorname{ZFC}}
 \newcommand{\ZF}{\operatorname{ZF}}
 \newcommand{\Card}{\operatorname{Card}}
@@ -1524,7 +1527,276 @@ ist.
       
     Wegen (3) ist aber $X\cap \gamma$ abzählbar.
     Aber nach (1), (2) $\alpha\subseteq X\cap\gamma$.
-    Also ist $\alpha$ abzählbar.
+    Also ist $\alpha$ abzählbar. \hfill $\square$
 
+%% ############### 22. Nov2012
+
+Sei $\mathcal{L}_0$ die die Sprache der Mengenlehre. Sei
+$T_0=\ZF+V=L$. Erweitere nun rekursiv die Sprache $\mathcal{L}_0$ zu
+$L$ durch Einführung neuer Funktionszeichen beziehungsweise Konstanten
+(= nullstellige Funktionen) wie folgt:
+
+Sei $\varphi(\vec{x},y)$ Formel. Neues Funktionszeichen $f_\varphi$
+und hierfür das Axiom
+$$f_\varphi(\vec{x})=\left\{\begin{array}{cl} \mbox{das
+}<_L\mbox{-kleinste }y\mbox{ mit }\varphi(\vec{x},y)&\mbox{falls
+  existiert} \\ 0 & \mbox{sonst}\end{array}\right.$$ Ergibt abzählbare
+Sprache $\mathcal{L}$ und Theorie $T_{\mathcal{L}}\supseteq T_0$. Sei
+ohne Einschränkung $\Fml_{\mathcal{L}}\subseteq\omega$,
+$\left<v_i|i\in\omega\right>$ feste Aufzählung der Variablen.
+
+{\bf Bemerkung:} Ist $\mathcal{M}=\left<M,E\right>\models\ZF+V=L$, so
+existiert eine eindeutige $\mathcal{L}$-Expression
+$\mathcal{M}'=\left<M,E,\ldots\right>$ von $\mathcal{M}$ mit
+$\mathcal{M}\models T_{\mathcal{L}}$. Wir identifizieren $\mathcal{M}$
+mit $\mathcal{M}'$, das heißt betrachten $\mathcal{M}$ als
+$\mathcal{L}$-Struktur. Außerdem sei $t^{\mathcal{M}}$ für $\Term t$
+die Interpretation von $t$ in $\mathcal{M}$.
+
+{\bf Definition:} Sei $\Sigma\subseteq\Fml_{\mathcal{L}}$. $\Sigma$
+ist {\it E-M-Menge} (Ehrenfeucht-Mostovski-Menge) genau dann wenn
+\begin{itemize}
+  \item[(E1)] $\Sigma$ ist vollständig und widerspruchsfrei [betrachte
+    die freien Variablen als Konstanten]
+  \item[(E2)] $\Sigma\supseteq T_{\mathcal{L}}$
+  \item[(E3)] $\Sigma\supseteq\{v_i\in\On|i\in\omega\}\cup\{v_i\in
+    v_j|i<j\}$
+  \item[(E4)] $\Sigma\supseteq\{\varphi(v_{i_0},\ldots,v_{i_{n-1}})
+    \leftrightarrow
+    \varphi(v_{j_0},\ldots,v_{j_{n-1}})|\varphi(x)\phantom{a}
+    \mathcal{L}\mbox{-Formel},
+    i_0<\ldots<i_{n-1},j_0<\ldots<j_{n-1}\}$
+\end{itemize}
+
+{\bf Bemerkung:} Es sind folgende Aussagen äquivalent
+\begin{itemize}
+  \item[(1)] $\Sigma$ ist E-M-Menge
+  \item[(2)] Es existieren
+    $\mathcal{M}=\left<M,E\right>\models\ZF+V=L$ und unendliches
+    $I\subseteq M$ mit $I$ Menge von Indiscernibles für $M$ und
+    $\Sigma=\bigcup\limits_{n\in\omega}t_{\varphi_{\mathcal{M}}}^n(I)$.
+\end{itemize}
+
+{\bf Beweis:} (2)$\Rightarrow$(1) trivial, (1)$\Rightarrow$(2) nach
+Gödel'schem Vollständigkeitssatz.
+\hfill $\square$
+
+Sei $\Sigma$ E-M-Menge. Sei $\alpha\in\On$. Wir defnieren nun eine
+Struktur
+$\mathfrak{H}_\alpha:=\mathfrak{H}(\Sigma,\alpha)=\left<H(\Sigma,\alpha),E_\alpha\right>$
+und $I_\alpha\subseteq H(\Sigma,\alpha)$ mit den Eigenschaften
+\begin{itemize}
+  \item[(E5)]
+    \begin{itemize}
+      \item[(a)] $\mathfrak{H}_\alpha\models T_{\mathcal{L}}$
+      \item[(b)] $I_\alpha$ ist Menge von Indiscernibles für
+        $\mathfrak{H}_\alpha$ mit $\otp(I_\alpha)=\alpha$ [bezüglich
+        der durch $\mathfrak{H}_\alpha$ induzierten Ordnung]
+      \item[(c)]
+        $\forall_n\tp_{\mathfrak{H}_\alpha}(I_\alpha)\subseteq\Sigma$
+      \item[(d)] $I_\alpha$ erzeugt $H(\Sigma,\alpha)$, das heißt für
+        alle $a\in H(\Sigma,\alpha)$ existiert $t\in\mathcal{L}$ und
+        $\vec{c}\in I_\alpha$ mit
+        $a=t^{\mathfrak{H}_\alpha}(\vec{c})$.
+    \end{itemize}
+\end{itemize}
+
+{\bf Bemerkung:} $\mathfrak{H}(\Sigma,\alpha)$ ist durch (a)-(d) bis
+auf Isomorphie eindeutig bestimmt. Wir geben eine explizite uniforme
+Definition von $\mathfrak{H}(\Sigma,\alpha)$ als Termmodell an. Sei
+hierzu $\left<c_i|i\in\On\right>$ eine Klasse von neuen
+Konstanten. Setze zuerst
+$H'(\Sigma,\alpha)=\{t(c_{\xi_0},\ldots,c_{\xi_{n-1}})|
+t\phantom{a}\mathcal{L} \mbox{-Funktionszeichen},
+\xi_0<\ldots<\xi_{n-1}<\alpha\}$. Definiere
+$\sim=\sim_{\Sigma,\alpha}$ auf $H'(\Sigma,\alpha)$ durch
+$$t(c_{\xi_0},\ldots,c_{\xi_{n-1}})\sim
+t'(c_{\eta_0},\ldots,c_{\eta_{m-1}}) \Leftrightarrow
+t(v_{g(\xi_0)},\ldots,v_{g(\xi_{n-1})}) =
+t'(v_{g(\eta_0)},\ldots,v_{g(\eta_{m-1})}) \in \Sigma$$ wobei $g :
+\{\xi_0, \ldots, \xi_{n-1}\} \cap
+\{\eta_0,\ldots,\eta_{m-1}\}\stackrel{\sim}{\rightarrow} k$. Beachte,
+dass $\sim$ nicht von $\alpha$ abhängt. $\sim$ ist Äquivalenzrelation
+nach (E4). Setze $[t(\vec{c})]_\alpha=\{t'(\vec{c'})\in
+H'(\Sigma,\alpha)|t(\vec{c})\sim_{\Sigma,\alpha} t'(\vec{c'})\}$ und
+$H(\Sigma,\alpha)=\{[t(\vec{c})]_\alpha|t(\vec{c})\in
+H'(\Sigma,\alpha)\}$. Definiere $E_\alpha$ auf $H(\Sigma,\alpha)$
+durch
+
+\begin{eqnarray*}
+[t(c_{\xi_0},\ldots,c_{\xi_{n-1}})]_\alpha E_\alpha
+[t'(c_{\eta_0},\ldots,c_{\eta_{m-1}})]_\alpha \Leftrightarrow \phantom{aaaaaaaaaaaa}\\
+(t(v_{g(\xi_0)},\ldots,v_{g(\xi_{n-1})})\in
+t'(v_{g(\eta_0)},\ldots,v_{g(\eta_{m-1})})\in\Sigma)
+\end{eqnarray*}
+
+wobei $g:\{\xi_0,\ldots,\xi_{n-1}\}\cap\{\eta_0,\ldots,\eta_{m-1}\}
+\stackrel{\sim}{\rightarrow} k$. Ist wohldefiniert wegen (E4). Setze
+schließlich
+$\mathfrak{H}(\Sigma,\alpha)=\left<H(\Sigma,\alpha),E_\alpha\right>$. Weiterhin
+sei $I_\alpha=\{[c_\xi]_\alpha|\xi<\alpha\}$. Der Nachweis von (E5)
+ist leicht (vgl. ML1). Für $\alpha\le\beta$ definiere
+$i_{\alpha\beta}:H(\Sigma,\alpha)\rightarrow H(\Sigma,\beta)$ durch
+$i_{\alpha\beta}([t(\vec{c})]_\alpha)=[t(\vec{c})]_\beta$. Ist
+wohldefiniert. Es folgt unmittelbar:
+\begin{itemize}
+\item[(E6)]
+  \begin{itemize}
+  \item[(a)] $i_{\alpha\beta}:\mathfrak{H}(\Sigma,\alpha) \rightarrow
+    \mathfrak{H}(\Sigma,\beta)$ ist elementar
+  \item[(b)] $i_{\alpha\beta}''I_\alpha$ ist Anfangsstück von $I_\beta$
+  \item[(c)] $\left<i_{\alpha\beta}|\alpha\le\beta\in\On\right>$ ist
+    kommutativ, das heißt $i_{\alpha\alpha}=\id$,
+    $\alpha\le\beta\le\gamma\Rightarrow
+    i_{\alpha\gamma}=i_{\beta\gamma}\circ i_{\alpha\beta}$
+  \item[(d)] $\left<i_{\alpha\beta}|\alpha\le\beta\in\On\right>$ ist
+    stetig, das heißt falls $\lim\lambda$, so
+    $H(\Sigma,\lambda)=\bigcup\limits_{a<\lambda}\rng
+    i_{\alpha\lambda}$.
+  \end{itemize}
+\end{itemize}
+
+Sei weiterhin $\Sigma$ eine E-M-Menge. $\Sigma$ ist konfinal
+$\Leftrightarrow$ für alle $t\in\mathcal{L}$ gilt
+$$(t(v_0,\ldots,v_{n-1})\in\On\rightarrow t(v_0,\ldots,v_{n-1})\in
+v_n)\in\Sigma$$
+
+{\bf Bemerkung:} Sei $\Sigma$ konfinal. Dann ist für alle $\alpha$ mit
+$\lim \alpha$ auch $I_\alpha$ konfinal in $\On^{\mathfrak{H}_\alpha}$.
+%% ######################################################################27.Nov2012
+$\Sigma$ ist bemerkenswert $\Leftrightarrow$ $\Sigma$ ist konfinal und
+für alle $t$ $$(t(v_0,\ldots,v_{n-1},v_n,\ldots,v_{n+m})\in v_n
+\rightarrow
+t(v_0,\ldots,v_{n-1},v_n,\ldots,v_{n+m})=t(v_0,\ldots,v_{n-1},v_{n+m+1},\ldots,v_{n+2m+1}))\in\Sigma$$
+
+{\bf Lemma 9:} Sei $\Sigma$ bemerkenswerte E-M-Menge. Sei $\alpha<\beta$ mit $\lim \alpha$. Dann gilt
+$$i_{\alpha\beta}''\On^{\mathfrak{H}_\alpha}=\{b\in
+H_\beta|\mathfrak{H}_\beta\models b<[c_\alpha]_\beta\}$$ Insbesondere
+ist also $[c_\alpha]_\beta$ in $\On^{\mathfrak{H}_\beta}$ das Supremum
+von $\{[c_\gamma]_\beta|\gamma<\alpha\}$.
+
+{\bf Beweis:}
+\begin{itemize}
+  \item ``$\subseteq$'': Sei $a\in\On^{\mathfrak{H}_\alpha}$. Wegen
+    $\Sigma$ konfinal existiert dann ein $\gamma<\alpha$ mit
+    $\mathfrak{H}_\alpha\models a<[c_\gamma]_\alpha$. Also
+    $\mathfrak{H}_\beta\models
+    i_{\alpha\beta}(a)<[c_\gamma]_\beta<[c_\alpha]_\beta$.
+  \item ``$\supseteq$'': Sei $b\in H_\beta$ mit
+    $\mathfrak{H}_\beta\models b<[c_\alpha]_\beta$. Sei
+    $b=[t(c_{\eta_0},\ldots,c_{\eta_{n-1}},c_{\eta_n},\ldots,c_{\eta_{n+m}})]_\beta$
+    mit $\eta_{n-1}<\alpha\le\eta_n$. Also $\mathfrak{H}_\beta\models
+    b<[c_{\eta_n}]_\beta$. Wegen $Sigma$ bemerkenswert gilt nach
+    (E5)(c), dass
+    $b=[t(c_{\eta_0},\ldots,c_{\eta_{n-1}},c_{\eta_{n-1}+1},\ldots,c_{\eta_{n-1}+m})]_\beta\in\rng
+    (i_{\alpha\beta})$.
+  \item ``Insbesondere'': Folgt sofort, da wegen $\Sigma$ konfinal
+    $\{[c_\gamma]_\beta|\gamma<\alpha\}$ konfinal in
+    $i_{\alpha\beta}''\On$.
+\end{itemize}
+\hfill $\square$
+
+$\Sigma$ ist {\it fundiert} $\Leftrightarrow$ $\forall_\alpha$
+$\mathfrak{H}(\Sigma,\alpha)$ fundierte Struktur, das heißt $E_\alpha$
+ist fundiert.
+
+{\bf Bemerkung:} $\alpha\le\beta$ und $\mathfrak{H}(\Sigma,\beta)$
+fundiert $\Rightarrow$ $\mathfrak{H}(\Sigma,\alpha)$ fundiert (wegen
+$i_{\alpha\beta}$).
+
+{\bf Lemma 10:} Sei $\Sigma$ eine E-M-Menge. Dann sind äquivalent
+\begin{itemize}
+  \item[(a)] $\Sigma$ ist fundiert
+  \item[(b)] $\mathfrak{H}(\Sigma,\omega_1)$ ist fundiert
+  \item[(c)] $\forall_{\alpha<\omega_1}$ $\mathfrak{H}(\Sigma,\alpha)$ ist fundiert
+\end{itemize}
+{\bf Beweis:}
+\begin{itemize}
+  \item (a)$\Rightarrow$(b): trivial
+  \item (b)$\Rightarrow$(c): ist trivial wegen Bemerkung
+  \item (c)$\Rightarrow$(a): indirekt: Sei etwa
+    $\mathfrak{H}(\Sigma,\delta)$ nicht fundiert. Sei
+    $[t_{n+1}(c_{\xi_0^{n+1}},\ldots,c_{\xi_{i_{n+1}}^{n+1}})]_\delta
+    E_\delta [t(c_{\xi_0^n},\ldots,c_{\xi_n^n})]_\delta$. Sei $g :
+    \bigcup\limits_{n=0}^{\infty}\{\xi_0^n,\ldots,\xi_{i_n}^n\}\stackrel{\sim}{\rightarrow}\alpha$. Also
+    $\alpha<\omega_1$. Dann,, da $i_{\alpha\delta}$ elementar:
+    $$ [t_{n+1}(c_{g(\xi_0^{n+1})},\ldots,c_{g(\xi_{i_{n+1}}^{n+1})})]_\alpha E_\alpha [t_n(c_{g(\xi_0^n)},\ldots,c_{g(\xi_{i_n}^n)})]_\alpha $$
+    Also $\mathfrak{H}(\Sigma,\alpha)$ nicht fundiert.
+\end{itemize}
+\hfill $\square$
+
+$\Sigma$ ist schön $\Leftrightarrow$ $\Sigma$ ist bemerkenswert und
+fundiert.
+
+{\bf Satz 11:} Sei $\Sigma$ eine schöne E-M-Menge. Dann ist
+$\Sigma=\{\varphi(v_0,\ldots,v_{n-1}) |
+L_{\omega_\omega}\models\varphi(\omega_1,\ldots,\omega_n)\}$ [also
+  gibt es höchstens eine schöne E-M-Menge].
+
+{\bf Beweis:} Wegen $\Sigma$ fundiert ist jedes
+$\mathfrak{H}(\Sigma,\alpha)=\mathfrak{H}_\alpha$ kanonisch isomorph
+zu einer transitiven Menge. Identifiziere $\mathfrak{H}_\alpha$
+hiermit. Da $\mathfrak{H}_\alpha\models V=L + \ZF$ existiert
+$\delta_\alpha$ mit $H_\alpha=L_{\delta_\alpha}$. Wegen $\Sigma$
+bemerkenswert ist nach Lemma 9 $i_{\alpha\beta}=\id\upharpoonright
+L_{\delta_\alpha}$ (!) für $\alpha<\beta$, $\lim \alpha$. Außerdem ist
+$I_\alpha$ abgeschlossen in $\delta_\alpha$ und für $\lim \alpha$
+unbeschränkt in $\delta_\alpha$. Außerdem natürlich
+$|\delta_\alpha|=\max\{|\alpha|,\omega\}$. Betrachten wir nun speziell
+$H_{\omega_\omega}$, so folgt sofort, dass
+$H_{\omega_\omega}=L_{\omega_\omega}$ und $I=I_{\omega_\omega}$
+abgeschlossen in $\omega_\omega$ und für jedes $n<\omega$
+$\sup(I\cap\omega_{n+1})=\omega_{n+1}$. Also ist
+$\{\omega_{n+1}|n\in\omega\}\subseteq I$. Hieraus folgt die
+Behauptung.
+\hfill $\square$
+
+Wir können also setzen:
+$$ \osharp \simeq \mbox{die einzige schöne E-M-Menge} $$
+Also $\osharp\subseteq\omega$.
+
+{\bf Bemerkung:} Es existiert $\Pi_1$-formel $\varphi(x)$ mit:
+$$ H_{\omega_1}\models\varphi(x) \Leftrightarrow x=\osharp $$
+[hierbei: $H_{\omega_1}=\{x|\TC(x)\mbox{ ist abzählbar}\}$.]
+
+{\bf Beweis:} $$ \varphi(x)=\underbrace{\mbox{``x ist bemerkenswerte
+    E-M-Menge''}}_{\Delta_1}\mbox{ und
+}\underbrace{\forall_{\alpha<\omega_1} \mathfrak{H}(x,\alpha)\mbox{
+    ist fundiert}}_{\Pi_1} $$
+
+{\bf Satz 12:} Sei $\kappa$ $\omega_1$-Erdös. Dann existiert
+$\osharp$.
+
+{\bf Beweis:} Sei $I\subseteq\kappa$ gut für $L_\kappa$ mit
+$\otp(I)=\omega_1$. Sei $\left<\gamma_i|i<\omega_1\right>$ die
+monotone Aufzählung von $I$. Setze $\Sigma=\bigcup\limits_n
+\tp_{L_\kappa}^n(I)$. Also ist $\Sigma$ E-M-Menge, da
+$L_\kappa\models\ZF$. $\Sigma$ ist konfinal, denn:
+
+$$ L_\kappa\models(t(\gamma_0,\ldots,\gamma_{n-1})\in\On\rightarrow
+t(\gamma_0,\ldots,\gamma_{n-1})<\gamma_n) $$
+
+da nach (G1) $L_{\gamma_n}\prec L_\kappa$. $\Sigma$ ist bemerkenswert,
+denn: Sei $L_\kappa\models\underbrace{t(\gamma_0, \ldots,
+  \gamma_{n-1}, \gamma_n, \ldots,
+  \gamma_{n+m})}_{=:\delta}\in\gamma_n$. Da wegen (G2) auch
+$L_\kappa\models t(\gamma_0, \ldots, \gamma_{n-1}, \gamma_{n+m+1},
+\ldots, \gamma_{n+2m+1}) = \delta$.
+
+$\Sigma$ ist fundiert, denn wegen Lemma 10 genügt es zu zeigen, dass
+$\mathfrak{H}(\Sigma,\omega_1)$ fundiert ist. Defniere hierzu
+$\pi:H(\Sigma,\omega_1)\rightarrow L_\kappa$ durch
+$\pi([t(c_{i_0},\ldots,c_{i_{n+1}})]_{\omega_1}=t^{L_\kappa}(\gamma_{i_0},\ldots,\gamma_{i_{n-1}})$. Dann
+ist $\pi$ elementar nach Definition, also fertig.
+\hfill $\square$
+
+{\bf Satz 13 (Silver):} Es existiere $\osharp$. Dann existiert eine
+Klasse $I\subseteq\On$ mit
+\begin{itemize}
+  \item[(a)] $I$ ist abgeschlossen unbeschränkt in $On$
+  \item[(b)] $I$ ist gute Klasse von Indiscernibles für $L$
+  \item[(c)] $I$ erzeugt $L$, das heißt für alle $a\in L$ existiert
+    ein $\vec{\gamma}\in I$ mit $a=t^L(\vec{\gamma})$.
+\end{itemize}
 
 \end{document}
