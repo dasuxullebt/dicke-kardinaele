@@ -27,6 +27,7 @@
 \newcommand{\mathnode}[2]{%
   \mathord{\tikz[baseline=(#1.base), inner sep = 0pt]{\node (#1) {$#2$};}}}
 
+\newcommand{\simrightarrow}{\xrightarrow{\phantom{\sim}\sim\phantom{\sim}}}
 \newcommand{\rng}{\operatorname{rng}}
 \newcommand{\Term}{\operatorname{Term}}
 \newcommand{\TC}{\operatorname{TC}}
@@ -920,7 +921,7 @@ Filter auf $\kappa$.
                    extensional. Somit wegen Mostovski existiert
                    transitives $N$ und $\pi$ mit
                    $\pi:\left<\overline{N},E\right>
-                   \stackrel{\sim}{\rightarrow}N$ (einfach
+                   \simrightarrow N$ (einfach
                    $\pi([f])=\pi''\{[g]\mid [g]\in[f]\}$). Für $x\in M$
                    definiere $c_x:\kappa\rightarrow M$ durch
                    $c_x(\alpha)=x$. Beachte, dass $c_x\in
@@ -967,7 +968,7 @@ Filter auf $\kappa$.
       $\tilde{M}\prec H_{\kappa^+}$ mit
       $V_\kappa\cup\{V_\kappa,A\}\subseteq\tilde{M}$ und
       $|\tilde{M}|=\kappa$. Sei
-      $\pi:\tilde{M}\stackrel{\sim}{\rightarrow}M$ mit $M$ transitiv,
+      $\pi:\tilde{M}\simrightarrow M$ mit $M$ transitiv,
       $M$ ist wie gewünscht (Bemerkung: $\tilde{M}$ ist schon
       transitiv). Gemäß (5) sei $j:M\rightarrow N$ elementar mit $N$
       transitiv, $j\upharpoonright\kappa$, $j(\kappa)>\kappa$. Folgt
@@ -1615,7 +1616,7 @@ t'(c_{\eta_0},\ldots,c_{\eta_{m-1}}) \Leftrightarrow
 t(v_{g(\xi_0)},\ldots,v_{g(\xi_{n-1})}) =
 t'(v_{g(\eta_0)},\ldots,v_{g(\eta_{m-1})}) \in \Sigma$$ wobei $g :
 \{\xi_0, \ldots, \xi_{n-1}\} \cap
-\{\eta_0,\ldots,\eta_{m-1}\}\stackrel{\sim}{\rightarrow} k$. Beachte,
+\{\eta_0,\ldots,\eta_{m-1}\}\simrightarrow k$. Beachte,
 dass $\sim$ nicht von $\alpha$ abhängt. $\sim$ ist Äquivalenzrelation
 nach (E4). Setze $[t(\vec{c})]_\alpha=\{t'(\vec{c'})\in
 H'(\Sigma,\alpha)\mid t(\vec{c})\sim_{\Sigma,\alpha} t'(\vec{c'})\}$ und
@@ -1631,7 +1632,7 @@ t'(v_{g(\eta_0)},\ldots,v_{g(\eta_{m-1})})\in\Sigma)
 \end{eqnarray*}
 
 wobei $g:\{\xi_0,\ldots,\xi_{n-1}\}\cap\{\eta_0,\ldots,\eta_{m-1}\}
-\stackrel{\sim}{\rightarrow} k$. Ist wohldefiniert wegen (E4). Setze
+\simrightarrow k$. Ist wohldefiniert wegen (E4). Setze
 schließlich
 $\mathfrak{H}(\Sigma,\alpha)=\left<H(\Sigma,\alpha),E_\alpha\right>$. Weiterhin
 sei $I_\alpha=\{[c_\xi]_\alpha\mid \xi<\alpha\}$. Der Nachweis von (E5)
@@ -1718,7 +1719,7 @@ $i_{\alpha\beta}$).
     $\mathfrak{H}(\Sigma,\delta)$ nicht fundiert. Sei
     $[t_{n+1}(c_{\xi_0^{n+1}},\ldots,c_{\xi_{i_{n+1}}^{n+1}})]_\delta
     E_\delta [t(c_{\xi_0^n},\ldots,c_{\xi_n^n})]_\delta$. Sei $g :
-    \bigcup\limits_{n=0}^{\infty}\{\xi_0^n,\ldots,\xi_{i_n}^n\}\stackrel{\sim}{\rightarrow}\alpha$. Also
+    \bigcup\limits_{n=0}^{\infty}\{\xi_0^n,\ldots,\xi_{i_n}^n\}\simrightarrow\alpha$. Also
     $\alpha<\omega_1$. Dann,, da $i_{\alpha\delta}$ elementar:
     $$ [t_{n+1}(c_{g(\xi_0^{n+1})},\ldots,c_{g(\xi_{i_{n+1}}^{n+1})})]_\alpha E_\alpha [t_n(c_{g(\xi_0^n)},\ldots,c_{g(\xi_{i_n}^n)})]_\alpha $$
     Also $\mathfrak{H}(\Sigma,\alpha)$ nicht fundiert.
@@ -1786,7 +1787,7 @@ $L_\kappa\models t(\gamma_0, \ldots, \gamma_{n-1}, \gamma_{n+m+1},
 $\Sigma$ ist fundiert, denn wegen Lemma 10 genügt es zu zeigen, dass
 $\mathfrak{H}(\Sigma,\omega_1)$ fundiert ist. Defniere hierzu
 $\pi:H(\Sigma,\omega_1)\rightarrow L_\kappa$ durch
-$\pi([t(c_{i_0},\ldots,c_{i_{n+1}})]_{\omega_1}=t^{L_\kappa}(\gamma_{i_0},\ldots,\gamma_{i_{n-1}})$. Dann
+$\pi([t(c_{i_0},\ldots,c_{i_{n+1}})]_{\omega_1})=t^{L_\kappa}(\gamma_{i_0},\ldots,\gamma_{i_{n-1}})$. Dann
 ist $\pi$ elementar nach Definition, also fertig.
 \hfill $\square$
 
@@ -1798,5 +1799,131 @@ Klasse $I\subseteq\On$ mit
   \item[(c)] $I$ erzeugt $L$, das heißt für alle $a\in L$ existiert
     ein $\vec{\gamma}\in I$ mit $a=t^L(\vec{\gamma})$.
 \end{itemize}
+
+%% 29. November 2012
+
+{\bf Beweis:} Es gilt einfach ``$L=\mathfrak{H}(\osharp,\On)$'',
+``$I=I_{\On}$'' oder formal etwas genauer: Sei
+$\mathfrak{H}_\alpha)\mathfrak{H}(\osharp,\alpha)$. $\mathfrak{H}_\alpha$
+ist fundiert. Also ist $\mathfrak{H}_\alpha$ kanonisch isomorph zu
+einer transitiven Menge. Identifiziere wieder $\mathfrak{H}_\alpha$
+hiermit. $\mathfrak{H}_\alpha\models V=L+\ZF$. Also ist
+$\mathfrak{H}_\alpha=L_{\delta_\alpha}$ für ein $\delta_\alpha$.
+\begin{itemize}
+\item[(1)] Sei $\lim \alpha$, $\alpha<\beta$
+  \begin{itemize}
+  \item[(a)] $i_{\alpha\beta}=\id\upharpoonright L_{\delta_\alpha}$
+    (also $L_{\delta_\alpha}\prec L_\beta$).
+  \item[(b)] $\delta_\alpha=$ das $\alpha$-te Element von $I_\beta$.
+  \end{itemize}
+\end{itemize}
+{\bf Beweis:} Sei $\gamma$ das $\alpha$-te Element von $I_\beta$. Da
+$\osharp$ bemerkenswert gilt nach Lemma 9
+$\gamma=i_{\alpha\beta}''\delta_\alpha$. Also ist
+$i_{\alpha\beta}\upharpoonright\delta_\alpha=\id\upharpoonright\delta_\alpha$
+und $\gamma=\delta_\alpha$, also (b). Außerdem folgt auch (a), da das
+bezüglich $\le_L$ $\mu$-te Element von $L_{\delta_\alpha}$ auf
+$\underbrace{i_{\alpha\beta}(\mu)}_{=\mu}$-te Element von
+$L_{\delta_\alpha}$ abgebildet wird.
+\hfill $\square$
+
+Setze nun $I=\cup\{I_\alpha\mid\lim\alpha\}$. Sei $\left<\gamma_i\mid
+i\in\On\right>$ die monotone Aufzählung von $I$. Dann gilt:
+\begin{itemize}
+\item[(i)] $\lim(\alpha)\Rightarrow\delta_\alpha=\gamma_\alpha$
+\item[(ii)] $\alpha\le\beta,\alpha,\beta$ Limesordinalzahlen
+  $\Rightarrow$ $L_{\gamma_\alpha}\prec L_{\gamma_\beta}$
+\end{itemize}
+Also nach Tarski gilt für $\lim(\alpha)$ $L_{\gamma_\alpha}\prec
+L$. Also ist $I$ Klasse von Indiscernibles für $L$, und für alle
+$\gamma\in I$ gilt $L_\gamma\prec L$. Außerdem erzeugt $I$ $L$, da
+$I_\alpha$ erzeugt $L_{\gamma_\alpha}$ für $\lim(a)$. Nur noch zu
+zeigen (G2), das heißt $I\backslash\gamma_\alpha$ ist Klasse von
+Indiscernibles für $\left<L,(\xi)_{\xi<\gamma_\alpha}\right>$. Aus
+Notationsgründen einfacher Fall: $ \xi < \gamma_\alpha \le \gamma_\eta
+\le \gamma_\mu $ Wollen zeigen L
+$L\models\varphi(\xi,\gamma_\eta)\leftrightarrow\varphi(\xi,\gamma_\mu)$. Wegen
+(c)
+$\xi=t'(\gamma_{\xi_0},\ldots,\gamma_{\xi_{n-1}},\gamma_{\xi_n},\ldots,\gamma_{\xi_{n+m}})$
+mit $\xi_{n-1}<\alpha\le\xi_n$. Dann wegen $\osharp$ bemerkenswert
+gilt auch
+$\xi=t'(\gamma_{\xi_0},\ldots,\gamma_{\xi_{n-1}},\gamma_{\mu+1},\ldots,\gamma_{\mu+m})$. Also
+$L\models\varphi(t'(\gamma_{\xi_0},\ldots,\gamma_{\xi_{n-1}},\gamma_{\mu+1},\ldots,\gamma_{\mu+m}),\mu_\eta)\leftrightarrow\varphi(t'(\gamma_{\xi_0},\ldots,\gamma_{\xi_{n-1}},\gamma_{\mu+1},\ldots,\gamma_{\mu+m}),\gamma_\mu)$.
+\hfill $\square$
+
+%% Nach Cons
+{\bf Bemerkung:} $I$ ist durch (a), (b), (c) eindeutig bestimmt.
+
+{\bf Beweis:} Sei $\bar{I}$ eine weitere Klasse mit (a), (b), (c),
+dann ist $I\cap\bar{I}$ unendlich. Also ist der ``Type'' von $I$
+gleich dem Type von $\bar{I}$. Sei
+$k:I\simrightarrow\bar{I}$. Definiere $j:L\rightarrow L$
+durch $j(t^L(\vec{\gamma}))=t^L(k(\vec{\gamma}))$. Dann ist $j$
+Isomorphismus, also $j=\id$ und damit $k=\id$.
+\hfill $\square$
+
+$I$ heißt ``Klasse der kanonischen Indiscernibles für $L$''. Es gilt
+nach Konstruktion $\forall_{\gamma\in I}
+|\gamma|\le\{\omega,|I\cap\gamma|\}$. Also für alle
+$\kappa\in\Card,\kappa > \omega$ $\sup(I\cap\kappa)=\kappa$ und daher
+auch $\Card\backslash(\omega+1)\subseteq I$. Insbesondere
+$\osharp\lnot\in L$.
+
+{\bf Lemma 14:} $\osharp$ existiere und $I$ sei die Klasse der
+kanonischen Indiscernibles für $L$. Sei $\gamma\in I$ und
+$\alpha<\omega_1^L$. Dann ist $\gamma$ $\alpha$-Erdös in $L$.
+
+{\bf Beweis:} Es genügt dies für ein $\gamma\in I$ zu zeigen. Wähle
+etwa $\gamma=\omega_1$, also $\sup(I\cap\gamma) = \gamma$. Nach Beweis
+von Satz 7 genügt es zu zeigen
+
+\begin{itemize}
+  \item[(*)] Sei $f:[C]^{<\omega}\rightarrow\gamma$,
+    $C\subseteq\gamma$ abgeschlossen unbeschränkt in $\gamma$,
+    regressiv mit $f\in L$. Dann existiert ein $X\in V$ mit
+    $\otp(X)\ge\alpha$ und $X$ homogen für $f$.
+\end{itemize}
+
+Sei hierzu $f=t^L(\vec{\mu},\vec{\delta})$ mit
+$\vec{\mu},\vec{\delta}\in I,\vec{\mu}<\gamma\le\vec{\delta}$. Folgt
+leicht, dass $(I\cap\gamma)\backslash\max(\vec{\mu}+1)$ homogen für
+$f$.
+\hfill $\square$
+
+Die Existenz von $\osharp$ impliziert also die Konsistenz von sehr
+starken Theorien. In gewisser Weise ist ``$\osharp$ existiert'' ein
+``großes Kardinalzahlaxiom''.
+
+{\bf Bemerkung:} $\osharp$ existiere. Sei $\kappa\ge\omega$
+Kardinalzahl in $L$. Dann gilt $\cf((\kappa^+)^L)=\omega$.
+
+{\bf Beweis:} Sei $\tau=(\kappa^+)^L$. Sei $J$ die Menge der ersten
+$\omega$-vielen Elemente von $I\backslash(\kappa+1)$ und $\delta=\sup
+J$. Es gilt nun $\operatorname{Hull}_{L_\delta} ((\kappa+1)\cap
+J)\supseteq\tau$ (hier
+$\operatorname{Hull}_{L_\delta}(x)=\mbox{Skolemhülle von }x\mbox{ in
+}L_\delta$\footnote{$\operatorname{Hull}_{L_\delta}(X)=\{t^{L_\delta}(\vec{x})|t\in\mathcal{L}\mbox{
+    und }\vec{x}\in X\}$}). Sei $\left<\delta_n\mid n\in\omega\right>$
+  die monotone Aufzählung von $J$. Setze nun für $n\in\omega$
+  $X_n=\operatorname{Hull}_{L_\delta}((\kappa+1)\cap\{\delta_0,\ldots,\delta_{n-1}\})$. Dann
+  $X_n\in L$ und $|X_n|^L\le\kappa$. Also
+  $\tau_n:=\sup(X_n\cap\tau)<\tau$, da $\tau$ regulär in $L$. Aber
+  $\bigcup_{n\in\omega}X_n=X\supseteq\tau$. Also
+  $\sup_n\tau_n=\tau$. Also $\cf(\tau)=\omega$.  \hfill $\square$
+
+Also auch: $\osharp$ existiert $\Rightarrow$
+$|\mathfrak{P}(\kappa)\cap L|\le\kappa$ für $\kappa\ge\omega$.
+
+{\bf Bemerkung:} Sei $i : I \rightarrow I$ streng monoton
+wachsend. Dann existiert $j\supseteq i$ mit $j:L\rightarrow L$
+elementar.
+
+{\bf Beweis:} Definiere $j$ durch $$
+j(t^L(\vec{\gamma}))=t^L(i(\vec{\gamma}))\mbox{ für }\vec{\gamma}\in
+I $$ Das ist wohldefiniert und elementar.
+
+Falls $\osharp$ existiert, existieren also sehr viele elementare
+Einbettungen von $L$ nach $L$. Wir zeigen nun, dass schon eine
+nichttriviale genügt, um die Existenz von $\osharp$ zu beweisen.
 
 \end{document}
