@@ -1926,4 +1926,97 @@ Falls $\osharp$ existiert, existieren also sehr viele elementare
 Einbettungen von $L$ nach $L$. Wir zeigen nun, dass schon eine
 nichttriviale genügt, um die Existenz von $\osharp$ zu beweisen.
 
+% 04.12.12
+
+{\bf Satz 15 (Kunen):} Es sind äquivalent: \begin{itemize}
+		\item[(a)] $0^{\#}$ existiert.
+		\item[(b)] es existiert elementare Einbettung $j\colon L\to L$, $j\neq id$
+		\item[(c)] es existiert elementare Einbettung $j\colon L_{\alpha}\to L_{\beta}$, $j\neq id\upharpoonright L_{\alpha}$, mit $\alpha$ Kardinalzahl in $V$.		
+	\end{itemize}
+	
+	{\bf Beweis:} (a)$\to$(b) nach obiger Bemerkung.
+		(b)$\to$(a): Sei $j$ wie in (2). 
+		Sei $\alpha$ Kardinalzahl mit $j\upharpoonright L_{\alpha}\neq id\upharpoonright L_{\alpha}$.
+		Dann $j\upharpoonright L_{\alpha}\colon L_{\alpha}\to L_{\beta}$ elementare Einbettung für $\beta=j(\alpha)$.
+		
+		(c)$\to$(a): Sei $j\colon L_{\alpha}\to L_{\beta}$ elementar, $j\neq id\upharpoonright L_{\alpha}$ mit $\alpha$ Kardinalzahl in $V$.
+		Wir werden zeigen, dass ein $\kappa^*$ existiert mit $L_{\kappa*}$ besitzt überabzählbare Menge von guten Indiscernibles.
+		Dann sind wir nach Beweis von Satz 13 fertig.
+		Hierzu zeigen wir zuerst eine starke Version von (b). 
+		Wegen $j\neq id\upharpoonright L_{\alpha}$ ist auch $j\upharpoonright\alpha\neq id\upharpoonright\alpha$ (und natürlich $\alpha>\omega$).
+		Setze $\kappa=\min\{\gamma<\alpha\mid \j(\gamma)\neq\gamma\}$.
+		Dann ist natürlich $j(\kappa)>\kappa$.
+		Nach Vor. ist $(\kappa^+)^L\le\alpha$.
+		Wir können also $U\subseteq \mathcal P(\kappa)\cap L$ durch:
+		für $X\in \mathcal P(\kappa)\cap L$: $X\in U$ gdw $\kappa \in j(X)$.
+		(beachte, dass $\mathcal P(\kappa)\cap L\subseteq L_{(\kappa^+)^L}\subseteq L_{\alpha}$)
+		Es gilt dann:\begin{itemize}
+			\item[(i)] $\kappa\in U$, $\emptyset\not\in U$, $X\subseteq Y\subseteq \kappa$ und $X\in U \land Y\in L\to Y\in U$
+		\end{itemize}
+		Denn: $\kappa\in j(\kappa)$, $\kappa\not\in\emptyset=j(\emptyset)$, $X\in U\to \kappa\in j(X)\subseteq j(Y)$.
+		\begin{itemize}
+			\item[(ii)] Ist $\langle X_i\mid i<\gamma\rangle\in L$ mit $\gamma<\kappa$ und $X_i\in U$ so gilt $\bigcap_{\i<\gamma} X_i\in U$
+		\end{itemize}
+		Denn: z.Z. $\kappa\in j(\bigcap_{i<\gamma} X_i)$. 
+		Aber wegen Elementarität ist $j(\bigcup_{i<\gamma}X_i)=\bigcup_{i<\gamma}j(X_i)$ (da $j(\gamma)=\gamma$), also klar.
+		\begin{itemize}
+			\item[(iii)] $\forall_{X\in \mathcal P(\kappa)\cap L} (X\in U \mbox{ oder } \kappa-X\in U)$
+		\end{itemize}
+		Da $j(X)\cup j(\kappa-X)=\j(\kappa)$.
+		\begin{itemize}
+			\item[(iv)] $\forall_{\gamma<\kappa} \kappa-\gamma\in U$
+		\end{itemize}
+		Da $j(\kappa-\gamma)=j(\kappa)-\gamma$.
+		
+		Also ist $U$ Ultrafilter auf $\mathcal P(\kappa)\cap L$.
+		Bilde interne Ultrapotenz von $L$, d.h. setze $\bar M=\{ f\in L\mid f\colon\kappa\to L\}$.
+		Für $f,g\in \bar M$ setze: $f\sim g$ gdw $\{\delta<\kappa\mid f(\delta)=g(\delta)\}\in U$ ist Äquivalenzrelation.
+		
+		Setze $[f] = \{g\mid f\sim g \mbox{ und } \forall_{h} (h\sim f\to \rng(h)\ge \rng(g)\}\in V$ ("`Trick von Scott"').
+		$M=\{[f]\mid f\in \bar M\}$.
+		Definiere $E\subseteq M^2$ durch: 
+		\[ [f]E[g] \mbox{ gdw } \{\delta<\kappa\mid f(\delta)\in g(\delta)\}\in U \]
+		Analog zum Beweis von Kapitel 1, Satz 6 (4)$\to$(5) erhält man
+		\begin{itemize}
+			\item[(1)] $\langle M,E\rangle\models \varphi([f_1],\ldots,[f_n])$ gdw $\{\delta\le\kappa\mid L\models \varphi(f_1(\delta),\ldots,f_n(\delta))\}\in U$
+		\end{itemize}
+		Also haben wir $\bar j\models L\to \langle M,E\rangle$ elementar, wobei $\bar j(a)=[c_a]$, wobei $c_a(\delta)=a$ für $\delta<\kappa$.
+		\begin{itemize}
+			\item[(2)] $E$ ist stark fundiert
+		\end{itemize}
+		{\bf Beweis:} "`Stark"' klar, denn für $f\in M$
+		\[\{[g]\mid [g]E[f]\} = \{[h]\mid \forall_{\delta<\kappa} h(\delta)\in f(\delta)\mbox{ oder } h(\delta)=0 \}\in V \]
+		zu fundiert: Annahme: $[f_{n+1}E[f_n]$ für alle $n$.
+		Wähle $\tau$ regulär mit $\{ f_n\mid n<\omega\}\subseteq L_{\tau}$.
+		Nach Löwenheim-Skolem existiert $X\preceq L_{\tau}$ mit $\kappa\cup\{f_n\mid n<\omega\}\subseteq X$ und $|X|=|\kappa|$.
+		Sei $\pi\colon X\tilde\to L_{\eta}$ nach Kondensationslemma.
+		Also $|\eta|=|\kappa|$ und daher $\eta<\alpha$, da $\alpha$ Kardinalzahl in $V$.
+		Setze $g_n=\pi(f_n)$.
+		Wegen $\pi\upharpoonright\kappa=id\upharpoonright\kappa$, also $\pi(\kappa)=\kappa$, gilt $\pi(\{\delta<\kappa\mid f_{n+1}(\delta)<f_n(\delta)\})=\{\delta<\kappa\mid g_{n+1}(\delta)<g_n(\delta)\}$.
+		Also $[g_{n+1}]E[g_n]$.
+		Also $g_n\in L_{\eta}\subseteq L_{\alpha}$.
+		Setze nun $X_n=\{\delta<\kappa\mid g_{n+1}(\delta)<g_n(\delta)\}$.
+		Somit $X_n\in U$.
+		Also \[\kappa\in j(X_n)=j(\{\delta<\kappa\mid g_{n+1}(\delta)<g_n(\delta)\}) = \{ \delta<j(\kappa)\mid j(g_{n+1}(\delta)<j(g_n)(\delta)\}\]
+		d.h. $\forall_n j(g_{n+1})(\kappa)<j(g_n)(\kappa)$.
+		Wid. zu $<$ Wohlordnung.
+		
+		Sei also $k\colon \langle M,E\rangle \tilde\to\langle L,\in\rangle$ die Transitivierung von $\langle M,E\rangle$ 
+		(beachte: $\langle M,E\rangle\models \mbox{ ZF $+$ V$=$L}$)
+		Definiere nun $j^*\colon L\to L$ durch $j^*(x)=k(\bar j(x))=k([c_k])$
+		Dann ist $j^*$ elementar.
+		Es gilt dann \begin{itemize}
+			\item[(3)]\begin{itemize}
+					\item[(a)] $j^*\upharpoonright\kappa=id\upharpoonright\kappa$, $j^*(\kappa)>\kappa$
+					\item[(b)] Setze $C=\{\tau>\kappa\mid {j^{*}} ''\tau\subseteq\tau\}$
+						Ist $\tau\in C$ und $\cf(\tau)>\kappa$, so $j^*(\tau)=\tau$
+				\end{itemize}
+		\end{itemize}
+		{\bf Beweis:} Zu (a). Wegen (i)-(iv) genau wie in §1, Satz 6 (4)$\to$(5).
+		Zu (b): Sei $k([f])<k([c_{\tau}])=j^*(\tau)$. 
+		z.Z. es existiert $\eta<\tau$ mit $k([f])<k([c_{\eta}])$.
+		Nun ist o.E. $\forall \delta<\tau$ mit $f''\kappa\subseteq \eta$, also $[f]E[c_{\eta}]$, d.h.
+		$k([f])<k([c_{\eta}])$.
+		Also $j^*(\tau)\le\tau$ und somit $=$.
+
 \end{document}
