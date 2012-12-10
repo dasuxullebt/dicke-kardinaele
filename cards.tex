@@ -43,8 +43,9 @@
 \newcommand{\dom}{\operatorname{dom}}
 \newcommand{\id}{\operatorname{id}}
 \newcommand{\height}{\operatorname{ht}}
-\newcommand{\tp}{\operatorname{tp}} %
-\renewcommand{\bar}[1]{\overline{#1}} %
+\newcommand{\tp}{\operatorname{tp}} 
+\newcommand{\Hull}{\operatorname{Hull}}
+\renewcommand{\bar}[1]{\overline{#1}} 
 \renewcommand{\thefootnote}{[siehe \arabic{footnote}]}
 
 \fancyhf{}
@@ -2018,5 +2019,138 @@ nichttriviale genügt, um die Existenz von $\osharp$ zu beweisen.
 		Nun ist o.E. $\forall \delta<\tau$ mit $f''\kappa\subseteq \eta$, also $[f]E[c_{\eta}]$, d.h.
 		$k([f])<k([c_{\eta}])$.
 		Also $j^*(\tau)\le\tau$ und somit $=$.
+
+% 06.12.12
+		Nun ist $C$ abg. unb. in $\On$.
+		Definiere rekursiv $X_{\beta}$ durch 
+		\[\begin{align} X_0 &= \{\tau\in C\mid\cf(\tau)>\kappa\} \\
+						X_{\beta+1} &= \{\tau\in X_{\beta}\mid |X_{\beta}\cap \tau|=\tau\} \\
+						X_{\lambda} &= \bigcap_{\alpha<\lambda} X_{\alpha} \mbox{ , falls }\lim(\alpha) \end{align} \]
+		
+		{\bf Beweis:} (a) wegen (3)(b). Zu (b): Zeige durch Induktion über $\beta$
+		\begin{itemize}
+			\item[(I)] $X_{\beta}$ unbeschränkt in $\On$
+			\item[(II)] $\tau$ Limespunkt von $X_{\beta}$ und $\cf(\tau)>\kappa\to \tau\in X_{\beta}$
+		\end{itemize}
+		
+		{\bf Beweis:} $\beta=0$: (I) klar, da $C$ abg. unb. in $\On$. (II) folgt aus (3)(b).
+			
+			$\beta=\gamma+1$: Setze $Z=\{\tau\mid |X_{\gamma}\cap\tau|=\tau\}$ 
+			Dann ist $Z$ abg. unb. in $\On$, da $X_{\gamma}$ unb. in $\On$. 
+			Sei $\delta\in\On$.
+			Wähle $\tau\in Z$, $\tau>\delta$ mit $\cf(\tau)>\kappa$. 
+			Dann nach Ind. vor. (II) $\tau\in X_{\gamma}$.
+			Also $\tau\in X_{\beta}$.
+			zu (II): Sei $\tau$ Limespunkt von $X_{\beta}$ mit $\cf(z)>\kappa$.
+			Dann natürlich $|X_{\gamma}\cap\tau|=\tau$.
+			Also nach Ind. vor. ist auch $\tau\in X_{\gamma}$.
+			Also $\tau\in X_{\beta}$.
+			
+			$\lim(\lambda)$: Zu (I): Sei $X^*_{\alpha}=$ Klasse aller Limespunkte von $X_{\alpha}$. 
+			$X_{\alpha}$ ist abg. unb. in $\On$.
+			Setze $\tilde X=\bigcap_{\alpha<\lambda}X^*_{\alpha}$.
+			Dann ist auch $\tilde X$ abg. unb. in $\On$.
+			Sei $\delta \in \On$.
+			Wähle $\tau\in\tilde X$ mit $\cf(\tau)>\kappa$ und $\tau>\delta$.
+			Dann ist für alle $\alpha<\lambda$ $\tau$ Limespunkt von $X_{\alpha}$.
+			Also nach Ind. vor. $\tau\in X_{\alpha}$.
+			Zu (II): Sei $\tau$ Limespunkt von $X_{\lambda}$ mit $\cf(\tau)>\kappa$.
+			Dann ist $\forall_{\alpha<\lambda} \tau$ Limespunkt von $X_{\alpha}$.
+			Also nach Ind. vor. $\tau\in \bigcap_{\alpha<\lambda} X_{\alpha}=X_{\lambda}$.
+			
+		Wähle $\rho\in X_{\omega_1}$.
+		Also $\rho$ Kardinalzahl.
+		Für $\alpha<\omega_1$ setze $Y_{\alpha}=X_{\alpha}\cap\rho$.
+		Weiterhin sei $\tilde j=j^*\upharpoonright L_{\rho}$.
+		Dann $\tilde j\colon L_{\rho}\to L_{\rho}$ elementare Einbettung (da $j^*(L_{\rho})=L_{\rho}$).
+		Weiterhin ist $|Y_{\alpha}|=\rho$.
+		Für $\nu<\omega_1$ setze $M_{\nu}= \Hull_{L_{\rho}}(\kappa\cup Y_{\nu})$.
+		Also $M_{\nu}\supseteq M_{\tau}$ für $\nu<\tau$.
+		Sei nach Kondensationslemma $\pi_{\nu}\colon L_{\rho}\tilde\to M_{\nu}$.
+		(beachte, dass $|M_{\nu}|=\rho$)
+		Setze $\kappa_{\nu}=\pi_{\nu}(\kappa)$ und $\kappa^*=\sup_{\nu<\omega_1} \kappa_{\lambda}$.
+		Ziel: $\{\kappa_{\nu}\mid \nu<\omega_1\}$ ist gut für $L_{\kappa^*}$ mit Ordnungstyp $\omega_1$.
+		\begin{itemize}
+			\item[(5)] \begin{itemize}
+					\item[(a)] $\pi_{\nu}\upharpoonright\kappa=id\upharpoonright\kappa$, $\kappa<\kappa_{\nu}$
+					\item[(b)] $\pi_{\nu}\upharpoonright M_{\tau}=id\upharpoonright M_{\tau}$, für $\nu<\tau$
+					\item[(c)] $\kappa_{\nu}<\kappa_{\tau}$, für $\nu<\tau$						
+			\end{itemize}
+		\end{itemize}
+		{\bf Beweis:} Zu (a): Wegen $\kappa\cup Y_{\nu}\subseteq\{\alpha\mid \tilde j(\alpha)=\alpha\}$ gilt 
+			$M_{\nu}\subseteq\rng(\tilde j\}$, also $\kappa\not\in M_{\nu}$, d.h. $\kappa<\kappa_{\nu}$.
+
+			Zu (b): Es genügt z.z. $\pi_{\nu}\upharpoonright Y_{\tau}=id\upharpoonright Y_{\tau}$ für $\nu<\tau$.
+			Dies ist klar nach Def. von $Y_{\tau}$ und Eigenschaften der Transitivierung.
+
+			Zu (c): Offenbar $\kappa_{\nu}\subseteq\kappa_{\tau}$, da $M_{\nu}\supseteq M_{\tau}$.
+			Also nach (b) $\pi_{\nu}(\kappa_{\tau}=\kappa_{\tau}$.
+			Also $\kappa_{\nu}\neq\kappa_{\tau}$, da offenbar $\pi_{\nu}(\kappa_{\nu})=\kappa_{\nu}$.
+
+		Für $\nu<\tau<\omega_1$ setze nun: $M_{\nu\tau}=\Hull_{L_{\rho}}(\kappa_{\nu}\cap Y_{\tau})$.
+		Sei $\pi_{\nu\tau}\colon L_{\rho}\tilde\to M_{\nu\tau}$ nach Kondensatioslemma.
+		\begin{itemize}
+			\item[(6)] \begin{itemize}
+					\item[(a)] $\pi_{\nu\tau}\upharpoonright \kappa_{\nu} = id\upharpoonright \kappa_{\nu}$
+					\item[(b)] $\pi_{\nu\tau}\upharpoonright M_{\rho} = id\upharpoonright M_{\rho}$ für $\rho>\tau$
+					\item[(c)] $\pi_{\nu\tau}(\kappa_{\nu}=\kappa_{\nu}$
+				\end{itemize}
+		\end{itemize}
+					
+		{\bf Beweis:} (a) ist klar. (b) genau wie (5)(b). 
+			Zu (c): Z.Z. $[\kappa_{\nu},\kappa_{\tau})\cap M_{\nu\tau}=\emptyset$.
+			Ann.: nicht.
+			Dann $L_{\rho}\models\exists_{\vec\alpha<\kappa_{\nu}} \kappa_{\nu}\le t(\vec\alpha,\vec\eta)<\kappa_{\tau}$ mit $\vec\eta\in Y_{\tau}$.
+			Durch Anwendung von $\pi^{-1}_{\lambda}$ also $L_{\rho}\models\exists_{\vec\alpha<\kappa} \kappa\le t(\vec\alpha,\vec\eta)<\kappa_{\tau}$
+			Wid. zu $\pi_{\tau}(\kappa)=\kappa_{\tau}$ und $t(\vec\alpha,\vec\eta)\in M_{\tau}$.
+			
+		Wir zeigen schließlich \begin{itemize}
+			\item[(7)] $\langle \kappa_{\nu}\mid \nu<\omega_1\rangle$ ist Folge von guten Indisvernibles für $L_{\kappa^*}$.
+		\end{itemize}
+		{\bf Beweis:} Zu (G1) gilt $L_{\kappa_0}\prec L_{\kappa_1}\prec L_{\kappa_2}\prec\ldots$ also nach Tarski $L_{\kappa_{\nu}}\prec L_{\kappa^*}$.
+		Zu (G2): Genügt z.Z.: Sei $\nu_0<\ldots<\nu_n<\tau_0<\ldots<\tau_n<\omega_1$ und $\vec\alpha<\nu_0$.
+		Dann \[ L_{\kappa^*}\models \varphi(\vec\alpha,\kappa_{\nu_0},\ldots,\kappa_{\nu_n}) \mbox{ gdw } 
+								L_{\kappa^*}\models\varphi(\vec\alpha, \kappa_{\tau_0},\ldots, \kappa_{\tau_n})\]
+		Setze hierzu $\pi=\pi_{\nu_0\tau_0}\circ\pi_{\nu_1\tau_1}\circ\ldots\circ\pi_{\nu_n\tau_n}$.
+		Sei $\tau_n<\eta<\omega_1$.
+		Dann $L_{\kappa^*}\models\varphi(\vec\alpha,\kappa_{\nu_0},\ldots,\kappa_{\nu_n})$ gdw 
+				$L_{\kappa_{\eta}}\models \varphi(\vec\alpha,\kappa_{\nu_0},\ldots,\kappa_{\nu_n})$ gdw
+				$L_{\kappa_{\eta}}\models \varphi(\pi(\vec\alpha),\pi(\kappa_{\nu_0}),\ldots,\pi(\kappa_{\nu_n}))$ gdw
+				$L_{\kappa^*}\models \varphi(\pi(\vec\alpha),\pi(\kappa_{\nu_0}),\ldots,\pi(\kappa_{\nu_n}))$
+		Also genügt es z.z. $\pi(\vec\alpha)=\vec\alpha$, $\pi(\kappa_{\nu_i})=\kappa_{\tau_i}$.
+		$\pi(\vec\alpha)=\vec\alpha$ ist klar nach (6)(a).
+		$\pi(\kappa_{\nu_i}=\kappa_{\tau_i}$ folgt aus (6)(a)(b).
+		
+		%fertig! D: "`Dies war der mit Abstand undurchsichtigste Beweis der Vorlesung. (alle verständlichen alternativen Beweise erfordern deutlich mehr Theorie und sind damit zu lang."'
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 \end{document}
