@@ -27,6 +27,7 @@
 \newcommand{\mathnode}[2]{%
   \mathord{\tikz[baseline=(#1.base), inner sep = 0pt]{\node (#1) {$#2$};}}}
 
+\DeclareMathOperator*{\bigdelta}{\Delta}
 \newcommand{\simrightarrow}{\xrightarrow{\phantom{\sim}\sim\phantom{\sim}}}
 \newcommand{\rng}{\operatorname{rng}}
 \newcommand{\Term}{\operatorname{Term}}
@@ -43,8 +44,10 @@
 \newcommand{\dom}{\operatorname{dom}}
 \newcommand{\id}{\operatorname{id}}
 \newcommand{\height}{\operatorname{ht}}
-\newcommand{\tp}{\operatorname{tp}} 
+\newcommand{\tp}{\operatorname{tp}}
+\newcommand{\rn}{\operatorname{rn}}
 \newcommand{\Hull}{\operatorname{Hull}}
+\newcommand{\cp}{\operatorname{cp}}
 \renewcommand{\bar}[1]{\overline{#1}} 
 \renewcommand{\thefootnote}{[siehe \arabic{footnote}]}
 
@@ -2023,9 +2026,9 @@ nichttriviale genügt, um die Existenz von $\osharp$ zu beweisen.
 % 06.12.12
 		Nun ist $C$ abg. unb. in $\On$.
 		Definiere rekursiv $X_{\beta}$ durch 
-		\[\begin{align} X_0 &= \{\tau\in C\mid\cf(\tau)>\kappa\} \\
+		\[\begin{array}{cc} X_0 &= \{\tau\in C\mid\cf(\tau)>\kappa\} \\
 						X_{\beta+1} &= \{\tau\in X_{\beta}\mid |X_{\beta}\cap \tau|=\tau\} \\
-						X_{\lambda} &= \bigcap_{\alpha<\lambda} X_{\alpha} \mbox{ , falls }\lim(\alpha) \end{align} \]
+						X_{\lambda} &= \bigcap_{\alpha<\lambda} X_{\alpha} \mbox{ , falls }\lim(\alpha) \end{array} \]
 		
 		{\bf Beweis:} (a) wegen (3)(b). Zu (b): Zeige durch Induktion über $\beta$
 		\begin{itemize}
@@ -2124,33 +2127,154 @@ nichttriviale genügt, um die Existenz von $\osharp$ zu beweisen.
 		%fertig! D: "`Dies war der mit Abstand undurchsichtigste Beweis der Vorlesung. (alle verständlichen alternativen Beweise erfordern deutlich mehr Theorie und sind damit zu lang."'
 		
 
+%% 11. December 2012
+Ohne Beweis:
 
+{\bf Überdeckungssatz von Jensen:} $\osharp$ existiere
+nicht. Sei $X\subseteq\On$ überabzählbar. Dann existiert $Y\in L$ mit
+$X\subseteq Y$ und $|X|=|Y|$.
 
+{\bf Folgerungen:} $\osharp$ existiere nicht. Sei $\kappa$ eine singuläre
+Kardinalzahl.
+\begin{itemize}
+  \item[(a)] $\kappa$ ist singulär in $L$ und $(\kappa^+)^L=\kappa^+$
+  \item[(b)] Gilt $2^{<\kappa}=\kappa$, so $2^\kappa=\kappa^+$
+\end{itemize}
+{\bf Beweis:}
+\begin{itemize}
+  \item[(a)] Sei $X\subseteq\kappa$ konfinal mit $|X|<\kappa$. Dann
+    existiert $Y\in L$ mit $X\subseteq Y$ und $|Y|<\kappa$. Also
+    $Y\cap\kappa$ konfinal in $\kappa$, das heißt $\kappa$ singulär in
+    $L$, da $\otp(Y\cap\kappa)<\kappa$. Zum zweiten Teil: Angenommen
+    $(\kappa^+)^L<\kappa^+$. Dann $\cf((\kappa^+)^L)<\kappa$. Folgt
+    wieder $\cf^L((\kappa^+)^L<\kappa$. Widerspruch.
+  \item[(b)] Sei $2^\kappa=\kappa$. Um $2^\kappa=\kappa^+$ zu zeigen,
+    genügt dann $\kappa^{\cf(\kappa)}\le\kappa^+$. Aber
+    $\{X\subseteq\kappa\mid |X|=\cf(\kappa)\}\subseteq
+    \bigcup\{\mathfrak{P}(Y)\mid Y\in L, Y\subseteq\kappa,
+    |Y|<\kappa\}$. Also folgt die Behauptung.
+\end{itemize}
+\hfill $\square$
 
+\section{Messbare Kardinalzahlen}
+{\bf Definition:} $\kappa$ ist messbar $:\Leftrightarrow$
+$\kappa>\omega$ und es existiert ein nichttrivialer
+$\kappa$-vollständiger Ultrafilter auf $\kappa$.
 
+{\bf Bemerkung:} $\kappa$ messbar $\Rightarrow$ $\kappa$ schwach
+kompakt.
 
+{\bf Satz 1:} Sei $S=\{\tau\mid\mbox{existiert
+}\omega_1\mbox{-vollständiger nichttrivialer Ultrafilter auf
+}\tau\}$. Sei $S\neq\emptyset$ und $\kappa=\min S$. Dann ist $\kappa$
+messbar.
 
+{\bf Beweis:} Sei $U$ nichttrivialer $\omega_1$-vollständiger
+Ultrafilter auf $\kappa$. Wir zeigen: $U$ ist
+$\kappa$-vollständig. Angenommen nicht. Sei also $\tau<\kappa$ und
+$\left<X_\alpha\mid\alpha<\tau\right>$, $X_\alpha\in U$, mit
+$X=\bigcap\limits_{\alpha<\tau}X_\alpha\not\in U$. Definiere dann
+$f:\kappa\rightarrow\tau$ durch
 
+$$ f(\gamma) = \left\{ \begin{array}{cl} 0 & \mbox{falls }\gamma\in X
+  \\ \min\{\alpha<\tau\mid\gamma\not\in X_\alpha\} &
+  \mbox{sonst}\end{array}\right. $$
 
+Definiere $D\subseteq\mathfrak{P}(\tau)$ durch (für $Y\subseteq\tau$)
+$Y\in D$ $\Leftrightarrow$ $(f^{-1})''Y\in U$. Offenbar ist $D$
+Ultrafilter auf $\tau$.
+\begin{itemize}
+  \item[(1)] $D$ ist $\omega_1$-vollständig.
+  \item[] {\bf Beweis:} Falls $\left<Y_i\mid i<\omega\right>$ aus $D$,
+    so $(f^{-1})''\bigcap\limits_{i<\omega}Y_i =
+    \bigcap\limits_{i<\omega}\underbrace{(f^{-1})''Y_i}_{\in U} \in
+    D$.
+  \item[(2)] $D$ ist nichttrivial (d.h. $\forall_{\alpha<\tau}
+    \{\alpha\}\not\in D$).
+  \item[] {\bf Beweis:} Sei $\alpha<\tau$. Zu zeigen
+    $(f^{-1})''\{\alpha\}\not\in U$. $(f^{-1})''\{\alpha\}\subseteq
+    \underbrace{X}_{\not\in U}\cup (\underbrace{\kappa\backslash
+      X_\alpha}_{\not\in U})$. Also $(f^{-1})''\{\alpha\}\not\in U$.
+\end{itemize}
 
+Wegen (1) und (2) ist $\tau\in S$. Widerspruch zu $\tau<\kappa=\min
+S$. \hfill $\square$
 
+{\bf Satz 2:} Es sind äquivalent
+\begin{itemize}
+  \item[(1)] $\kappa$ ist messbar
+  \item[(2)] es existiert elementare Einbettung $j:V\rightarrow M$ mit
+    $M$ transitiv, $j\upharpoonright\kappa =
+    \id\upharpoonright\kappa$, $j(\kappa)>\kappa$ (d.h. $\kappa =
+    \cp(j)$\footnote{$\cp$ = kritischer punkt}).
+\end{itemize}
+{\bf Beweis:}
+\begin{itemize}
+  \item (1)$\Rightarrow$(2): analog zum Beweis von (4)$\Rightarrow$(5)
+    von Satz 14 aus §1. Sei $U$ nichttrivialer $\kappa$-vollständiger
+    Ultrafilter auf $\kappa$. Sei $\left<N,E\right>$ die Ultrapotenz
+    von $V$ mit $U$. Dabei modifizierte Äquivalenzklasse
 
+    $$ [f] = \{g\sim f\mid\mbox{für alle }h\sim f\mbox{ gilt
+  }\rn(g)\subseteq\rn(h)\} $$
 
+    $E$ ist stark fundiert. Also
+    $\left<N,E\right>\stackrel{\simeq}{\pi}\left<M,\in\right>$ mit $M$
+    transitiv. $j(x)=\pi([c_x])$. Wegen $\kappa$-Vollständigkeit und
+    Nichttrivialität ist $\kappa=\cp(j)$.
+  \item (2)$\Rightarrow$(1): Sei $j$ wie in (2). Definiere $U=U_j$ auf
+    $\kappa$ durch: $X\in U :\Leftrightarrow \kappa\in j(X)$. $U$ ist
+    $\kappa$-vollständiger nichttrivialer Ultrafilter auf $\kappa$.
+\end{itemize}
+\hfill $\square$
 
+{\bf Definition:} Sei $U$ Ultrafilter auf $\kappa$. $U$ ist normal
+$\Leftrightarrow$ für alle $\gamma<\kappa$ ist
+$\kappa\backslash\gamma\in U$ und für alle regressiven
+$f:\kappa\rightarrow\kappa$ existiert $X\in U$ mit $f\upharpoonright
+X$ konstant.
 
+{\bf Bemerkung:}
+\begin{itemize}
+  \item[(1)] genügt $f\upharpoonright Z$ regressiv für ein $Z\in U$.
+  \item[(2)] $U$ normal $Rightarrow$ $U$ $\kappa$-vollständig.
+  \item[] {\bf Beweis:} Sei $\left<X_\alpha\mid\alpha<\gamma\right>$
+    aus $U$ mit
+    $\gamma<\kappa$. $X=\bigcap_{\alpha<\gamma}X_\alpha$. Annahme
+    $\kappa\backslash X\in U$. Definiere $f:\kappa\backslash
+    X\rightarrow\kappa$ durch $f(\delta)=\min\{\alpha\mid\delta\not\in
+    X_\alpha\}$. Ist regressiv modulo $U$, aber nicht konstant auf
+    Menge in $U$.
+  \item[(3)] Sei $U$ normal auf $\kappa$,
+    $\left<X_\alpha\mid\alpha<\kappa\right>$ aus $U$. Dann ist
+    $X=\bigdelta\limits_{\alpha<\kappa}X_\alpha=\{\alpha\mid\forall_{\gamma<\alpha}
+    \alpha\in X_\gamma\} \in U$ (Übung).
+  \item[(4)] Falls $U$ normal auf $\kappa$, so
+    $U\supseteq\{C\subseteq\kappa\mid C\mbox{ abgeschlossen
+    unbeschränkt in }\kappa\}$.
+  \item[] {\bf Beweis:} Falls $C$ abgeschlossen unbeschränkt in
+    $\kappa$, so $f(\gamma)=\sup(C\cap\gamma)$ regressiv auf
+    $\kappa\backslash C$ und nicht einmal konstant auf einer
+    unbeschränkten Teilmenge von $\kappa$.
+\end{itemize}
 
+{\bf Satz 3:} Sei $\kappa$ messbar. Dann existiert ein normaler
+Ultrafilter auf $\kappa$.
 
-
-
-
-
-
-
-
-
-
-
-
+{\bf Beweis:} Sei $j:V\rightarrow M$ elementar mit $M$ transitiv und
+$\kappa=\cp(j)$. Sei wieder $U=\{X\subseteq\kappa\mid\kappa\in
+j(X)\}$. $U$ ist normal, denn: Für $\gamma<\kappa$ ist
+$\kappa\backslash\gamma\in U$, da
+$j(\kappa\backslash\gamma)=j(\kappa)\backslash
+j(\gamma)=j(\kappa)\backslash\gamma$, also $\kappa\in
+j(\kappa)\backslash\gamma$, da $\gamma<\kappa<j(\kappa)$. Sei
+$f:\kappa\rightarrow\kappa$ regressiv. Dann auch
+$j(f):j(\kappa)\rightarrow j(\kappa)$ regressiv. Setze
+$\alpha=j(f)(\kappa)$. Also $\alpha<\kappa$. Dann aber nach Definition
+von $\alpha$ ist $\kappa\in\{\gamma<j(\kappa)\mid
+j(\kappa)(\gamma)=\alpha\} = j(\{\gamma<\kappa\mid
+f(\gamma)=\alpha\})$. Also $\{\gamma<\kappa\mid f(\gamma)=\alpha\}\in
+U$. \hfill $\square$
 
 
 \end{document}
