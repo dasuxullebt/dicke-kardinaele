@@ -2029,15 +2029,15 @@ nichttriviale genügt, um die Existenz von $\osharp$ zu beweisen.
 		\[\begin{array}{cc} X_0 &= \{\tau\in C\mid\cf(\tau)>\kappa\} \\
 						X_{\beta+1} &= \{\tau\in X_{\beta}\mid |X_{\beta}\cap \tau|=\tau\} \\
 						X_{\lambda} &= \bigcap_{\alpha<\lambda} X_{\alpha} \mbox{ , falls }\lim(\alpha) \end{array} \]
-		
+
 		{\bf Beweis:} (a) wegen (3)(b). Zu (b): Zeige durch Induktion über $\beta$
 		\begin{itemize}
 			\item[(I)] $X_{\beta}$ unbeschränkt in $\On$
 			\item[(II)] $\tau$ Limespunkt von $X_{\beta}$ und $\cf(\tau)>\kappa\to \tau\in X_{\beta}$
 		\end{itemize}
-		
+
 		{\bf Beweis:} $\beta=0$: (I) klar, da $C$ abg. unb. in $\On$. (II) folgt aus (3)(b).
-			
+
 			$\beta=\gamma+1$: Setze $Z=\{\tau\mid |X_{\gamma}\cap\tau|=\tau\}$ 
 			Dann ist $Z$ abg. unb. in $\On$, da $X_{\gamma}$ unb. in $\On$. 
 			Sei $\delta\in\On$.
@@ -2099,14 +2099,14 @@ nichttriviale genügt, um die Existenz von $\osharp$ zu beweisen.
 					\item[(c)] $\pi_{\nu\tau}(\kappa_{\nu}=\kappa_{\nu}$
 				\end{itemize}
 		\end{itemize}
-					
+
 		{\bf Beweis:} (a) ist klar. (b) genau wie (5)(b). 
 			Zu (c): Z.Z. $[\kappa_{\nu},\kappa_{\tau})\cap M_{\nu\tau}=\emptyset$.
 			Ann.: nicht.
 			Dann $L_{\rho}\models\exists_{\vec\alpha<\kappa_{\nu}} \kappa_{\nu}\le t(\vec\alpha,\vec\eta)<\kappa_{\tau}$ mit $\vec\eta\in Y_{\tau}$.
 			Durch Anwendung von $\pi^{-1}_{\lambda}$ also $L_{\rho}\models\exists_{\vec\alpha<\kappa} \kappa\le t(\vec\alpha,\vec\eta)<\kappa_{\tau}$
 			Wid. zu $\pi_{\tau}(\kappa)=\kappa_{\tau}$ und $t(\vec\alpha,\vec\eta)\in M_{\tau}$.
-			
+
 		Wir zeigen schließlich \begin{itemize}
 			\item[(7)] $\langle \kappa_{\nu}\mid \nu<\omega_1\rangle$ ist Folge von guten Indisvernibles für $L_{\kappa^*}$.
 		\end{itemize}
@@ -2125,7 +2125,7 @@ nichttriviale genügt, um die Existenz von $\osharp$ zu beweisen.
 		$\pi(\kappa_{\nu_i}=\kappa_{\tau_i}$ folgt aus (6)(a)(b).
 		
 		%fertig! D: "`Dies war der mit Abstand undurchsichtigste Beweis der Vorlesung. (alle verständlichen alternativen Beweise erfordern deutlich mehr Theorie und sind damit zu lang."'
-		
+
 
 %% 11. December 2012
 Ohne Beweis:
@@ -2275,6 +2275,128 @@ von $\alpha$ ist $\kappa\in\{\gamma<j(\kappa)\mid
 j(\kappa)(\gamma)=\alpha\} = j(\{\gamma<\kappa\mid
 f(\gamma)=\alpha\})$. Also $\{\gamma<\kappa\mid f(\gamma)=\alpha\}\in
 U$. \hfill $\square$
+
+% 13.12.12
+{\bf Satz 4:}
+	Sei $U$ normaler Ultrafilter auf $\kappa$. 
+	Sei $f\colon [X]^{<\omega}\to\kappa$ regressiv mit $X\in U$.
+	Dann existiert $Z\in U$ mit $Z$ homogen für $f$.
+	
+	{\bf Beweis:} Zeige durch Induktion über $n\ge 1$ \begin{itemize}
+			\item[(*)] Falls $g\colon[Y]^n\to\kappa$ regressiv mit $Y\in U$, so existiert $Z\in U$ mit $Z$ homogen für $g$.
+		\end{itemize}
+		Dies genügt.
+		Denn wähle dann $Z_n\in U$ mit $Z_n$ homogen für $f\upharpoonright[X]^n$. 
+		Dann ist $Z=\bigcap_{n\in\omega} Z_n$ homogen für $f$.
+
+		Zu (*): $n=1$: nach Definition von normal. 
+
+		$n\to n+1$: Sei $g\colon[Y]^{n+1}\to\kappa$ regressiv.
+		Definiere für $\alpha<\kappa$ $g_{\alpha}\colon[Y-(\alpha+1)]^n\to\kappa$ durch $g_{\alpha}(\{\vec\gamma\})=g(\{\alpha,\vec\gamma\})$.
+		Dann ist $g_{\alpha}$ regressiv.
+		Nach Ind.-vor. existiert $Z_{\alpha}\in U$ mit $Z_{\alpha}$ homogen für $g_{\alpha}$.
+		Sei $h\colon\kappa\to\kappa$ so definiert, dass $g_{\alpha}''[Z_{\alpha}]^n=\{h(\alpha)\}$.
+		$h$ ist regressiv.
+		Also nach Normalität existiert $\xi<\kappa$ und $\bar Z\in U$ mit $h''\bar Z=\{\xi\}$.
+		Setze nun $Z=\bar Z\cap \Delta_{\alpha<\kappa}Z_{\alpha} \in U$. %\Delta = Diagonaldurchschnitt
+		$Z$ ist homogen für $g$, denn für $\gamma_0,\ldots,\gamma_n\in Z$ ist 
+		$g(\{\gamma_0,\ldots,\gamma_n\})=g_{\gamma_0}(\{\gamma_1,\ldots,\gamma_n\})= h(\gamma_0) = \xi $ 
+		(da $\gamma_1,\ldots,\gamma_n\in Z_{\gamma_0}$ und $\gamma_0 \in \bar Z$).
+
+{\bf Korollar:} \begin{itemize}
+		\item[(a)] $\kappa$ messbar $\to$ $\kappa$ Ramsey
+		\item[(b)] $\kappa$ messbar $\to$ $\exists_{\tau<\kappa} \tau$ Ramsey
+	\end{itemize}
+
+	{\bf Beweis:} (a) ist klar. 
+		zu (b): Sei $j\colon V\to M$ elementar mit $M$ transitiv und $\kappa=\cp(j)$.
+		Dann $\mathcal P(\kappa)\subseteq M$, da für $A\subseteq\kappa$ $A=j(A)\cap\kappa\in M$.
+		Also nach (a) $M\models \kappa$ ist Ramsey, d.h. $M\models \exists_{\tau<j(\kappa)} \tau$ ist Ramsey.
+		Somit folgt Beh.
+
+{\bf Satz 5:} Sei $\kappa$ messbar.
+	Es gelte $\forall_{\omega\le\tau<\kappa} 2^{\tau}=\tau^+$.
+	Dann gilt $2^{\kappa}=\kappa^+$.
+
+	{\bf Beweis:} Sei $j\colon V\to M$ wie immer.
+		Nach Vor. $M\models \forall_{\omega\le\tau<j(\kappa)} 2^{\tau}=\tau^+$.
+		Also insbesondere $M\models 2^{\kappa}=\kappa^+$.
+		Aber $\mathcal P(\kappa)\subseteq M$.
+		Also $2^{\kappa}=\kappa^+$.
+
+{\bf Ziel:} Sei $\kappa$ messbar.
+	Sei weiterhin $U$ irgendein normaler Ultrafilter auf $\kappa$. % Gilt sogar für beliebige \kappa-vollständige Ultrafilter
+	Dann ist $L[U]$ das kleinste innere Modell in dem $\kappa$ messbar ist.
+
+	{\bf Methode:} {\em Iterierte Ultrapotentzen}
+
+% Im folgenden zeigen wir, dass, also, äh, bemerken wir, dass es trivial ist, dass ...
+{\bf Bem:} Sei $U$ normaler Ultrafilter auf $\kappa$.
+	Setze $\bar U=U\cap L[U]$.
+	Dann gilt $L[U]=L[\bar U]$ und $L[U]\models\bar U$ ist normaler Ultrafilter auf $\kappa$.
+	Insbesondere ist $\kappa$ messbar in $L[U]$.
+
+% Im Folgenden betrachten wir auch Klassen von Klassen. (Dies geht, indem man die inneren Klassen an geeignet großer Stelle abschneidet, oder durch geeignete Kodierungsverfahren)  "Wir sind hier in einer fortgeschrittenen Vorlesung und kümmern uns deshalb gar nicht darum, das man einige Dinge gar nicht so machen kann."
+{\bf Direkter Limes}
+	Sei $\lambda$ eine Limesordinalzahl.
+	Sei der Einfachheit halber sei $M=\langle\langle M_j\mid i<\lambda\rangle, \langle \pi_{ij}\mid i\le j<\lambda\rangle\rangle$ ein kommutatives System mit
+	\begin{itemize}
+		\item[(a)] $M_i$ ist transitiv
+		\item[(b)] $\pi_{ij}\colon M_i\to M_j$ elementar
+		\item[(c)] $\pi_{ij}=id\upharpoonright M_i$
+		\[i\le j\le k<\lambda\to \pi_{ik} =\pi_{jk} \circ \pi_{ij} \]
+	\end{itemize}
+	Eine Struktur $\mathfrak M=\langle M,E\rangle$ mit Abbildung $\pi_i\colon M_i\to M$ ist ein direkter Limes von $M$, wenn gilt:
+	\begin{itemize}
+		\item[(D1)] $\forall_{x,y\in M} (x\in y\leftrightarrow \pi_i(x)E\pi_i(y))$
+		\item[(D2)] $i\le j<\lambda\to \pi_i=\pi_j\circ\pi_{ij}$
+		\item[(D3)] $M=\bigcup_{i<\lambda} \rng(\pi_i)$
+	\end{itemize}
+	Genau wie beim Lemma von Tarski folgt dann:
+	\[\pi_i\colon M_i\to\langle M, E\rangle \mbox{ist elementar}\]
+	Sind $\mathfrak M, \pi_i$ und $\mathfrak M', \pi_i'$ direkte Limites von $M$, so existiert Isomorphismus $\delta\colon \mathfrak M\to\mathfrak M'$
+	mit $\forall_i \delta\circ\pi_i=\pi_i'$
+
+	{\bf Beweis:} Setze $\delta(\pi_i(x))=\pi_i'(x)$
+
+	{\bf Existenz:} Für $x\in M_i$ setze $b_i(x)=\langle \pi_{ij}(x)\mid i\le j<\lambda\rangle$
+		Setze $M=\left\{ b_i(x)\mid \forall_{k<i} x\not\in\rng(\pi_{ki})\right\}$. 
+		($M$ ist die Klasse der maximalen Fäden)
+		Definiere $E$ auf $M$ durch $b_i(x)Eb_j(y)$ gdw $b_i(x)(k)\in b_i(y)(k)$ mit $k=\max\{i,j\}$.
+		Definiere $\pi_i\colon M_i\to M$ durch $\pi_i(x) = $ der maximale Faden $b$ mit $b_i(x)$ Endstück von $b$.
+		Dies tut's.
+
+	$\mathfrak M$ ist im allgemeinen nicht fundiert.
+	
+	{\bf Beispiel:} Sei hierzu $j\colon L\to L$ elementar mit $j\neq id$.
+	$L \overset{j}{\to} L \overset{j}{\to} L \overset{j}{\to} L \overset{j}{\to} L \overset{j}{\to} \ldots$
+
+	Ist aber $\mathfrak M$ (stark) fundiert, so auch extensional.
+	Dann ist auch die Transitivierung von $\mathfrak M$ ein direkter Limes von $\mathfrak M$ und natürlich eindeutig bestimmt.
+	Also ist dies dann {\em der} transitive Limes von $\langle M_i,\pi_{ij}\rangle$.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 \end{document}
