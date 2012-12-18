@@ -2380,8 +2380,91 @@ U$. \hfill $\square$
 	Dann ist auch die Transitivierung von $\mathfrak M$ ein direkter Limes von $\mathfrak M$ und natürlich eindeutig bestimmt.
 	Also ist dies dann {\em der} transitive Limes von $\langle M_i,\pi_{ij}\rangle$.
 
+\marginpar{\tiny{18.12.2012}}
 
+	Sei nun $M$ ein inneres Modell und $U\in M$ mit $M\models U$ normaler Ultrafilter auf $\kappa$.
+	Weiterhin sei $\alpha\in\On$ oder $\alpha=\On$.
+	Dann heißt $\left\langle\langle M_i, U_i,\kappa_i\rangle, \langle \pi_{ij}\mid i\le j<\alpha\rangle\right\rangle$
+	die $\alpha$-Iteration von $M$ bezüglich $U$, wenn gilt:
+	\begin{itemize}
+		\item[(a)] $\left\langle M_i,\langle\pi_{ij}\mid i\le j<\alpha\rangle\right\rangle$ ist kommutatives System, $M_i$ transitiv, d.h.
+			$\pi_{ij}\colon M_i\to M_j$, $\pi_{ij}=\id$, $i\le j\le k\to \pi_{ik}=\pi_{jk}\circ\pi_{ij}$
+		\item[(b)] $M_0=M$, $U_0=U$, $\kappa_0=\kappa$
+		\item[(c)] $U_i=\pi_{0i}(U)$, $\kappa_i=\pi_{0i}(\kappa)$
+		\item[(d)] $\pi_{i,i+1}\colon M_i\to M_{i+1}$ ist die Ultrapotenzabbildung von $M_i$ bezüglich $U_i$
+		\item[(e)] Ist $\lim(\lambda)$, $\lambda<\alpha$, so ist $\left\langle M_{\lambda},\langle \pi_{i\lambda}\mid i<\lambda\rangle\right\rangle$ der transitive direkte Limes von $\left\langle\langle M_i\mid  i<\lambda\rangle, \langle\pi_{ij}\mid i\le j<\lambda\rangle\right\rangle$
+	\end{itemize}
 
+{\bf Bemerkung:} Wenn die $\alpha$-Iteration existiert, so ist sie eindeutig bestimmt durch $M,U$.
+
+{\bf Bemerkung:} Die Abbildungen $\pi_{ij}$ sind alle elementar.
+
+{\bf Bemerkung:} Sei $\left\langle\langle M_i, U_i,\kappa_i\rangle, \langle \pi_{ij}\mid i\le j<\alpha\right\rangle$ die $\alpha$-Iteration von $M$ bezüglich $U$.
+	Sei $\beta<\alpha$ und $\gamma=\alpha-\beta$.
+	Dann ist $\left\langle\langle M_{\beta+i}, U_{\beta+i}, \kappa_{\beta+i}\rangle,\langle \pi_{\beta+i,\beta+j}\mid i\le j <\gamma\rangle\right\rangle$
+	die $\alpha$-Iteration von $M_{\beta}$ und $U_{\beta}$.
+
+{\bf Satz 6:} Sei $M$ ein inneres Modell und $M\models U$ normaler Ultrafilter auf $\kappa$.
+	Sei $\alpha\in\On$. 
+	Dann existiert die $\alpha$-Iteration von $M$ bezüglich $U$.
+
+	{\bf Beweis:} Arbeite in $M$. Annahme: Beh. falsch.
+		Sei $\alpha$ das kleinste Gegenbeispiel.
+		Folgt unmittelbar, dass $\alpha=\lambda+1$ mit $\lim(\lambda)$ und für die $\lambda$-Iteration
+		$\left\langle\langle M_i, U_i, \kappa_i\rangle, \langle\pi_{ij}\mid i\le j <\kappa\rangle\right\rangle$ gilt:
+		Sei $\langle \mathfrak N=\langle N, E\rangle, \langle \pi_i\mid i<\lambda\rangle\rangle$ ein direkter Limes hiervon.
+		Dann ist $E$ nicht fundiert.
+		Also sind die Ordinalzahlen von $\mathfrak N$ nicht fundiert.
+		Sei $\xi$ minimal mit: die Ordinalzahlen von $\mathfrak N$ sind unterhalb von $\pi_0(\xi)$ nicht fundiert.
+		(Beachte, dass $\pi_0\colon \On\to\On^{\mathfrak N}$ konfinal ist.)
+		Sei $x_{n+1}Ex_nE\pi_0(\xi)$ ($n\in\omega$) absteigende Folge in $\On^{\mathfrak N}$.
+		Wähle $\beta<\lambda$ mit $x_0=\pi_{\beta}(\eta)$.
+		Dann gilt $\eta<\pi_{0\beta}(\xi)$, denn: $\pi_{\beta}(\eta)=x_0E\pi_0(\xi)=\pi_{\beta}(\pi_{0\beta}(\xi))$.
+		Also wegen $\pi_{0\beta}\colon M\to M_{\beta}$ elementar und $\pi_{0\beta}(\lambda)\ge\lambda$ gilt:
+		Für $\gamma=\lambda-\beta$: Die $\gamma$-Iteration von $M_{\beta}$ bezüglich $U_{\beta}$ existiert und für ihren direkten Limes $\mathfrak N'=\langle N',E'\rangle$, $\rho_i$ gilt:
+			$\mathfrak N'$ ist fundiert unterhalb von $\rho_{\gamma}(\eta)$.
+		Dies liefert Widerspruch zu obiger Bem., da bis auf Isomorphie $\mathfrak N'=\mathfrak N$ und $\rho_0(\eta)=\pi_{\beta}$.
+		Dies ist Widerspruch, da $x_{n+2}Ex_{n+1}$ für alle $n\in\omega$.
+
+{\bf Folgerung:} 	Vor. wie in Satz 6
+	Dann existiert die $\On$-Iteration von $M$ bezüglich $U$.
+
+{\bf Bemerkung:} Sei $U$ normaler Ultrafilter auf $\kappa$ und $j\colon V\to M$ die Ultrapotenz.
+	Dann gilt für $X\subseteq\kappa$: \[X\in U \mbox{ gdw } \kappa\in j(X)\]
+
+	{\bf Beweis:} Sei $d=\id\upharpoonright\kappa$. 
+		Wegen $U$ normal gilt ''$[d]=\kappa$''.
+		Also $\kappa\in j(X)$ gdw $[d]E[c_X]$ gdw $\{\alpha<\kappa\mid\alpha\in X\}=X\in U$.
+
+{\bf Lemma 7:} Sei $\left\langle\langle M_i, U_i, \kappa_i\rangle, \langle\pi_{ij}\mid i\le j\in \On\rangle\right\rangle$ die $\On$-Iteration von $M$ bezüglich $U$
+	(Wobei $M\models U$ normaler Ultrafilter auf $\kappa$).
+	Dann gilt: \begin{itemize} 
+		\item[(a)] $\pi_{ij}\upharpoonright\kappa_i=\id\upharpoonright\kappa_i$, $\pi_{ij}(\kappa_i)=\kappa_j$
+		\item[(b)] $\langle \kappa_i\mid i\in\On\rangle$ ist normal, d.h. streng monoton wachsend und stetig
+		\item[(c)] Sei $\lim(\lambda)$. Dann gilt für $X\in\mathcal P(\kappa_{\lambda})\cap M_{\lambda}$:
+			$X\in U_{\lambda}$ gdw $\exists_{i<\lambda}\{\kappa_j\mid i\le j<\lambda\}\supseteq X$
+	\end{itemize}
+
+	{\bf Beweis:} Zu (a): 2. Teil: Sei $i\le j$ $\pi_{ij}(\pi_{0i}(\kappa_0)=\pi_{0j}(\kappa_0)=\kappa_j$.
+		Also ist insbesondere $\langle \kappa_i\mid i\in\On\rangle$ schwach monoton.
+
+		1. Teil: Induktion über $j$. Nachfolgerschritt klar, da $\pi_{j,j+1}\upharpoonright\kappa_j=\id\upharpoonright\kappa_j$ und $\kappa_j\ge\kappa_i$
+		Limesschritt: da für $\lim(j)$ $\langle \kappa_j,\pi_{ij}\upharpoonright\kappa_i\rangle$ ist direkter Limes von $\left\langle\langle \kappa_k\mid i\le k<j\rangle, \langle \pi_{kl}\upharpoonright\kappa_k\mid i\le k \le l<j\rangle\right\rangle$.
+
+		Zu (b): aus (a) folgt $i\le j\to \kappa_i\le \kappa_j$, außerdem $\kappa_i<\kappa_{i+1}$, da $\pi_{i,i+1}$ die Ultrapotenz ist.
+		Also um z.z. für $\lim(j)$ $\kappa_j\le \sup\{\kappa_i\mid i<j\}$.
+		Hierzu: $\xi<\kappa_j\to\exists_\eta\exists_{i<j} \xi=\pi_{ij}(\eta)$.
+		Nach (a) dann $\eta<\kappa_i$.
+		Also auch $\xi=\eta<\kappa_i$.
+
+		Zu (c): Wegen $U_{\lambda}$ Ultrafilter in $M_{\lambda}$ genügt es `'$\to$'' zu Zeigen. 
+		Sei also $X\in U_{\lambda}$.
+		Dann $\exists_{i<\lambda} X=\pi_{i\lambda}(X_i)$.
+		Also $X_i\in U_i$, da $\pi_{i\lambda}(U_i)=U_{\lambda}$.
+		Für $i\le j <\lambda$ setze $X_j=\pi_{ij}(X_i)$.
+		Also $X_j\in U_j$.
+		Somit nach Bem. $\kappa_j\in \pi_{j,j+1}(X_j)=X_{j+1}$.
+		Also nach (a) $\kappa_j\in \pi_{j+1,\lambda}(X_{j+1})=X$.
 
 
 
