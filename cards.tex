@@ -2466,7 +2466,41 @@ U$. \hfill $\square$
 		Somit nach Bem. $\kappa_j\in \pi_{j,j+1}(X_j)=X_{j+1}$.
 		Also nach (a) $\kappa_j\in \pi_{j+1,\lambda}(X_{j+1})=X$.
 
+\marginpar{\tiny{20.12.2012}}
 
+{\bf Definition:} Sei $\cf(\theta)>\omega$.
+	Setze $\mathcal F_{\theta}=\{A\subseteq\theta\mid \mbox{es existiert abg. unb. $C\subseteq\theta$ mit $C\subseteq A\}$}$.
+	$\mathcal F_{\theta}$ ist also Filter auf $\theta$.
+
+{\bf Lemma 8:} Vor. wie in Lemma 7.
+	Sei $\cf(i)>\omega$.
+	Setze $\theta=\kappa_i$.
+	Dann gilt: $U_i=\mathcal F_{\theta}\cap M_i$.
+
+	{\bf Beweis:} Wegen $U_i$ Ultrafilter in $M_i$ genügt es `'$\subseteq$'' zu Zeigen.
+		Sei also $X\in U_i$.
+		Nach 7(c) existiert dann $j<i$ mit $C:= \{\kappa_k\mid j\le k<i\}\subseteq X$.
+		Also nach 7(b) ist $C$ abg. unb. in $\kappa_i=\theta$.
+		Also $X\in \mathcal F_{\theta}$.
+
+{\bf Lemma 9:} Vor. wie in Lemma 7.
+	Setze $C_i:=\{\lambda\in\Card\mid \pi_{0i}''\lambda\subseteq\lambda\}$.
+	Also ist $C$ abg. unb. in $\On$.
+	Dann existiert $\tau_i$ mit:
+	Falls $\lambda$ Limespunkt von $C_i$ mit $\cf(\lambda)\ge\tau_i$, so ist $\pi_{0i}(\lambda)=\lambda$.
+
+	{\bf Beweis:} Durch Induktion über $i$.
+		Nachfolgerschritt: da $\pi_{i,i+1}$ Ultrapotenz völlig analog zum Beweis von 3(b) aus Satz 15, §2.
+
+		Limesschritt: Sei $\tau_i=\max\{|i|^+,\sup\{\tau_j\mid j<i\}\}$. % Ind.-vor. wird gar nicht verwendet.
+		Sei $\lambda$ Limespunkt von $C_i$ mit $\cf(\lambda)\ge\tau_i$.
+		Es genügt z.Z.: Es ist $|\xi|<\lambda$ für alle $\xi<\pi_{0i}(\lambda)$.
+		Sei also $\xi<\pi_{0i}(\lambda)$.
+		Dann existiert $jyi$ und $\xi_j<\lambda$ mit $\xi=\pi_{ji}(\xi_j)$.
+		Für $j\le k<i$ setze $\xi_k=\pi_{jk}(\xi_j)$.
+		Also ist $\xi_k<\lambda$, da $\pi_{jk}''\lambda\subseteq\lambda$.
+		Nun ist aber wegen direkter Limes $\xi\subseteq \bigcup_{j\le k<i}\pi_{ki}''\xi_k$.
+		Somit $|\xi|\le|i|\cdot\underbrace{\sup\{|\xi_k|\mid j\le k<i\}}_{<\lambda\mbox{, da} \cf(\tau)>|i|}<\lambda$.
 
 
 
