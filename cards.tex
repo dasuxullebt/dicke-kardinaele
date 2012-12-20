@@ -1,4 +1,4 @@
-%% -*- coding: utf-8 -*
+%% -*- coding: utf-8 -*-
 
 \documentclass[a4paper,fontsize=11pt]{scrartcl}
 \usepackage[utf8]{inputenc}
@@ -65,12 +65,9 @@ Fehler und Anmerkungen bitte an \textsc{christoph {\it punkt} senjak {\it at} if
 {\bf Vorkenntnisse:} Logik, Modelle der Mengenlehre (Konstruktibles
 Universum, Innere Modelle, kein Forcing)
 
-{\bf Inhalt:} Ursprungliche Motivation für große Kardinalzahl-Axiome
-war, dass $\omega$ ein Sprung in den Kardinalzahlen ist. Man überlegte
-ob so ein Sprungverhalten öfter vorkommen könnte. Die erste
-Vorgehensweise war, bestimmte Eigenschaften von $\omega$ zu isolieren,
-und dann eine Zahl mit den gleichen Eigenschaften ungleich $\omega$ zu
-fordern. Dies ist allerdings inzwischen weitgehend obsolet.
+{\bf Inhalt:} Ursprungliche Motivation für große Kardinalzahl-Axiome war, dass $\omega$ ein Sprung in den Kardinalzahlen ist. Man überlegte ob so ein
+Sprungverhalten öfter vorkommen könnte. Die erste Vorgehensweise war, bestimmte Eigenschaften von $\omega$ zu isolieren, und dann eine Zahl mit den
+gleichen Eigenschaften ungleich $\omega$ zu fordern. Dies ist allerdings inzwischen weitgehend obsolet.
 
 Die Theorien die man durch große Kardinalzahlen bekommt ist eine
 Verstärkung der ursprünglichen Theorie. Man kann mit immer neuen
@@ -1903,19 +1900,12 @@ starken Theorien. In gewisser Weise ist ``$\osharp$ existiert'' ein
 {\bf Bemerkung:} $\osharp$ existiere. Sei $\kappa\ge\omega$
 Kardinalzahl in $L$. Dann gilt $\cf((\kappa^+)^L)=\omega$.
 
-{\bf Beweis:} Sei $\tau=(\kappa^+)^L$. Sei $J$ die Menge der ersten
-$\omega$-vielen Elemente von $I\backslash(\kappa+1)$ und $\delta=\sup
-J$. Es gilt nun $\operatorname{Hull}_{L_\delta} ((\kappa+1)\cap
-J)\supseteq\tau$ (hier
-$\operatorname{Hull}_{L_\delta}(x)=\mbox{Skolemhülle von }x\mbox{ in
-}L_\delta$\footnote{$\operatorname{Hull}_{L_\delta}(X)=\{t^{L_\delta}(\vec{x})|t\in\mathcal{L}\mbox{
-    und }\vec{x}\in X\}$}). Sei $\left<\delta_n\mid n\in\omega\right>$
-  die monotone Aufzählung von $J$. Setze nun für $n\in\omega$
-  $X_n=\operatorname{Hull}_{L_\delta}((\kappa+1)\cap\{\delta_0,\ldots,\delta_{n-1}\})$. Dann
-  $X_n\in L$ und $|X_n|^L\le\kappa$. Also
-  $\tau_n:=\sup(X_n\cap\tau)<\tau$, da $\tau$ regulär in $L$. Aber
-  $\bigcup_{n\in\omega}X_n=X\supseteq\tau$. Also
-  $\sup_n\tau_n=\tau$. Also $\cf(\tau)=\omega$.  \hfill $\square$
+{\bf Beweis:} Sei $\tau=(\kappa^+)^L$. Sei $J$ die Menge der ersten $\omega$-vielen Elemente von $I\backslash(\kappa+1)$ und $\delta=\sup J$. Es gilt
+nun $\Hull_{L_\delta} ((\kappa+1)\cap J)\supseteq\tau$ (hier $\Hull_{L_\delta}(x)=\mbox{Skolemhülle von }x\mbox{ in
+}L_\delta$\footnote{$\Hull_{L_\delta}(X)=\{t^{L_\delta}(\vec{x})|t\in\mathcal{L}\mbox{ und }\vec{x}\in X\}$}). Sei $\left<\delta_n\mid
+n\in\omega\right>$ die monotone Aufzählung von $J$. Setze nun für $n\in\omega$
+$X_n=\Hull_{L_\delta}((\kappa+1)\cap\{\delta_0,\ldots,\delta_{n-1}\})$. Dann $X_n\in L$ und $|X_n|^L\le\kappa$. Also $\tau_n:=\sup(X_n\cap\tau)<\tau$,
+da $\tau$ regulär in $L$. Aber $\bigcup_{n\in\omega}X_n=X\supseteq\tau$. Also $\sup_n\tau_n=\tau$. Also $\cf(\tau)=\omega$.  \hfill $\square$
 
 Also auch: $\osharp$ existiert $\Rightarrow$
 $|\mathfrak{P}(\kappa)\cap L|\le\kappa$ für $\kappa\ge\omega$.
@@ -2503,14 +2493,38 @@ U$. \hfill $\square$
 		Somit $|\xi|\le|i|\cdot\underbrace{\sup\{|\xi_k|\mid j\le k<i\}}_{<\lambda\mbox{, da} \cf(\tau)>|i|}<\lambda$.
 
 
+{\bf Lemma 10:} Sei $V=L[A]$ mit $A\subseteq\mathfrak{P}(\kappa)$, $\kappa\ge\omega$. Dann gilt $\mathfrak{P}(\kappa)\subseteq L_{\kappa^+}[A]$.
 
+   {\bf Beweis:} Sei $X\subseteq\kappa$. Zu zeigen $X\in L_{\kappa^+}[A]$. Wähle $\theta>\kappa$ regulär mit $X\in L_\theta[A]$. Sei $N\prec
+   L_\theta[A]$ mit $\kappa+1)\cup\{X\}\subseteq N$ und $|N|=k$. Sei nach (relativiertem) Kondensationslemma
+   $\pi:N\xrightarrow{\sim}L_\gamma[\bar{A}]$, wobei $\bar{A}=\pi''(A\cap N)$. Wegen $\pi\upharpoonright\mathfrak{P}(\kappa)\cap N =
+   \id\upharpoonright\mathfrak{P}(\kappa)\cap N$ folgt aber $\bar{A}=A\cap N=A\cap L_\gamma[\bar{A}]$. Also ist $X=\pi(X)\in L_\gamma[\bar{A}] =
+   L_\gamma[A\cap L_\gamma[A]] \stackrel{!}{=} L_\gamma[A]$ und $\gamma<\kappa^+$. \hfill $\square$
 
+{\bf Lemma 11:} Sei $\lambda > \kappa > \omega$ Kardinalzahl und sei $B\subseteq\lambda$ mit $|B|\ge\kappa^+$. Sei $A\subseteq\mathfrak{P}(\kappa)$
+mit $A\in L[A]$. Setze $N=\Hull_{L_\lambda[A]}((\kappa+1)\cap B)$. Dann gilt $\mathfrak{P}(\kappa)\cap L[A]\subseteq N$.
 
+   {\bf Beweis:} Sei nach Kondensationslemma $\pi:N\xrightarrow{\sim}L_\gamma[\bar{A}]$. Wie oben folgt, dass $\bar{A}=A\cap L_\gamma[\bar{A}]$, also
+   $L_\gamma[\cap{A}])=L_\gamma[A]$. Aber $\gamma\ge\kappa^+$. Also nach obigem Lemma $\mathfrak{P}(\kappa)\cap L[A]\subseteq L_\gamma[A]$. Aber
+   $\mathfrak{P}(\kappa)\cap L_\gamma[A] = N\cap\mathfrak{P}(\kappa)$. \hfill $\square$
 
+{\bf Satz 12:} Sei $\kappa\in\On$. Seien $M=L[U]$ mit $M\models U$ normaler Ultrafilter auf $\kappa$ und $\bar{M}=L[\bar{U}]$ mit
+$\bar{M}\models\bar{U}$ normaler Ultrafilter auf $\kappa$. Dann gilt $U=\bar{U}$ (also $M=\bar{M}$).
 
-
-
-
+   {\bf Beweis:} Seien $\left<\left<M_i,U_i,\kappa_i\right>,\left<\pi_{ij}\right>\right>$ die $\On$-Iteration von $M$ und
+   $\left<\left<\bar{M_i},\bar{U_i},\bar{\kappa_i}\right>,\left<\bar{\pi_{ij}}\right>\right>$ die $\On$-Iteration von $\bar{M}$. Da nach Lemma 7 b
+   $\left<\kappa_i\mid i\in\On\right>$ und $\left<\bar{\kappa_i}\mid i\in\On\right>$ normal sind, existiert $i\in\On$ mit $\cf(i)>\omega$ und
+   $\kappa_i=\bar{\kappa_i}=i=:\theta$. Nach Lemma 8 gilt dann $U_i=\mathcal{F}_\theta\cap M_i$ und $\bar{U_i}=\mathcal{F}_\theta\cap\bar{M_i}$. Also
+   $M_i=L[U_i]=L[\mathcal{F}_\theta]=L[\bar{U_i}]=\bar{M_i}$. Setze $\pi=\pi_{0i}$ und $\bar{\pi}=\bar{\pi_{0i}}$. Also
+   \begin{center}
+     \begin{tikzpicture}
+       \node (M) at (0,2) {$M$};
+       \node (Mbar) at (0,0) {$\bar{M}$};
+       \node (LF) at (2,1) {$L[\mathcal{F}_\theta]$};
+       \draw[->] (M) to node[auto]{$\pi$} (LF);
+       \draw[->] (Mbar) to node[auto]{$\bar{\pi}$} (LF);
+     \end{tikzpicture}
+   \end{center}
 
 
 
