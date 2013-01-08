@@ -2512,7 +2512,7 @@ mit $A\in L[A]$. Setze $N=\Hull_{L_\lambda[A]}((\kappa+1)\cap B)$. Dann gilt $\m
 $\bar{M}\models\bar{U}$ normaler Ultrafilter auf $\kappa$. Dann gilt $U=\bar{U}$ (also $M=\bar{M}$).
 
    {\bf Beweis:} Seien $\left<\left<M_i,U_i,\kappa_i\right>,\left<\pi_{ij}\right>\right>$ die $\On$-Iteration von $M$ und
-   $\left<\left<\bar{M_i},\bar{U_i},\bar{\kappa_i}\right>,\left<\bar{\pi_{ij}}\right>\right>$ die $\On$-Iteration von $\bar{M}$. Da nach Lemma 7 b
+   $\left<\left<\bar{M_i},\bar{U_i},\bar{\kappa_i}\right>,\left<\bar{\pi_{ij}}\right>\right>$ die $\On$-Iteration von $\bar{M}$. Da nach Lemma 7 (b)
    $\left<\kappa_i\mid i\in\On\right>$ und $\left<\bar{\kappa_i}\mid i\in\On\right>$ normal sind, existiert $i\in\On$ mit $\cf(i)>\omega$ und
    $\kappa_i=\bar{\kappa_i}=i=:\theta$. Nach Lemma 8 gilt dann $U_i=\mathcal{F}_\theta\cap M_i$ und $\bar{U_i}=\mathcal{F}_\theta\cap\bar{M_i}$. Also
    $M_i=L[U_i]=L[\mathcal{F}_\theta]=L[\bar{U_i}]=\bar{M_i}$. Setze $\pi=\pi_{0i}$ und $\bar{\pi}=\bar{\pi_{0i}}$. Also
@@ -2525,6 +2525,88 @@ $\bar{M}\models\bar{U}$ normaler Ultrafilter auf $\kappa$. Dann gilt $U=\bar{U}$
        \draw[->] (Mbar) to node[auto]{$\bar{\pi}$} (LF);
      \end{tikzpicture}
    \end{center}
+
+\marginpar{\tiny{08.01.2013}}
+
+		Setze $B=\{\delta\in \Card\mid \pi(\delta)=\delta\}$ und $\bar B=\{\delta\in\Card\mid \bar\pi(\delta)=\delta\}$.
+		Setze $D=C\cap\lambda$.
+		Nach Lemma 9 ist $C:= B\cap\bar B$ unbeschränkt in $\On$.
+		Wähle $\lambda\in C$ mit $|C\cap\lambda|\ge\kappa^+$.
+		Setze $\pi^*=\pi\upharpoonright L_{\lambda}[U]$ und $\bar\pi^* = \bar\pi\upharpoonright L_{\lambda}[\bar U]$.
+		Also $\pi^*\colon L_{\lambda}[U]\to L_{\lambda}[\mathcal F_{\theta}$ und $\bar\pi^*\colon L_{\lambda}[\bar U]\to L_{\lambda}[\mathcal F_{\theta}]$ sind elementar.
+		Wir zeigen nun die Behauptung.
+		Aus Symmetrie genügt z.Z., dass $U\subseteq\bar U$.
+		Sei also $X\in U$.
+		Nach Lemma 11 gilt, da $X\subseteq\kappa$, $X\in\Hull_{L_{\lambda}[U]}((\kappa+1)\cup D)$, da $|D|\ge\kappa^+$.
+		Also existiert Term $t$ und $\vec\lambda<\kappa$, $\vec\rho\in D$ mit $X=t^{L_{\lambda}[U]}(\vec\lambda,\kappa,\vec\rho)$.
+		Dann aber $Z:=\pi*(x)=t^{L_{\lambda}[\mathcal F_{\theta}]}(\vec\lambda,\theta, \vec\rho)$, da $\pi*(\vec\gamma,\kappa,\vec\rho)=(\vec\gamma,\theta,\vec\rho)$.
+		Also auch $Z\in\rng(\bar\pi^*)$, da $Z=\bar\pi^*(t^{L_{\lambda}[\bar U]}(\vec\gamma,\kappa,\vec\rho)$.
+		Also $\bar\pi^*(Z\cap\kappa)=Z$ und $Z\cap\kappa\in\bar U$, da $Z\in\mathcal F_{\theta}$.
+		Aber $Z\cap\kappa=X$, da $\pi^*(X)=Z$.
+
+{\bf Korollar:} Sei $\kappa$ meßbar in einem inneren Modell $W$.
+	Sei $U\in W$ mit $W\models U$ normaler Ultrafilter auf $\kappa$.
+	Dann ist $M=L[U]$ das kleinste innere Modell, in dem $\kappa$ meßbar ist.
+	Außerdem ist $U\cap M$ in $M$ der einzige normale Ultrafilter auf $\kappa$.
+
+	{\bf Beweis:} Sei $\bar W$ ein weiteres inneres Modell, in dem $\kappa$ meßbar ist und sei $\bar W\models\bar U$ normaler Ultrafilter auf $\kappa$.
+		Nach obigem Satz gilt dann $L[U]=L[\bar U]$, da $L[U]=L[U\cap L[U]]$ und $L[\bar U]=L[\bar U\cap L[\bar U]]$.
+		Insbesondere also $L[U]=L[\bar U]\subseteq\bar W$.
+		Ist $D\in M$ mit $M\models D$ normaler Ultrafilter auf $\kappa$, so nach Satz ist $D=U\cap M$.
+
+{\bf Satz 13:} Sei $I=\{\kappa\mid\kappa$ ist meßbar in einem inneren Modell $\}$
+	Sei $I\neq\emptyset$ und $\kappa=\min I$.
+	Sei $M$ das kleinste innere Modell, in dem $\kappa$ messbar.
+	Also $M=L[U]$ für ein $U\in M$ mit $L[U]\models U$ normaler Ultrafilter auf $\kappa$.
+	Sei $\langle\langle M_i, U_i, \kappa_i\rangle,\pi_{ij}\rangle$ die $\On$-Iteration von $M$ bezüglich $U$.
+	Dann gilt $I=\{\kappa_i\mid i\in\On\}$.
+
+	{\bf Beweis:} `'$\supseteq$'' klar. `'$\subseteq$'': Sei $\bar\kappa\in I$. 
+		Wegen $\langle\kappa_i\mid i\in\On\rangle$ normal und $\bar\kappa\ge\kappa_0$ existiert dann $i\in\On$ mit $\kappa_i\le\bar\kappa<\kappa_{i+1}$.
+		z.Z. $\kappa_i=\bar\kappa$.
+		Annahme: $\kappa_i<\bar\kappa$.
+		Sei $\bar M=L[\bar U]$ mit $\bar M\neq\bar U$ normaler Ultrafilter auf $\bar\kappa$.
+		Sei wieder $\langle\langle \bar M_j,\bar U_j,\bar\kappa_j\rangle,\bar\pi_{jk}\rangle$ die $\On$-Iteration von $\bar M$ bezüglich $\bar U$.
+		Wir finden wieder $j\in\On$ mit $\cf(j)>\omega$ und $\kappa_j=\bar\kappa_j=:\theta$.
+		Gilt wieder $M_j=L[\mathcal F_{\theta}] = \bar M_j$.
+		Setze nun $\pi=\pi{ij}$ und $\bar\pi=\bar\pi_{0j}$.
+		Existiert wieder unbeschränktes $C\subseteq\Card$ mit $\pi\upharpoonright C=\id\upharpoonright C=\bar\pi\upharpoonright C$.
+		Wähle wieder $\lambda\in C$ mit $|C\cap\lambda|\ge\kappa^+_i$ und setze $D=C\cap\lambda$.
+		Wir zeigen nun zuerst \begin{itemize}\item[(*)] Sei $\sigma=\pi_{i,i+1}$. 
+		Dann existiert $f\mid\kappa_i\to\kappa_i$, $f\in M_i$, mit $\bar\kappa=\sigma(f)(\kappa_i)$.
+
+		{\bf Beweis von (*):} $\sigma$ ist die Ultrapotenz von $M_i$ mit $U_i$.
+			Wegen $\bar\kappa<\kappa_{i+1}=[c{\kappa_i}]$ ist $\bar\kappa=[f]$ für ein $f\colon\kappa_i\to\kappa_i$.
+			Wegen $U$ normal ist $[\id\upharpoonright\kappa_i]=\kappa_i$.
+			Also $[c_f]([\id\upharpoonright\kappa_i])=[f]$, da $\forall_{\alpha<\kappa_i} c_f(\alpha)(\alpha')=f(\alpha)$.
+		\end{itemize}
+		
+		Setze wieder $\pi^*=\pi\upharpoonright L_{\lambda}[U]$, $\bar\pi^*=\bar\pi\upharpoonright L_{\lambda}[\bar U]$.
+		Also $\pi^*\colon L_{\lambda}[U_i]\to L_{\lambda}[\mathcal F_{\theta}]$, $\bar\pi^*\colon L_{\lambda}[\bar U]\to L_{\lambda}[\mathcal F_{\theta}]$ sind elementar.
+		Sei $f$ wie in $(*)$.
+		Existiert wieder $\vec\eta<\kappa$ und $\vec\rho\in D$ mit $f=t^{L_{\lambda}[U_i]}(\vec\eta,\kappa_i,\vec\rho)$,
+		da $f\subseteq \kappa_i\times\kappa_i$, also im wesentlichen ''$f\in\mathcal P(\kappa_i)$''.
+		Nun ist aber $\pi^*(f)=\pi_{i+1,j}(\pi_{i,i+1}(f))$.
+		Wegen $\pi_{i+1,j}\upharpoonright\kappa_{i+1} =\id\upharpoonright\kappa_{i+1}$ ist also $\pi^*(f)(\kappa_i)=\bar\kappa$.
+		Aber $\pi^*(f)=t^{L_{\lambda}[\mathcal F_{\theta}]}(\vec\eta,\theta,\vec\rho)\in\rng(\bar\pi^*)$, da
+		$\pi^*(f)=\bar\pi^*(t^{L_{\lambda}[\bar U]}(\vec\eta,\bar\kappa,\vec\rho)$.
+		Außerdem $\kappa_i\in\rng(\bar\pi^*)$, da $\kappa_i<\bar\kappa=\cp(\bar\pi)$.
+		Also $\bar\kappa=\pi^*(f)(\kappa_i)\in\rng(\bar\pi^*)$.
+		Widerspruch zu $\bar\kappa=$ kritische Punkt von $\bar\pi^*$. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
