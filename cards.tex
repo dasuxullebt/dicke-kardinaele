@@ -1,4 +1,4 @@
-%% -*- coding: utf-8 -*-
+%% -*- coding: utf-8; fill-column: 150 -*-
 
 \documentclass[a4paper,fontsize=11pt]{scrartcl}
 \usepackage[utf8]{inputenc}
@@ -35,6 +35,7 @@
 \newcommand{\osharp}{\operatorname{O}^\sharp}
 \newcommand{\ZFC}{\operatorname{ZFC}}
 \newcommand{\ZF}{\operatorname{ZF}}
+\newcommand{\GCH}{\operatorname{GCH}}
 \newcommand{\Card}{\operatorname{Card}}
 \newcommand{\Con}{\operatorname{Con}}
 \newcommand{\Fml}{\operatorname{Fml}}
@@ -69,14 +70,11 @@ Universum, Innere Modelle, kein Forcing)
 Sprungverhalten öfter vorkommen könnte. Die erste Vorgehensweise war, bestimmte Eigenschaften von $\omega$ zu isolieren, und dann eine Zahl mit den
 gleichen Eigenschaften ungleich $\omega$ zu fordern. Dies ist allerdings inzwischen weitgehend obsolet.
 
-Die Theorien die man durch große Kardinalzahlen bekommt ist eine
-Verstärkung der ursprünglichen Theorie. Man kann mit immer neuen
-großen Kardinalzahlen immer neue Aussagen über natürliche Zahlen
-beweisen.
+Die Theorien die man durch große Kardinalzahlen bekommt ist eine Verstärkung der ursprünglichen Theorie. Man kann mit immer neuen großen
+Kardinalzahlen immer neue Aussagen über natürliche Zahlen beweisen.
 
-Das hier Behandelte ist im Wesentlichen die Einführung immer größerer
-Kardinalzahlen, relevant wird immer sein, ob man noch die natürlichen
-inneren Modelle für große Kardinalzahlen hat.
+Das hier Behandelte ist im Wesentlichen die Einführung immer größerer Kardinalzahlen, relevant wird immer sein, ob man noch die natürlichen inneren
+Modelle für große Kardinalzahlen hat.
 
 {\bf Literatur:}
 \begin{itemize}
@@ -2581,40 +2579,83 @@ $\bar{M}\models\bar{U}$ normaler Ultrafilter auf $\kappa$. Dann gilt $U=\bar{U}$
 			Also $[c_f]([\id\upharpoonright\kappa_i])=[f]$, da $\forall_{\alpha<\kappa_i} c_f(\alpha)(\alpha')=f(\alpha)$.
 		\end{itemize}
 		
-		Setze wieder $\pi^*=\pi\upharpoonright L_{\lambda}[U]$, $\bar\pi^*=\bar\pi\upharpoonright L_{\lambda}[\bar U]$.
-		Also $\pi^*\colon L_{\lambda}[U_i]\to L_{\lambda}[\mathcal F_{\theta}]$, $\bar\pi^*\colon L_{\lambda}[\bar U]\to L_{\lambda}[\mathcal F_{\theta}]$ sind elementar.
-		Sei $f$ wie in $(*)$.
-		Existiert wieder $\vec\eta<\kappa$ und $\vec\rho\in D$ mit $f=t^{L_{\lambda}[U_i]}(\vec\eta,\kappa_i,\vec\rho)$,
-		da $f\subseteq \kappa_i\times\kappa_i$, also im wesentlichen ''$f\in\mathcal P(\kappa_i)$''.
-		Nun ist aber $\pi^*(f)=\pi_{i+1,j}(\pi_{i,i+1}(f))$.
-		Wegen $\pi_{i+1,j}\upharpoonright\kappa_{i+1} =\id\upharpoonright\kappa_{i+1}$ ist also $\pi^*(f)(\kappa_i)=\bar\kappa$.
-		Aber $\pi^*(f)=t^{L_{\lambda}[\mathcal F_{\theta}]}(\vec\eta,\theta,\vec\rho)\in\rng(\bar\pi^*)$, da
-		$\pi^*(f)=\bar\pi^*(t^{L_{\lambda}[\bar U]}(\vec\eta,\bar\kappa,\vec\rho)$.
-		Außerdem $\kappa_i\in\rng(\bar\pi^*)$, da $\kappa_i<\bar\kappa=\cp(\bar\pi)$.
-		Also $\bar\kappa=\pi^*(f)(\kappa_i)\in\rng(\bar\pi^*)$.
-		Widerspruch zu $\bar\kappa=$ kritische Punkt von $\bar\pi^*$. 
+		Setze wieder $\pi^*=\pi\upharpoonright L_{\lambda}[U]$, $\bar\pi^*=\bar\pi\upharpoonright L_{\lambda}[\bar U]$.  Also $\pi^*\colon
+                L_{\lambda}[U_i]\to L_{\lambda}[\mathcal F_{\theta}]$, $\bar\pi^*\colon L_{\lambda}[\bar U]\to L_{\lambda}[\mathcal F_{\theta}]$ sind
+                elementar.  Sei $f$ wie in $(*)$.  Existiert wieder $\vec\eta<\kappa$ und $\vec\rho\in D$ mit
+                $f=t^{L_{\lambda}[U_i]}(\vec\eta,\kappa_i,\vec\rho)$, da $f\subseteq \kappa_i\times\kappa_i$, also im wesentlichen ''$f\in\mathcal
+                P(\kappa_i)$''.  Nun ist aber $\pi^*(f)=\pi_{i+1,j}(\pi_{i,i+1}(f))$.  Wegen $\pi_{i+1,j}\upharpoonright\kappa_{i+1}
+                =\id\upharpoonright\kappa_{i+1}$ ist also $\pi^*(f)(\kappa_i)=\bar\kappa$.  Aber $\pi^*(f)=t^{L_{\lambda}[\mathcal
+                    F_{\theta}]}(\vec\eta,\theta,\vec\rho)\in\rng(\bar\pi^*)$, da $\pi^*(f)=\bar\pi^*(t^{L_{\lambda}[\bar
+                    U]}(\vec\eta,\bar\kappa,\vec\rho)$.  Außerdem $\kappa_i\in\rng(\bar\pi^*)$, da $\kappa_i<\bar\kappa=\cp(\bar\pi)$.  Also
+                $\bar\kappa=\pi^*(f)(\kappa_i)\in\rng(\bar\pi^*)$.  Widerspruch zu $\bar\kappa=$ kritische Punkt von $\bar\pi^*$.
 
+\marginpar{\tiny{10.01.2013}}
 
+{\bf Satz 14 (Silver):} Sei $V=L[U]$ mit $U$ normaler Filter auf
+$\kappa$. Dann gilt $\GCH$.
 
+{\bf Beweis:} Sei $\rho\ge\omega$ Kardinalzahl. Wollen zeigen $2^\rho = \rho^+$.
+\begin{itemize}
+  \item 1. Fall: $\rho\ge\kappa$. Dann gilt nach Lemma 10 $\mathfrak{P}(\rho)\subseteq L_{\rho^+}[U]$. Also fertig.
+  \item 2. Fall: $\rho<\kappa$. Genügt zu zeigen:
+    \begin{itemize}
+      \item[(*)] Sei $a\subseteq\rho$, $a\in L_{\gamma+1}[U]\backslash L_\gamma[U]$. Dann ist $|\mathfrak{P}(\rho)\cap L_{\gamma+1}[U]|\le\rho$.
+      \item[] {\bf Beweis:} Sei $\Theta>\gamma$, $2^\kappa$ regulär. Setze $\mathfrak{A}=\left<L_\Theta[U], \in, U, \{a\},
+        (\alpha)_{\alpha\le\rho}\right>$. Zeige zuerst:
+        \begin{itemize}
+          \item[(1)] existiert $I\in U$ mit $I$ ist Menge von Indiscernibles für $\mathfrak{A}$
+          \item[] {\bf Beweis:} (Analog zu Lemma 2 aus §2:) Sei $\mathcal{L}$ die zu $\mathfrak{A}$ gehörige Sprache. Definiere
+            $f:[\kappa]^{<\omega}\rightarrow \mathfrak{P}(\Form_{\mathcal{L}})$ durch $f(\{v_0, \ldots, v_{n-1}\})=\tp_{\mathfrak{A}}(\left<v_0,
+            \ldots, v_{n-1}\right>)$. Nach Satz 3 existiert $I\in U$ mit $I$ homogen für $f$. $I$ ist wie gewünscht. \hfill $\square$
+        \end{itemize}
+        Sei also $I$ wie in (1). Setze $\mathcal{H} = \Hull_{\mathfrak{A}}(I)$. Sei $\sigma:\mathcal{H}\xrightarrow{\sim}\left< L_\delta[\bar{U}],
+        \in, \bar{U}, \ldots\right>$. Gilt $\sigma\upharpoonright(\rho+1)=\id\upharpoonright(\rho+1)$, $\sigma(a)=a$.
+        \begin{itemize}
+          \item[(2)] es existiert $X\in U$ mit $\rho\upharpoonright X = \id\upharpoonright X$ (insbesondere $X\subseteq\mathcal{H}$)
+          \item[] {\bf Beweis:} Angenommen nicht. Beachte, dass für alle $\beta\in\mathcal{H}$ gilt $\sigma(\beta)\le\beta$. Nach Annahme ist also
+            $Z=\{\beta\in I\mid\rho(\beta)<\beta\}\in U$. Dann existiert wegen $U$ normal ein $\mu<\kappa$ mit $\bar{Z}=\{\beta\in I\mid
+            \sigma(\beta)=\mu\}\in U$. Widerspruch zu $\sigma$ injektiv. \hfill $\square$
+          \item[(3)] $L_\delta[\bar{U}] = L_\delta[U]$.
+          \item[] {\bf Beweis:} Es ist $\bar{U} = \sigma''(\mathcal{H}\cap U)$. Also genügt es zu zeigen, dass $\sigma''(\mathcal{H}\cap U)=U\cap
+            L_\delta[\bar{U}]$. Genügt zu zeigen ``$\subseteq$'', da beide Seiten Ultrafilter auf $\mathfrak{P}(\kappa)\cap L_\delta[\bar{U}]$
+            sind. Sei hierzu $X$ wie in (2). Dann gilt für $Z\in\mathcal{H}\cap U$
+            $$ \sigma(Z) = \sigma''(Z\cap\mathcal{H}) \supseteq \sigma''(Z\cap X) = Z\cap X\in U $$ Also $\sigma(Z)\in U$. \hfill $\square$
+        \end{itemize}
+        Wegen $a=\sigma(a)\in L_\delta[\bar{U}]$, also nach (3) $a\in L_\delta[U]$. Somit $\delta\ge\gamma+1$. Genügt also zu zeigen
+        $|\mathfrak{P}(\rho)\cap L_\delta[U]|\le\rho$. Hierzu zeigen wir
+        \begin{itemize}
+          \item[(4)] $\mathfrak{P}(\rho)\cap\mathcal{H}\subseteq\Hull_{\mathfrak{A}}(\bar{I})$, wobei $\bar{I}$ die ersten $\omega$ Elemente von $I$
+          \item[] {\bf Beweis:} Sei $b\in\mathfrak{P}(\rho)\cap\mathcal{H}$. Dann existiert $\delta_0,\ldots,\delta_{n-1}\in I$ und Term $t$ mit
+            $b=t^{\mathcal{H}}(\delta_0,\ldots,\delta_{n-1})$. Seien nun $\gamma_0,\ldots,\gamma_{n-1}$ die ersten $n$ Elemente von $I$. Dann gilt
+            auch $b=t^{\mathcal{H}}(\gamma_0,\ldots,\gamma_{n-1})$, denn für $\alpha<\rho$ $\mathfrak{A}\models\alpha\in
+            t^{\mathcal{H}}(\gamma_0,\ldots,\gamma_{n-1})\leftrightarrow \alpha\in t^{\mathcal{H}}(\delta_0,\ldots,\delta_{n-1})$ und
+            $t^{\mathcal{H}}(\gamma_0,\ldots,\gamma_{n-1})\subseteq\rho$ \hfill $\square$
+        \end{itemize}
+    \end{itemize}
+\end{itemize}
 
+{\bf Satz 15:} Sei $U$ ein $\kappa$-vollständiger Ultrafilter auf $\kappa$. Sei $j:V\rightarrow M$, $M$ transitiv, die Ultrapotenzabbildung mit
+$U$. Dann gilt $U\not\in M$.
 
+{\bf Beweis:} $F=\{f\mid f:\kappa\rightarrow\kappa\}$. Dann gilt $\otp(\left<F,<_u\right>)=j(k)$ wobei $f<_u g \Leftrightarrow \{\alpha<\kappa\mid
+f(\alpha)< g(\alpha)\}\in U$. Nun ist aber $F\in M$, da $\mathfrak{P}(\kappa)\subseteq M$. Angenommen $U\in M$. Dann ist auch $<_u\in M$, also
+$\left<F,<_\kappa\right>\in M$. Also in $M$ $j(\kappa)=\otp(\left<F,<_u\right>)<(2^\kappa)^+$, da $|F|=2^\kappa$. Also $j(\kappa)$ ist unerreichbar in
+$M$, da $\kappa$ unerreichbar in $V$. Widerspruch.
 
+{\bf Folgerung:} Sei $\left< \left<M_i, U_i, \kappa_i\right>, \pi_{ij}\right>$ die $\On$-Iteration von $M$ bezüglich $U$. Dann gilt
+$$ M_o \supsetneq M_1 \supsetneq M_2 \supsetneq \ldots \supsetneq M_i $$
 
+{\bf Satz 16:} Sei $V=L[U]$ mit $U$ normaler Ultrafilter auf $\kappa$. Dann ist $\kappa$ die einzige messbare Kardinalzahl.
 
+{\bf Beweis:}
+\begin{itemize}
+  \item 1. Fall: $\tau > \kappa$. Sei $D$ ein $\tau$-vollständiger Ultrafilter auf $\tau$ und $j:V\rightarrow M$ die Ultrapotenzabbildung mit
+    $D$. Dann gilt wegen $\tau>\kappa$ auch $j(U)=U$, als $M=L[j(U)]=L[U]=V$. Widerspruch zu Satz 15, da $D\not\in M$.
+  \item 2. Fall: $\tau < \kappa$. Sei $N$ das kleinste innere Model, in dem $\tau$ messbar ist. Dann ist nach Satz 15 $V$ eine Iteration von $N$. Also
+    nach obiger Folgerung ist $V\subsetneq N$. Widerspruch.
+\end{itemize}
+ \hfill $\square$
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+$j:V\rightarrow M$ Ultrapotenz mit $U$ auf $\kappa$, $U\not\in M$, das heißt $\mathfrak{P}(\mathfrak{P}(\kappa))\not\subseteq M$.
 
 \end{document}
