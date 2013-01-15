@@ -2658,4 +2658,69 @@ $$ M_o \supsetneq M_1 \supsetneq M_2 \supsetneq \ldots \supsetneq M_i $$
 
 $j:V\rightarrow M$ Ultrapotenz mit $U$ auf $\kappa$, $U\not\in M$, das heißt $\mathfrak{P}(\mathfrak{P}(\kappa))\not\subseteq M$.
 
+\marginpar{\tiny{15.01.2013}}
+
+\section{Sehr große Kardinalzahlen}
+Für eine Kardinalzahl $\kappa$ setze $$H_\kappa=\{x\mid |\TC(x)|<\kappa\}$$ wobei $\TC(x)$ die transitive Hülle von $x$ ist. Natürlich gilt
+$\kappa<\lambda\Rightarrow H_\kappa\subseteq H_\lambda$, $\kappa$ Limeskardinalzahl $\Rightarrow$ $H_\kappa = \bigcup\limits_{\lambda<\kappa}
+H_\lambda$, $V=\bigcup\limits_\kappa H_\kappa$.
+
+{\bf Satz 1:} Sei $j:H_\kappa\rightarrow M$ elementar mit $M$ transitiv. Weiterhin sei $\cf(\kappa)>\omega$. Dann existeren transitives $N$ und
+$j^*:V\rightarrow N$ elementar mit $j^*\supseteq j$.
+
+{\bf Beweis:} Setze $$Q = \{\left<f, a\right>\mid \mbox{es existiert }u\in H_\kappa\mbox{ mit }f:u\rightarrow V\mbox{ und }a\in j(u)\}$$ Definiere
+eine Relation $\sim$ auf $Q$ durch: $$ \left<f, a\right>\sim\left<g,b\right> \Leftrightarrow \left<a,b\right>\in j(\{\left<c,d\right>\mid
+f(c)=g(d)\}) $$ $\sim$ ist Äquivalenzrelation, denn:
+\begin{itemize}
+  \item $\left<f,a\right>\sim\left<f,a\right>$, denn: $j(\{\left<c,d\right>\mid f(c)=g(d)\})\supseteq\{\left<e,e\right>\mid e\in\dom
+    j(f)\}\ni\left<a,a\right>$.
+  \item Symmetrie ist klar, denn $\left<a,b\right>\in j(\{\left<c,d\right>\mid f(c) = g(d)\}) \rightarrow \left<b,a\right>\in j(\{\left<d,c\right>\mid
+    g(d)=f(c)\})$.
+  \item Transitiv: $\left<a,b\right>\in j(\{\left<c,d\right>\mid f(c)=g(d)\})$ und $\left<b, e\right>\in j(\{\left<d,i\right>\mid
+    g(d)=h(i)\})\rightarrow \left<c,i\right>\mid f(c) = h(i)\}$
+\end{itemize}
+Für $\left<f,a\right>\in Q$ setze $$ [f,a] = \{ \left<g, b\right> \mid \left<f, a\right>\sim\left<g,b\right> \mbox{ und für alle } \left<h,c\right>
+\mbox{ mit } \left<f,a\right>\sim\left<h,c\right> \mbox{ ist } \rng(g)\le\rng(h)\} $$ Sei $\tilde{Q} = \{[f,a]\mid\left<f,a\right>\in Q\}$. Definiere
+eine Relation $E$ auf $\tilde{Q}$ durch $[f,a] E [g,b] \Leftrightarrow \left<a,b\right>\in j(\{\left<c,d\right>\mid f(c)\in g(d)\})$. Dies ist
+wohldefiniert.
+
+Wir zeigen nun:
+\begin{itemize}
+  \item[(1)] Sei $\varphi(x_1,\ldots,x_n)$ eine Formel. Dann: $\left<\tilde{Q},E\right>\models\varphi([f_1,a_1],\ldots,[f_n,a_n]) \Leftrightarrow
+    \left<a_1,\ldots,a_n\right>\in j(\{\left<c_1,\ldots,c_n\right>\mid H_\kappa\models\varphi(f_1(c_1),\ldots,f_n(c_n))\})$.
+  \item[] {\bf Beweis:} Durch Induktion über den Formelaufbau:
+    \begin{itemize}
+      \item[(a)] $\varphi$ atomar \\ nach Def.
+      \item[(b)] $\varphi \equiv \varphi_1 \vee \varphi_2$ \\ da $j(A\cup B) = j(A) \cup j(B)$, für $A,B\in H_\kappa$
+      \item[(c)] $\varphi \equiv \lnot \psi$ \\ da $j(U\backslash A) = j(U)\backslash j(A)$, für $A, U\in H_\kappa$
+      \item[(d)] $\varphi \equiv \exists_z \psi(z,x_1,\ldots,x_n)$
+        \begin{itemize}
+          \item[``$\Rightarrow$''] Sei $\left<\tilde{Q},E\right>\models \psi([g,b],[f_1,a_1],\ldots,[f_n,a_n])$. Setze $A =
+            \{\left<c,c_1,\ldots,c_n\right>\mid H_\kappa \models \psi(g(c),f_1(c_1),\ldots,f_n(c_n))\}$. Nach Induktionsvoraussetzung
+            $\left<b,a_1,\ldots,a_n\right>\in j(A)$. Setze $D=\{\left<c_1,\ldots,c_n\right>\mid
+            H_\kappa\models\varphi(f_1(c_1),\ldots,f_n(c_n))\}$. Dann gilt für alle $\left<c,c_1,\ldots,c_n\right>\in A$ dass
+            $\left<c_1,\ldots,c_n\right>\in D$. Dies überträgt sich auf $j(A),j(D)$. Wegen $\left<b,a_1,\ldots,a_n\right>\in j(A)$ also
+            $\left<a_1,\ldots,a_n\right>\in j(D)$. \hfill $\square$
+          \item[``$\Leftarrow$''] Setze wieder $D=\{\left<c_1,\ldots,c_n\right>\mid H_\kappa\models\varphi(f_1(c_1),\ldots,f_n(c_n))\}$. Sei
+            $\dom(f_i)=u_i$. Definiere $g:u_1\times\ldots\times u_n \rightarrow V$ so, dass gilt:
+            $H_\kappa\models\varphi(f_1(c_1),\ldots,f_n(c_n))\rightarrow H_\kappa\models\psi(g(c_1,\ldots,c_n),f_1(c_1),\ldots,f_n(c_n))$. Setze nun
+            $A = \{\left<c,c_1,\ldots,c_n\right>\mid H_\kappa\models\psi(g(c),f_1(c_1),\ldots,f_n(c_n))\}$ und $b = \left<a_1,\ldots,a_n\right>$. Also
+            $b\in j(u_1\times\ldots\times u_n)$. Es gilt: $$ \left<c_1,\ldots,c_n\right>\in D\rightarrow
+            \left<\left<c_1,\ldots,c_n\right>,c_1,\ldots,c_n\right>\in A$$ Dies überträgt sich auf $j(D)$ und $j(A)$. Somit erhalten wir: Ist
+            $\left<c_1,\ldots,c_n\right>\in j(D)$, so ist $\left<b,a_1,\ldots,a_n\right>\in j(A)$. Also nach Induktionsvoraussetzung
+            $\left<\tilde{Q},E\right>\models\psi([g,b],[f_1,a_1],\ldots,[f_n,a_n])$ und daher
+            $\left<\tilde{Q},E\right>\models\varphi([f_1,a_1],\ldots,[f_n,a_n])$. \hfill $\square$(1)
+        \end{itemize}
+    \end{itemize}
+  \item[] Für $x\in V$ definiere $c_x:1\rightarrow V$ durch $c_x(0)=x$. Definiere nun $\tilde(j):V\rightarrow\tilde{Q}$ durch
+    $\tilde{j}(x)=[c_x,0]$. Aus (1) folgt sofort:
+  \item[(2)] $\tilde{j}:V\rightarrow\left<\tilde{Q},E\right>$
+  \item[] Wir zeigen nun:
+  \item[(3)] $E$ ist stark fundiert.
+  \item[] {\bf Beweis ``stark'':} Sei $[g,b]\in\tilde{Q}$. Sei $v=\bigcup\limits_{d\in\dom(g)}g(d)$ und sei $z\not\in v$ fest. Ist nun $[f,a]E[g,b]$,
+    so definiere $f^*:\dom(f)\rightarrow V$ durch $$ f^*(c) = \left\{ \begin{array}{cl} f(c) & \mbox{falls } f(c)\in v \\ z &
+      \mbox{sonst}\end{array}\right.$$ Dann ist $[f,a]\sim[f^*,a]$, denn: $a\in j(\{c\mid\exists_d . f(c)\in g(d)\}) = j(\{c\mid f(c)=f^*(c)\})$. Also
+    ist $\{[f,a]\mid [f,a]E[g,b]\}\in V$, da $\{f^*\mid\ldots\}$ eine Menge ist.
+\end{itemize}
+
 \end{document}
