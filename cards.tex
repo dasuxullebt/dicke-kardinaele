@@ -60,6 +60,7 @@
 %%\author{Prof. Dr. H.-D. Donder}       %Authors
 \begin{document}
 \flushleft
+\parskip1ex plus1ex minus0.5ex
 \section*{Vorwort}
 Fehler und Anmerkungen bitte an \textsc{christoph {\it punkt} senjak {\it at} ifi {\it punkt} lmu {\it punkt} de}.
 
@@ -1938,7 +1939,7 @@ nichttriviale genügt, um die Existenz von $\osharp$ zu beweisen.
 		Dann sind wir nach Beweis von Satz 13 fertig.
 		Hierzu zeigen wir zuerst eine starke Version von (b). 
 		Wegen $j\neq id\upharpoonright L_{\alpha}$ ist auch $j\upharpoonright\alpha\neq id\upharpoonright\alpha$ (und natürlich $\alpha>\omega$).
-		Setze $\kappa=\min\{\gamma<\alpha\mid \j(\gamma)\neq\gamma\}$.
+		Setze $\kappa=\min\{\gamma<\alpha\mid j(\gamma)\neq\gamma\}$.
 		Dann ist natürlich $j(\kappa)>\kappa$.
 		Nach Vor. ist $(\kappa^+)^L\le\alpha$.
 		Wir können also $U\subseteq \mathcal P(\kappa)\cap L$ durch:
@@ -1949,14 +1950,14 @@ nichttriviale genügt, um die Existenz von $\osharp$ zu beweisen.
 		\end{itemize}
 		Denn: $\kappa\in j(\kappa)$, $\kappa\not\in\emptyset=j(\emptyset)$, $X\in U\to \kappa\in j(X)\subseteq j(Y)$.
 		\begin{itemize}
-			\item[(ii)] Ist $\langle X_i\mid i<\gamma\rangle\in L$ mit $\gamma<\kappa$ und $X_i\in U$ so gilt $\bigcap_{\i<\gamma} X_i\in U$
+			\item[(ii)] Ist $\langle X_i\mid i<\gamma\rangle\in L$ mit $\gamma<\kappa$ und $X_i\in U$ so gilt $\bigcap_{i<\gamma} X_i\in U$
 		\end{itemize}
 		Denn: z.Z. $\kappa\in j(\bigcap_{i<\gamma} X_i)$. 
 		Aber wegen Elementarität ist $j(\bigcup_{i<\gamma}X_i)=\bigcup_{i<\gamma}j(X_i)$ (da $j(\gamma)=\gamma$), also klar.
 		\begin{itemize}
 			\item[(iii)] $\forall_{X\in \mathcal P(\kappa)\cap L} (X\in U \mbox{ oder } \kappa-X\in U)$
 		\end{itemize}
-		Da $j(X)\cup j(\kappa-X)=\j(\kappa)$.
+		Da $j(X)\cup j(\kappa-X)=j(\kappa)$.
 		\begin{itemize}
 			\item[(iv)] $\forall_{\gamma<\kappa} \kappa-\gamma\in U$
 		\end{itemize}
@@ -2721,6 +2722,116 @@ Wir zeigen nun:
     so definiere $f^*:\dom(f)\rightarrow V$ durch $$ f^*(c) = \left\{ \begin{array}{cl} f(c) & \mbox{falls } f(c)\in v \\ z &
       \mbox{sonst}\end{array}\right.$$ Dann ist $[f,a]\sim[f^*,a]$, denn: $a\in j(\{c\mid\exists_d . f(c)\in g(d)\}) = j(\{c\mid f(c)=f^*(c)\})$. Also
     ist $\{[f,a]\mid [f,a]E[g,b]\}\in V$, da $\{f^*\mid\ldots\}$ eine Menge ist.
+%\end{itemize}
+
+\marginpar{\tiny{17.01.2013}}
+
+%$[f,a]$ ist modifizierte Äquivalenzrelation.
+%$\tilde Q:=\{[f,a]\mid\langle f,a\rangle\in Q\}$ und $[f,a]E[g,b]\iff \langle a,b\rangle\in j(\{\langle c,d\rangle\mid f(c)\in g(d)\})$.
+%Für $x\in V$ definiere $c_x\colon 1\to V$ durch $c_x(0)=x$.
+%Definiere nun $\tilde j\colon V\to\tilde Q$ durch $\tilde j(x)=[c_x,0]$.
+%Denn $\tilde j\colon V\to\langle \tilde Q,E\rangle$ elementar.
+%\begin{itemize}\item[(3)] $E$ ist stark fundiert
+	\item[] {\bf Beweis ``fundiert'':} Ann.: $E$ ist nicht fundiert.
+		Sei also $[f_{n+1},a_{n+1}E[f_n,a_n]$ für alle $n$.
+		Sei $\{f_n\mid n\in \omega\}\subseteq H_{\lambda}$ für ein $\lambda$.
+		Setze $u=\bigcup_n\dom(f_n)$.
+		Dann ist $n\in H_{\kappa}$, da $\cf(\kappa)>\omega$ und für alle $n$ $\dom(f_n)\in H_{\kappa}$.
+		Wähle ein $X\prec H_\lambda$ mit $TC(u)\cup\{f_n\mid n\in\omega\}\subseteq X$ und $|X|<\kappa$.
+		Sei $\pi\colon X\tilde\to R$ mit $R$ transitiv.
+		Also $R\in H_{\kappa}$.
+		Setze $g_n=\pi(f_n)$.
+		Weiterhin sei $A_n=\{\langle c,d\rangle\mid f_{n+1}(c)\in f_n(d)\}$.
+		Es ist dann $A_n\subseteq u\times u$.
+		Wegen $\pi\upharpoonright TC(u)=\id\upharpoonright u$ ist dann $\pi(A_n)=A_n$.
+		Aber $\pi(A_n)=\{\langle c,d\rangle\mid g_{n+1}(c)\in g_n(d)\}$.
+		Wegen $[f_{n+1},a_{n+1}]E[f_n,a_n]$ ist aber dann $\langle a_{n+1},a_n\rangle\in j(A_n)=j(\{\langle c,d\rangle\mid g_{n+1}(c)\in g_n(d)\})=$
+		$\{\langle c,d\rangle\mid j(g_{n+1}(c)\in j(g_n)(d)\}$, d.h. $j(g_{n+1}(a_{n+1})\in j(g_n))(a_n)\;\forall_n$. Wid.
 \end{itemize}
+Sei also $\pi\colon\langle \tilde Q,E\rangle\tilde\to N$ mit $N$ transitiv.
+Definiere $j^*\colon V\to N$ durch $j^*=\pi\circ\tilde j$.
+Dann ist $j^*$ elementar.
+Wir müssen zeigen:
+\begin{itemize}\item[(4)] $j^*\supseteq j$
+
+		{\bf Beweis:} Setze $M'=\bigcup_{n\in H_\kappa}j(n)$.
+		Definiere eine Abbildung $\sigma\colon M'\to N$ wie folgt.
+		Sei $a\in M'$.
+		Wähle $u\in H_{\kappa}$ mit $a\in j(u)$
+		und setze $\sigma(a)=\pi([\id\upharpoonright u, a])$.
+		Dies hängt nicht von der Wahl von $u$ ab.
+		Setze $N'=\rng(\sigma)$.
+		Man sieht leicht, das $\sigma\colon M'\to N'$ ein Isomorphismus ist.
+		Aber $N'$ ist transitiv.
+		Denn sei $[f,b]E[\id\upharpoonright u,a]$, wobei o.E. $u$ transitiv.
+		Wie im Beweis von (3) dann o.E. $f\in H_\kappa$.
+		Dann aber $\langle f,b\rangle\sim\langle \id\upharpoonright u, j(f)(b)\rangle$, woraus das Gewünscht folgt.
+		Somit ist $\sigma$ die Identität.
+		Aber für $x\in H_\kappa$ ist $\tilde j(x)=[c_x,0] \stackrel{!}{=}[\id\upharpoonright\{x\}, j(x)]$
+		also $j^*(x)=\sigma(j(x))=j(x)$.
+		$j^*(x)=\pi(\tilde j(x))=\sigma(j(x))=j(x)$.
+\end{itemize}
+
+{\bf Definition:} Sei $j\colon V \to M$ elementar mit M transitiv, und sei $j\neq\id$.
+	Setze dann $\cp(j)=\min\{\kappa\mid j(\kappa)\neq\kappa\}$ der {\em kritische Punkt} von $j$.
+
+{\bf Definition:} \begin{itemize}\item[(a)] Seien $\kappa,\lambda$ Kardinalzahlen.
+		$\kappa$ ist {\em $\lambda$-stark} $\iff$ es existiert $j\colon V\to M$ elementar mit $M$ transitiv, $\kappa=\cp(j)$, $\lambda<j(\kappa)$ und $\mathcal P(\lambda)\subseteq M$.
+		\item[(b)] $\kappa$ ist {\em stark}, wenn $\kappa$ $\lambda$-stark für alle $\lambda$ ist.
+	\end{itemize}
+
+{\bf Bemerkung:} Nach Satz 1 lässt sich ``$\kappa$ ist $\lambda$-stark'' in $\ZFC$ definieren, denn es gilt:
+	$\kappa$ ist $\lambda$-stark $\iff$ es existiert $\lambda\colon j(\kappa)$ und $\mathcal P(\lambda)\subseteq N$.
+
+{\bf Bemerkung:} $\kappa$ ist $0$-stark $\iff$ $\kappa$ ist $\kappa$–stark $\iff$ $\kappa$ ist messbar.
+
+{\bf Bemerkung:} Sei $M$ ein inneres Modell und $\mathcal P(\lambda)\subseteq M$.
+	Dann gilt $H_{\lambda^+}\subseteq M$.
+	
+	{\bf Beweis:} Da in $M$ eine Bijektion von $\lambda$ nach $\lambda\times\lambda$ existiert ist $\mathcal P(\lambda\times\lambda)\subseteq M$.
+		Sei nun $x\in H_{\lambda^+}$, und sei $z=\TC(x)$.
+		Also $|z|\le\lambda$.
+		Sei $f\colon\alpha\to z$ Bijektion mit $\alpha=|z|$ und definiere $E\subseteq \alpha\times\alpha$ so, dass $f\colon\langle\alpha, E\rangle\to\langle z,\in\rangle$ en Isomorphismus ist.
+		Somit ist $f$ die Transitivierung von $\langle \alpha, E\rangle$.
+		Wegen $E\subseteq\lambda\times\lambda$ ist also $\langle\alpha, E\rangle\in M$.
+		Somit ist aber auch $f\in M$, da $M$ inneres Modell.
+		Sei non $y={f^{-1}}''x$.
+		Also $y\in M$, da $y\subseteq \lambda$.
+		Somit $x=f''y\in M$.
+
+{\bf Satz 2:} Sei $\kappa$ $2^\kappa$-stark.
+	Dann existiert normaler Ultrafilter $U$ auf $\kappa$ mit $\{\alpha<\kappa\mid \alpha \mbox{ messbar}\}\in U$.
+
+	{	\bf Beweis:} Sei $j\colon V\to M$ wie in Def. von ``$\kappa$ ist $2^\kappa$-stark''.	
+	Setze $U=\{X\in \kappa\mid \kappa\in j(X)\}$.
+	Dann ist $U$ normaler Ultrafilter auf $\kappa$ (siehe früher).
+	Aber $U\in \mathcal P(\mathcal P(\kappa))\subseteq H_{(2^\kappa)^+}$.
+	Wegen $\mathcal P(2^\kappa)\subseteq M$ ist also nach Bem. $U\in M$.
+	Somit $M\models \kappa \mbox{ ist messbar}$.
+	Somit nach Def. von $U$ ist $X=\{\alpha<\kappa\mid \alpha \mbox{ is messbar}\}\in U$, da $\kappa\in j(X)$.
+
+{\bf Bemerkung:} Sei $\kappa$ $\lambda$-stark, wobei $\lambda\ge\kappa$.
+	Dann existieren transitives $N$ und $j\colon H_{\kappa^+}\to N$ elementar mit $\kappa=\cp(j)$, $\lambda<j(\kappa)$, $\mathcal(\lambda)\subseteq N$ und $|N|\le 2^\lambda$.
+
+	{\bf Beweis:} Sei $k \colon H_{\kappa^+}\to M$ elementar mit $M$ transitiv.
+		$\kappa=\cp(j)$, $\lambda<k(\kappa)$, $\mathcal P(\lambda)\subseteq M$.
+		Sei $X\prec N$ mit $\rng(k)\cup\mathcal P(\lambda)\subseteq X$ und $|X|\le 2^\lambda$.
+		Sei $\pi\colon X\to N$ die Transitivierung von $X$.
+		Setze $j=\pi\circ k$.
+		Dann ist $j$ wie gewünscht.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 \end{document}
