@@ -2820,6 +2820,94 @@ Wir müssen zeigen:
 		Setze $j=\pi\circ k$.
 		Dann ist $j$ wie gewünscht.
 
+\marginpar{\tiny{22.01.2012}}
+
+{\bf Bemerkung:} $\kappa$ ist stark $\to$ $\kappa$ ist total unbeschreibbar
+
+	{\bf Beweis:} Sei $A\subseteq V_\kappa$ und $\gamma >\kappa$ mit $V_{\gamma}\models\varphi(A)$.
+		Wegen $\kappa$ stark existiert $j\colon V\to M$ elementar, $M$ transitiv, mit $\cp(j)=\kappa$, $j(\kappa)>\gamma$ und $V_\gamma\subseteq M$.
+		Denn $V_{j(\gamma)}^M\models \varphi(j(A))$.
+		Aber $M\models \exists_\alpha\exists_\delta\left(\alpha<\delta<j(\kappa) \mbox{ und } V_{\delta}\models \varphi(j(A)\cap V_{\alpha})\right)$
+		nämlich $\alpha=\kappa$ und $\delta=\gamma$, da $j(A)\cap V_{\kappa}=A$ und $V^M_{\gamma}=V_\gamma$.
+		Also $V\models\exists_\alpha\exists_\delta\left( \alpha<\delta<\kappa \mbox{ und } V_{\delta}\models\varphi(A\cap V_{\alpha})\right)$.
+
+{\bf Definition:} $\kappa$ ist {\em Woodin} $:\iff$ für alle $f\colon\kappa\to\kappa$ existiert $\tau<\kappa$ mit $f''\tau \subseteq \tau$ und ein elementares $j\colon V\to M$ mit $M$ transitiv, $cp(j)=\tau$ und $V_{j(f)(\tau)}\subseteq M$.
+
+{\bf Bemerkung:} Sei $\kappa$ Woodin.
+	Dann ist $\{ \tau<\kappa\mid  \tau$ messbar $\}$ stationär in $\kappa$.
+	Insbesondere ist $\kappa$ Mahlo.
+
+	{\bf Beweis:} Sei $C\subseteq\kappa$ abgeschlossen unbeschränkt. 
+		Definiere $f\colon \kappa\to\kappa$ durch $f(\alpha) = \min (C-(\alpha+1))$.
+		Sei $\tau$ wie in Definition, dann $f''\tau\subseteq\tau$, also $\tau$ Limespunkt von $C$, also $\tau\in C$ und wegen Existenz von $j$ ist $\tau$ messbar.
+
+{\bf Satz 3:} Sei $\kappa$ Woodin.
+	Dann existiert $\tau<\kappa$ mit $V_\kappa\models\tau$ ist stark.
+
+	{\bf Beweis:} Annahme: nicht.
+		Definiere also $g\colon\kappa\to\kappa$ so, dass für alle $\tau<\kappa$ $V_{\kappa}\models\tau$ ist nicht $g(\tau)$-stark, und $g(\tau)\ge\tau$.
+		Nach obiger Bemerkung gilt dann wirklich, dass $\tau$ nicht $g(\tau)$-stark.
+		Definiere nun $f\colon\kappa\to\kappa$ durch $f(\tau)=$ die kleinste unerreichbare Kardinalzahl $>g(\tau)$.
+		Wegen $\kappa$ Woodin existiert $\tau<\kappa$ und ein elementares $j\colon V\to M$ mit $M$ transitiv, $cp(j)=\tau$ und $V_{j(f)(\tau)}\subseteq M$, also 
+		$M\models \exists \beta<j(f)(\tau)$ $\tau$ ist nicht $\beta$-stark.
+		Wegen $V_{j(f)(\tau)}\subseteq M$ ist dann $\tau$ wirklich nicht $\beta$-stark für ein $\beta< j(f)(\tau)$.
+		Wegen $\mathcal P(\beta)\subseteq V_{j(f)(\tau)}\subseteq M$ ist dies aber ein Wiederspruch zur Existenz von $j$.
+
+{\bf Definition:} Sei $A$ eine Klasse.
+	$\kappa$ ist stark bezüglich $A$, wenn für alle $\gamma$ ein $j\colon V\to M$ elementar existiert mit $M$ transitiv, $\kappa=\cp(j)$, $\gamma<j(\kappa)$, $v_{\gamma}\subseteq M$ und $A\cap V_{\gamma}= j(A)\cap V_{\gamma}$
+	[wobei: $j(A)=\bigcup \{j(A\cap x)\mid x\in V\}$]
+
+{\bf Bemerkung:} Wie früher zeigt man: Ist $\kappa$ stark bezüglich $A$, so existiert für alle $\gamma$ ein $j\colon H_{\kappa^+}\to N$ mit $N$ transitiv, $\kappa=\cp(j)$, $\gamma<j(\kappa)$, $V_{\gamma}\subseteq M$, $A\cap V_\gamma= j(A)\cap V_\gamma$ und $|N|=|V_\gamma|$.
+
+{\bf Satz 4:} Es sind äquivalent:
+	\begin{itemize}
+		\item[(1)] $\kappa$ ist Woodin
+		\item[(2)] ($\kappa$ ist unerreichbar und) für alle $A\subseteq V_{\kappa}$ ist $\{\tau<\kappa\mid V_{\kappa}\models \tau \mbox{ ist stark bezüglich } A\}$ stationär in $\kappa$.
+		\item[(3)] $\kappa$ ist unerreichbar und für alle $A\subseteq V_{\kappa}$ existiert $\tau<\kappa$ mit $V_{\kappa}\models \tau$ ist stark bezüglich $A$
+	\end{itemize}
+
+	{\bf Beweis:} (1)$\to$(2): Sei $A\subseteq V_\kappa$ und setze $E=\{\tau<\kappa\mid V_\kappa\models \tau \mbox{ ist stark bezüglich } A\}$.
+		Sei $C\subseteq \kappa$ abgeschlossen unbeschränkt in $\kappa$.
+		Z.Z. $C\cap E\neq\emptyset$.
+		Definiere hierzu $g\colon\kappa\to\kappa$ wie folgt:
+		Sei $\tau<\kappa$.
+		Gilt $V_{\kappa}\models \tau$ ist stark bezüglich $A$, so sei $g(\tau)=0$.
+		Ist die nicht der Fall, so wähle $\gamma<\kappa$ minimal, so dass in $V_{\kappa}$ kein $j\colon H_{\kappa^+}\to N$ mit $N$ transitiv, $\kappa=\cp(j)$,
+		$\gamma<j(\kappa)$, $A\cap V_{\gamma}=j(A)\cap V_\gamma$ existiert.
+		Setze $g(\tau)=\gamma$.
+		Definiere nun $f\colon \kappa\to\kappa$ durch $f(\tau)=\max\{g(\tau)+2, \min(C-(\tau+1))\}$.
+		Nach (1) existiert dann $\tau<\kappa$ und mit $f''\tau\subseteq\tau$ und ein elementares $j\colon V\to M$ mit $M$ transitiv, $\cp(j)=\tau$ und $V_{j(f)(\tau)}\subseteq M$.
+		Wegen $f''\tau\subseteq\tau$ ist dann Limespunkt von $C$, also $\tau\in C$.
+		Somit auch $\tau \in j(C)$, da $C\cap\tau \subseteq j(C)$.
+		Somit genügt z.Z., dass $\tau\in j(E)$.
+		Nehme an, dass dies nicht der Fall ist und setze $\gamma= j(g)(\tau)$.
+		Dann existiert also in $j(V_\kappa)$ kein  $k\colon H_{\tau^+}\to N$ min $N$ transitiv, $\tau=\cp(k)$, $\gamma<k(\tau)$, $V_\gamma\subseteq N$, $j(A)\cap V_\gamma = k(j(A))\cap V_\gamma$.
+		Setze nun $j^*=j\upharpoonright H_{\tau^+}$, $N=j(H_{\tau^+}$.
+		Also $j^*\colon H_{\tau^+}\to N$ elementar.
+		Weiterhin ist $V_{\gamma}\subseteq N$ und $j^*(j(A))\cap V_\gamma=j^*(j(A)\cap H_{\kappa})\cap V_{\gamma}=j^*(A$
+		
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
