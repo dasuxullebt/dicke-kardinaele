@@ -2820,7 +2820,7 @@ Wir müssen zeigen:
 		Setze $j=\pi\circ k$.
 		Dann ist $j$ wie gewünscht.
 
-\marginpar{\tiny{22.01.2012}}
+\marginpar{\tiny{22.01.2013}}
 
 {\bf Bemerkung:} $\kappa$ ist stark $\to$ $\kappa$ ist total unbeschreibbar
 
@@ -2866,7 +2866,8 @@ Wir müssen zeigen:
 		\item[(3)] $\kappa$ ist unerreichbar und für alle $A\subseteq V_{\kappa}$ existiert $\tau<\kappa$ mit $V_{\kappa}\models \tau$ ist stark bezüglich $A$
 	\end{itemize}
 
-	{\bf Beweis:} (1)$\to$(2): Sei $A\subseteq V_\kappa$ und setze $E=\{\tau<\kappa\mid V_\kappa\models \tau \mbox{ ist stark bezüglich } A\}$.
+\marginpar{\tiny{24.01.13}}
+	{\bf Beweis:}\begin{itemize}\item (1)$\to$(2): Sei $A\subseteq V_\kappa$ und setze $E=\{\tau<\kappa\mid V_\kappa\models \tau \mbox{ ist stark bezüglich } A\}$.
 		Sei $C\subseteq \kappa$ abgeschlossen unbeschränkt in $\kappa$.
 		Z.Z. $C\cap E\neq\emptyset$.
 		Definiere hierzu $g\colon\kappa\to\kappa$ wie folgt:
@@ -2882,13 +2883,51 @@ Wir müssen zeigen:
 		Somit genügt z.Z., dass $\tau\in j(E)$.
 		Nehme an, dass dies nicht der Fall ist und setze $\gamma= j(g)(\tau)$.
 		Dann existiert also in $j(V_\kappa)$ kein  $k\colon H_{\tau^+}\to N$ min $N$ transitiv, $\tau=\cp(k)$, $\gamma<k(\tau)$, $V_\gamma\subseteq N$, $j(A)\cap V_\gamma = k(j(A))\cap V_\gamma$.
-		Setze nun $j^*=j\upharpoonright H_{\tau^+}$, $N=j(H_{\tau^+}$.
-		Also $j^*\colon H_{\tau^+}\to N$ elementar.
-		Weiterhin ist $V_{\gamma}\subseteq N$ und $j^*(j(A))\cap V_\gamma=j^*(j(A)\cap H_{\kappa})\cap V_{\gamma}=j^*(A$
-		
-		
+		Setze nun $j^*=j\upharpoonright H_{\tau^+}$, $N=j(H_{\tau^+})$.
+		Also $j^*\colon H_{\tau^+}\to N$ elementar, $N$ transitiv.
+		Weiterhin ist $V_{\gamma}\subseteq N$ und $j^*(j(A))\cap V_\gamma=j^*(j(A)\cap H_{\tau})\cap V_{\gamma}=j^*(A\cap H_\tau)\cap V_\gamma =  j^*(A)\cap V_{\gamma}$
+		Dann existiert aber auch solch ein $k$, $\tilde N$ mit $|\tilde N|\le V_\gamma$.
+		Dann ist aber $k\in M$, also $k\in j(V_\kappa)$, was ein Widerspruch ist.
+		\item (2)$\to$(3): ist trivial.
+		\item (3)$\to$(1): Sei $f\colon\kappa\to\kappa$.
+		Wähle gemäß (3) ein $\tau<\kappa$ mit $V_\kappa\models\tau$ stark bezüglich $f$.
+		Wegen $\kappa$ regulär existiert $\tau<\beta<\kappa$ mit $f''(\tau+1)\subseteq\beta$.
+		Wähle dann ein $j\colon V_{\kappa}\to M$ elementar mit $M$ transitiv, $\tau = \cp(j)$, $\beta< j(\tau)$, $V_{\beta}\subseteq M$ und $f\cap V_{\beta}=j(f)\cap V_{\beta}$.
+		Für $\alpha<\tau$ ist dann $\langle \alpha, f(\alpha)\rangle\in f\cap V_{\beta}$.
+		$j(f)(\alpha)=f(\alpha)$.
+		Somit $f(\alpha)<\tau$, da sonst $j(f(\alpha))\ge j(\tau) > \beta\ge f(\alpha)$.
+		Also $f''\tau\subseteq\tau$.
+		Weiterhin ist $\langle\tau, f(\tau)\rangle\in f\cap V_{\beta} = j(f)\cap V_{\beta}$.
+		Also $j(f)(\tau)=f(\tau)$.
+		Wegen $f(\tau)\le\beta$.
+		Also $V_{j(f)(\tau)}\subseteq V_\beta\subseteq M$.
+		Dies war zu zeigen.
+	\end{itemize}
 
+{\bf Definition:} $\kappa$ ist {\em superstark} :gdw es existiert $j\colon V\to M$ elementar mit $M$ transitiv, $\kappa=\cp(j)$ und $V_{j(\kappa)}\subseteq M$.
 
+{\bf Satz 5:} Sei $\kappa$ superstark.
+	Dann ist $\kappa$ Woodin.
+	Es existiert $\tau<\kappa$ mit $\tau$ ist Woodin.
+
+	{\bf Beweis:} Sei $f\colon \kappa\to\kappa$.
+		Wähle $j\colon V\to M$ elementar mit $M$ transitiv, $k=\cp(j)$ und $V_{j(\kappa)}\subseteq M$.
+		Somit gilt insbesondere $V_{j(f)(\kappa)}\subseteq M$, da $j(f)(\kappa)<j(\kappa)$.
+		Mit dem üblichen Argument existiert dann $k\in V_{j(\kappa)}$ und transitives $N\in V_{j(\kappa)}$ mit $k\colon H_{\kappa^+}\to N$ elementar und $V_{k(f)(\kappa)}\subseteq N$.
+		Also $M\models$ es existiert $\tau< j(\kappa)$ mit $j(f)''\tau\subseteq\tau$ und $\pi\colon H_{\tau^+}\to R$ elementar mit $R$ transitiv, 
+		$\cp(\pi)=\tau$ und $V_{\pi(f)(\tau)}\subseteq R$, nämlich $\tau=\kappa$.
+		Somit $V\models\ldots$.
+
+Sei weiterhin $j,M$ wie oben. Dann $M\models\kappa$ ist Woodin. Also existiert $\tau<\kappa$ mit $\tau$ ist Woodin.
+
+{\bf Definition:} $\kappa$ ist {\em subkompakt} :gdw für alle $B\subseteq H_{\kappa^+}$ existieren $\tau<\kappa$, $A\subseteq H_{\tau^+}$ und elementare Einbettung $j\colon\langle H_{\tau^+}, A\rangle\to\langle H_{\kappa^+}, B\rangle$ mit $\cp(j)=\tau$.
+
+{\bf Bemerkung:}	Ist $\kappa$ subkompakt, so ist $\kappa$ unerreichbar 
+	(denn oben: $\tau$ unerreichbar (sogar messbar), also $\kappa$ unerreichbar, da $j(\tau)=\kappa$.)
+
+{\bf Satz 6:} Sei $\kappa$ subkompakt.
+	Dann $V_{\kappa}\models$ es existiert $\gamma$ mit $\gamma$ ist superstark
+	(also existiert $\gamma<\kappa$ mit $\gamma$ ist superstark).
 
 
 
