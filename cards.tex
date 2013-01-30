@@ -2920,7 +2920,7 @@ Wir müssen zeigen:
 
 Sei weiterhin $j,M$ wie oben. Dann $M\models\kappa$ ist Woodin. Also existiert $\tau<\kappa$ mit $\tau$ ist Woodin.
 
-{\bf Definition:} $\kappa$ ist {\em subkompakt} :gdw für alle $B\subseteq H_{\kappa^+}$ existieren $\tau<\kappa$, $A\subseteq H_{\tau^+}$ und elementare Einbettung $j\colon\langle H_{\tau^+}, A\rangle\to\langle H_{\kappa^+}, B\rangle$ mit $\cp(j)=\tau$.
+{\bf Definition:} $\kappa$ ist {\em subkompakt} :gdw für alle $B\subseteq H_{\kappa^+}$ existieren $\tau<\kappa$, $A\subseteq H_{\tau^+}$ und elementare Einbettung \[j\colon\langle H_{\tau^+}, A\rangle\to\langle H_{\kappa^+}, B\rangle \mbox{ mit } \cp(j)=\tau\]
 
 {\bf Bemerkung:}	Ist $\kappa$ subkompakt, so ist $\kappa$ unerreichbar 
 	(denn oben: $\tau$ unerreichbar (sogar messbar), also $\kappa$ unerreichbar, da $j(\tau)=\kappa$.)
@@ -2928,7 +2928,101 @@ Sei weiterhin $j,M$ wie oben. Dann $M\models\kappa$ ist Woodin. Also existiert $
 {\bf Satz 6:} Sei $\kappa$ subkompakt.
 	Dann $V_{\kappa}\models$ es existiert $\gamma$ mit $\gamma$ ist superstark
 	(also existiert $\gamma<\kappa$ mit $\gamma$ ist superstark).
+\marginpar{\tiny{29.01.2013}}
 
+	{\bf Beweis:} Sei $j\colon H_{\tau^+}\to H_{\kappa^+}$ elementar mit $\tau=\cp(j)$.
+		Dann ist $j(\tau)=\kappa$, also $V_{j(\tau)}=H_{\kappa}\subseteq H_{\kappa^+}$.
+		Also ist $\tau$ superstark.
+		Aber $j\in H_{\kappa^+}$ und existiert transitives $N\prec H_{\kappa^+}$ mit $\rng(j)\subseteq N$ und $N\in H_{\kappa^+}$.
+		Also $j\colon H_{\tau^+}\to N$ elementar.
+		Somit existieren $\gamma<\tau$ und transitives $M\in H_{\tau^+}$ mit $k\colon H_{\gamma^+}\to M$ elementar, $\cp(k)=\gamma$,
+		$k(\gamma)=\tau$ und $V_{\gamma}\subseteq M$.
+		Dann aber $V_{\kappa}\models\gamma$ ist superstark.
+
+{\bf Definition:} $\Box_\kappa$ ist das folgende Prinzip:
+	es existiert Folge $\langle C_\nu\mid \nu<\kappa^+, \lim(\nu)\rangle$ mit 
+	\begin{itemize}
+		\item[(a)] $C_\nu\subseteq$ ist abgeschlossen unbeschränkt in $\nu$
+		\item[(b)] $\lambda$ Limespunkt von $\nu$ $\to$ $C_{\lambda} =C_\nu\cap\lambda$
+		\item[(c)] $\otp(C_\nu)\le\kappa$
+	\end{itemize}
+
+Jensen hat gezeigt: falls $V=L$, so gilt $\Box_\kappa$ für alle Kardinalzahlen $\kappa\ge\omega$.
+
+{\bf Satz 7:} Sei $\kappa$ subkompakt. Dann ist $\Box_\kappa$ falsch.
+
+	{\bf Beweis:} Annahme: $\Box_{\kappa}$ gilt.
+		Sei dies gegeben durch $\vec C=\langle C_\nu\mid \nu<\kappa^+,\lim(\nu)\rangle$.
+		Somit ist $\vec C\subseteq H_{\kappa^+}$.
+		Wegen $\kappa$ supkompakt existieren also $\tau<\kappa$, $\vec D\subseteq H_{\tau^+}$ und elementares $j\colon \langle H_{\tau^+},\vec D\rangle\to \langle H_{\kappa^+},\vec C\rangle$ mit $\tau=\cp(j)$.
+		Dann ist $\vec D=\langle D_\nu\mid \nu<\tau^+,\lim(\tau)\rangle$ eine $\Box_{\tau}$-Folge.
+		Setze nun $\nu= \sup j''\tau^+<\kappa^+$.
+		Nun ist $j''\tau^+$ $\omega$-abgeschlossen in $\nu$.
+		Also $T=j''\tau^+\cap$ Limespunkt von $C_\nu$ ist unbeschränkt in $\nu$.
+		Nun gilt aber für $\eta,\lambda\in T$ mit $\eta<\lambda$:
+		\[ C_\eta= C_\nu\cap \eta= (C_\nu\cap\lambda)\cap\eta=C_\lambda\cap\eta \]
+		Somit ist für alle $\lambda\in T$ $T\cap\lambda\subseteq C_\lambda$.
+		Setze man nun $S=\{\eta<\tau^+\mid j(\eta)\in T\}$, so gilt also auch $S\cap \eta\subseteq D_{\eta}$ für $\eta\in S$.
+		Wegen $S$ unbeschränkt in $\tau^+$ ist also $\otp(D_{\eta}>\tau$ für ein $\eta\in S$. Widerspruch.
+
+{\bf Definition:} Seien $\kappa, \lambda$ Kardinalzahlen, $\kappa\le\lambda$.\begin{itemize}
+		\item[(a)] $\kappa$ ist $\lambda$-superkompakt :gdw es existiert elementares $j\colon V\to M$ mit $M$ transitiv, $\kappa=\cp(j)$, $j(\kappa)>\lambda$ und $j''\lambda\in M$.
+		\item[(b)] $\kappa$ ist superkompakt, wenn $\kappa$ $\lambda$-superkompakt für alle $\lambda\ge\kappa$ ist.
+	\end{itemize}
+
+{\bf Bemerkung:} Sei $j\colon V\to M$ wie in Def. von ``$\kappa$ ist $\lambda$-superkompakt''. \begin{itemize}
+		\item[(a)] Ist $|A|\le\lambda$, so $j''A\in M$
+		\item[(b)] Ist $A$ transitiv und $|A|\le \lambda$, so $j\upharpoonright A\in M$
+		\item[(c)] $\mathcal P(\lambda)\subseteq M$
+	\end{itemize}
+
+	{\bf Beweis:} Zu (a): Sei $f\colon A\to\lambda$ injektiv.
+		Dann ist $j''A=\{a\in j(A)\mid j(f)(a)\in j''\lambda\} \in M$.
+		Zu (b): Ist $A$ transitiv, so ist $j\upharpoonright A$ die Umkehrung der Transitivierung von $j''A$.
+		Zu (c): Sei $A\subseteq\lambda$. Dann ist $A=\{\alpha<\lambda\mid j(\alpha)\in j(A)\}$.
+		Also $A\in M$, da $j\upharpoonright \lambda\in M$.
+
+Ist also $\kappa$ $\lambda$-superstark, so ist $\kappa$ $\lambda$-stark.
+
+{\bf Satz 8:} Sei $\kappa$ $2^\lambda$-superkompakt. Dann ist $\kappa$ subkompakt, und es existiert $\tau<\kappa$ mit $\tau$ ist subkompakt.
+
+	{\bf Beweis:} Sei $j$ wie in Def. von $\kappa$ ist $2^\kappa$-superkompakt. 
+		Sei $B\subseteq H_{\kappa^+}$. Dann gilt
+		\[ j\upharpoonright H_{\kappa^+}\colon \langle H_{\kappa^+},B\rangle\to\langle j(H_{\kappa^+}), j(B)\rangle \]
+		Nun ist aber $j\upharpoonright H_{\kappa^+}\in M$, da $|H_{\kappa^+}|=2^\kappa$.
+		Außerdem ist $j(H_{\kappa^+}=(H_{j(\kappa)^+})^M$.
+		Also $M\models \exists_{\tau<j(\kappa)} \exists_A\exists_k k\colon\langle H_{\tau^+},A\rangle\to \langle H_{j(\kappa)^+}, j(B)\rangle$ elementar.
+		Somit $j$ elementar:
+		es existieren $\tau<\kappa$ und $A$ und $k$ mit $k\colon\langle H_{\tau^+},A\rangle \to\langle H_{\kappa^+}, B\rangle$ elementar, wie gewünscht.
+		Der zweite Teil folgt durch Reflektion, da auch $M\models\kappa$ superkompakt.
+
+Interessanterweise kann man die Eigenschaft ``$\kappa$ ist $\lambda$-superkompakt'' auch durch die Existenz von gewissen Ultrafiltern charakterisieren.
+
+{\bf Definition:} \begin{itemize}
+		\item[(a)] Sei $\lambda\ge \kappa$. Setze $\mathcal P_{\kappa}(\lambda)=\{a\subseteq\lambda\mid |a|<\kappa\}$.
+		\item[(b)] Sei $U\in \mathcal P_{\kappa}(\lambda)$ ein Ultrafilter.
+			$U$ ist normal, wenn gilt:
+		\begin{itemize}
+			\item[(1)] für alle $a\in \mathcal P_{\kappa}(\lambda)$ ist $\{b\in \mathcal P_{\kappa}(\lambda)\mid a\le b\}\in U$ und
+			\item[(2)] ist $f\colon \mathcal P_{\kappa}(\lambda)\to\lambda$ regressiv, 
+				d.h. $f(a)\in a$ für alle $a\neq \emptyset$, so existiert $x\in U$ mit $f\upharpoonright x$ konstant.
+		\end{itemize}
+	\end{itemize}
+
+{\bf Bemerkung:} Ist $U$ normaler Ultrafilter auf $\mathcal P_{\kappa}(\lambda)$, so ist $U$ $\kappa$-vollständig.
+
+	{\bf Beweis:} Seien $X_{\alpha}\in U$ für $\alpha<\gamma$, wobei $\gamma<\kappa$.
+		Annahme: $X=\bigcap_{\alpha<\lambda} X_{\alpha}\not\in U$.
+		Dann ist $Z=\mathcal P_{\kappa}(\lambda)-X\in U$.
+		Setze $Y=\{b\in \mathcal P_{\kappa}(\lambda)\mid \gamma\le b\}\in U$
+		Definiere $f\colon \mathcal P_{\kappa}(\lambda)\to \lambda$ durch 
+		\[ f(b)=\left\{ \begin{array}{cl} \mbox{ein $\alpha<\gamma$ mit }b\not\in X_\alpha & \mbox{falls }b\in Y\cap Z \\
+						\mbox{ein }\alpha\in b & \mbox{falls }b\not\in Y\cap Z, b\neq\emptyset \\
+						0 & \mbox{sonst}  \end{array}\right.\]
+		Dann ist $f$ regressiv, aber nicht konstant auf einer Menge in $U$. Wid.
+
+		
+		
 
 
 
