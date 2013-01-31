@@ -3001,7 +3001,7 @@ Interessanterweise kann man die Eigenschaft ``$\kappa$ ist $\lambda$-superkompak
 {\bf Definition:} \begin{itemize}
 		\item[(a)] Sei $\lambda\ge \kappa$. Setze $\mathcal P_{\kappa}(\lambda)=\{a\subseteq\lambda\mid |a|<\kappa\}$.
 		\item[(b)] Sei $U\in \mathcal P_{\kappa}(\lambda)$ ein Ultrafilter.
-			$U$ ist normal, wenn gilt:
+			$U$ ist {\em normal}, wenn gilt:
 		\begin{itemize}
 			\item[(1)] für alle $a\in \mathcal P_{\kappa}(\lambda)$ ist $\{b\in \mathcal P_{\kappa}(\lambda)\mid a\le b\}\in U$ und
 			\item[(2)] ist $f\colon \mathcal P_{\kappa}(\lambda)\to\lambda$ regressiv, 
@@ -3021,11 +3021,103 @@ Interessanterweise kann man die Eigenschaft ``$\kappa$ ist $\lambda$-superkompak
 						0 & \mbox{sonst}  \end{array}\right.\]
 		Dann ist $f$ regressiv, aber nicht konstant auf einer Menge in $U$. Wid.
 
+\marginpar{\tiny{31.01.2013}}
+
+{\bf Satz 9:} Seien $\kappa\le\lambda$.
+	Es sind äquivalent: \begin{itemize}
+		\item $\kappa$ ist $\lambda$-superkompakt
+		\item es existiert normaler Ultrafilter auf $\mathcal P_{\kappa}(\lambda)$
+		\item es existiert $j\colon V\to M$ elementar mit $M$ transitiv, $\cp(j)=\kappa$, $j(\kappa)>\lambda$, $^\lambda M\subseteq M$
+	\end{itemize}
+
+	{\bf Beweis:} (1)$\to$(2): Sei $j\colon V\to M$ wie in Def. von ``$\kappa$ ist $\lambda$-superkompakt''.
+		Definiere $U\subseteq\mathcal P_{\kappa}(\lambda)$ durch:
+		\[ X\in U\iff j''\lambda\in j(X)\]
+		Dann ist $U$ ein Ultrafilter.
+		Beachte, dass $j''\lambda\in j(\mathcal P_{\kappa}(\lambda)$, da $j''\lambda\in M\cap \mathcal P(j(\lambda))$, und wegen $j(\kappa)>\lambda$ $M\models|j''\lambda|=\lambda<j(\kappa)$.
+		Weiterhin ist $U$ normal, denn: Zu (1): Sei $a\in \mathcal P_{\kappa}(\lambda)$.
+		Dann ist $j(\{b\in \mathcal P_{\kappa}(\lambda)\mid a\subseteq b\})=\{b\in j(\mathcal P_{\kappa}(\lambda))$
+		[2 Zeilen fehlen] %### 3 Zeilen
+		Zu (2): Sei $f\colon\mathcal P_\kappa(\lambda)\to\lambda$ regressiv.
+		Setze $\delta=j(f)(j''\lambda)$.
+		Wegen $j(f)$ regressiv, ist $\delta=j(\gamma)$.
+		Setze $Z=\{a\in\mathcal P_\kappa(\lambda)\mid f(a)=\gamma\}$.
+		Zeige, dass $Z\in U$. Dies genügt.
+		%Aber $j(Z)=\{a\in j(\mathcal P_{\kappa}(\lambda))$ %### 1Zeile
+
+		(2)$\to$(3): Sei $U$ normaler Ultrafilter auf $\mathcal P_\kappa(\lambda)$.
+		Sei $\langle N,E\rangle$ die Ultrapotenz von $V$ mit $U$.
+		Es ist $\kappa>\omega$ (!).
+		Also ist $U$ $\omega_1$-vollständig.
+		Somit ist $E$ stark fundiert.
+		Sei also $\pi\colon\langle N,E\rangle\tilde\to M$ mit $M$ transitiv.
+		Definiere $j\colon V\to M$ durch $j(x)=\pi([c_x])$, wobei $c_x(a)=x$.
+		Nach Los ist $j$ elementar. %
+		Wegen $U$ $\kappa$-vollständig ist $j\upharpoonright\kappa=\id\upharpoonright\kappa$.
+		Andererseits ist $j(\kappa)>\lambda$, da für alle $\alpha<\beta<\lambda$ $[h_\alpha]<[h_\beta]<[h]<[c_\kappa]$, wobei $h_\alpha(a)=\otp(a\cap\alpha)$, denn:
+		$\{a\mid h_{\alpha}(a)<h_\beta(a)\}\supseteq\{a\mid \alpha\in a\}\in U$.
+		$h(\alpha)=\otp(a)$.
+		Wir identifizieren $\langle N,E\rangle$ mit $M$.
+		Wir wollen nun $^\lambda M\subseteq M$ zeigen.
+		Hierzu genügt es zu zeigen, dass für $a\subseteq M$ mit $|a|\le\lambda$ gilt, dass $a\in M$.
+		Sei also für $\alpha<\lambda$ $[f_{\alpha}]\in M$.
+		Z.z.: $\{[f_\alpha]\mid \alpha<\lambda\}\in M$.
+		Definiere hierzu $f\colon \mathcal P_\kappa(\lambda)\to V$ durch $f(b)=\{f_\alpha(b)\mid \alpha\in b\}$.
+		Dann gilt $[f]=\{[f_\alpha]\mid\alpha<\lambda\}$, denn:
+
+		``$\supseteq$'': Sei $\alpha<\lambda$.
+		Dann ist $Z=\{b\in \mathcal P_{\kappa}(\lambda)\mid \alpha\in\beta\}\in U$.
+		Aber für $b\in Z$ ist $f_\alpha(b)\in f(b)$. Somit $[f_\alpha]E[f]$.
+		``$\subseteq$'': Sei $[g]E[f]$. Somit ist $Y=\{b\in\mathcal P_\kappa(\lambda)\mid g(b)\in f(b)\}\in U$.
+		Dann existiert regressives $q\colon\mathcal P_\kappa(\lambda)\to \lambda$ mit für alle $b\in Y$ $g(b)=f_{q(b)}(b)$.
+		Wegen $U$ normal existiert $\alpha<\lambda$ mit $W=\{b\in\mathcal P_\kappa(\lambda)\mid h(b)\}\in U$.
+		Dann ist aber $[g]=[f_\alpha]$.
 		
+		(3)$\to$(1): trivial.
+
+{\bf Bemerkung:} Es gelte $\Box_\kappa$.
+	Dann existiert für alle stationären $S\subseteq\kappa^+$ ein stationäres $E\subseteq S$,
+	welche nicht reflektiert, d.h. für alle $\alpha<\kappa^+$ ist $E\cap\alpha$ nicht stationär in $\alpha$.
+
+	{\bf Beweis:} o.E.: $S\subseteq (\kappa^+-(\kappa+1))\cap$ Limesordinalzahlen.
+		Sei $\Box_\kappa$ gegeben durch $\langle C_\nu\mid \nu<\kappa^+,\lim(\nu)\rangle$.
+		Dann ist für alle $\nu\in S$ $\otp(C_\nu)\le \kappa<\nu$.
+		Also existiert nach Fodor ein stationäres $E\subseteq S$ und ein $\gamma$ mit für alle $\nu \in E$ $\otp(C_\nu)=\gamma$.
+		Dann aber für alle $\nu<\kappa^+$ $|E\cap C^*_\nu|\le 1$, wobei $C^*_\nu=$ Menge der Limespunkte von $C_\nu$, denn:
+		$\lambda,\nu\in C^*_\nu (\lambda<\nu) \to C_\lambda=C_\nu\cap\lambda\subseteq C_\nu\cap\eta=C_\eta$ also $\otp(C_\lambda)<\otp(C_\eta)$
+		Ist also $\cf(\nu)>\omega$, so ist $E\cap \nu$ nicht stationär.
+		Für $cf(\nu)=\omega$ ist $E\cap\nu$ nicht stationär, da $E\subseteq$Limesordinalzahlen.
+
+{\bf Satz 10:} Sei $\kappa$ $\kappa^+$-superkompakt.
+	Dann reflektiert jedes stationäre $E\subseteq\{\nu<\kappa^+\mid \cf(\nu)<\kappa\}$.
+	
+	{\bf Beweis:} Sei $E\subseteq\{\nu<\kappa^+\mid \cf(\nu)<\kappa\}$ stationär.
+		Sei  $j\colon V\to M$ wie in Def. von $\kappa$ ist $\kappa^+$-superkompakt.
+		Setze $\mu=\sup j''\kappa^+$.
+		Dann ist $\mu<j(\kappa^+)$, denn $M\models j(\kappa^+)$ ist regulär und $|j''\kappa^+<j(\kappa^+)$.
+		Dann ist $j(E)\cap\mu$ in $M$ stationär in $\mu$.
+		Denn sei $C\in M$ mit $C\subseteq\mu$ abg. unb. in $\mu$.
+		Setze $D=\{\nu<\kappa^+\mid j(\kappa)\in C\}$.
+		Dann ist $D$ $<\kappa$-abgeschlossen in $\kappa^+$ und unbeschränkt in $\kappa^+$.
+		Wegen $E\subseteq\{\nu<\kappa^+\mid \cf(\nu)<\kappa\}$ ist $D\cap E\neq\emptyset$.
+		Also $C\cap j(E)\neq\emptyset$.
+		Somit $M\models j(E)$ reflektiert. Also reflektiert $E$.
 		
 
+{\bf Satz 11:} $\kappa$ ist superkompakt gdw für alle $\beta>\kappa$ existieren $\alpha<\kappa$ und elementares $k\colon V_\alpha\to V_\beta$ mit $k(\cp(k))=\kappa$.
 
+	{\bf Beweis:} $\to$: Sei $\beta>\kappa$. Sei $j\colon V\to M$ wie in Def. von ``$\kappa$ ist $|V_\beta|$-superkompakt''.
+		Setze $j^*=j\upharpoonright V_\beta$.
+		Also $j^*\colon V_\beta\to j(V_\beta)$ elementar und $j^*\in M$.
+		Somit $M\models$ Es existieren $\alpha<j(\kappa)$ und elementares $k\colon V_\alpha\to V_{j(\beta)}$ mit $k(\cp(k))=j(\kappa)$\newline
+		 Also $V\models$ Es existieren $\alpha<\kappa$ und elementares $k\colon V_\alpha\to V_\beta$ mit $k(\cp(k))=\kappa$.
 
+		$\leftarrow$: Sei $\lambda\ge\kappa$. Setze $\beta=\kappa+\lambda+4$.
+		Sei $k\colon V_\alpha\to V_\beta$ elementar mit $\alpha<\kappa$ und $k(\cp(k))=\kappa$.
+		Sei $\cp(k)=\tau$, $k(\bar\lambda)=\bar\lambda$.
+		Dann ist $\tau$ $\bar\lambda$-superkompakt.
+		Also ist durch Anwendung von $k$ $V_\beta\models \kappa$ ist $\lambda$-superkompakt.
+		Also ist $\kappa$ $\lambda$-superkompakt.
 
 
 
