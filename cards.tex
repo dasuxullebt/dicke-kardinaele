@@ -3119,7 +3119,68 @@ Interessanterweise kann man die Eigenschaft ``$\kappa$ ist $\lambda$-superkompak
 		Also ist durch Anwendung von $k$ $V_\beta\models \kappa$ ist $\lambda$-superkompakt.
 		Also ist $\kappa$ $\lambda$-superkompakt.
 
+\marginpar{\tiny{05.02.2013}}
 
+{\bf Definition:} $\kappa$ ist riesig gdw es existiert elementares $j\colon V\to M$ mit $\kappa=\cp(j)$ und $j''j(\kappa)\in M$.
+
+	Leicht zu sehen: \begin{itemize} \item $\kappa$ riesig $\to$ superstark
+		\item $\kappa$ riesig $\to$ $\exists \tau<\kappa V_{\kappa}\models \tau $ ist  superkompakt
+	\end{itemize}
+
+{\bf Lemma 12:} Sei $\lambda\ge\omega$ Kardinalzahl mit $2^\lambda=\lambda^\omega$.
+	Dann existiert Funktion $F\colon ^\omega\lambda\to\lambda$ mit der Eigenschaft:
+	Falls $X\subseteq\lambda$, $|X|=\lambda$, so ${F''}^\omega X=\lambda$.
+
+	{\bf Beweis:} Sei $\mathfrak N =\{X\subseteq\lambda\mid |X|=\lambda\}$.
+		Se $\{\langle X_\beta,\gamma_\beta\mid \beta<2^\lambda\}$ eine Abbildung von $\mathfrak N\times\lambda$.
+		Konstruiere rekursiv Folge $\langle s_\beta\mid \beta< 2^\lambda\rangle$ mit
+		\begin{itemize} \item[(i)] $\alpha<\beta< 2^\lambda\to s_\alpha= s_\beta$
+			\item[(ii)] $s_\beta\in ^\omega X_\beta$
+		\end{itemize}
+		Sei $\beta< 2^\lambda$ gegeben. 
+		Wegen $|^\omega X_\beta|=\lambda^\omega=2^\lambda$ existiert $s^\beta$, welches (i),(ii) erfüllt.
+		Setze nun \[F(s) =\left\{ \begin{array}{cl} \gamma_\beta & \mbox{falls } s=s_\beta \\
+			0 & \mbox{sonst} \end{array}\right.\]
+
+		Dies tut's.
+		Denn sei $X\subseteq\lambda$, $|X|=\lambda$.
+		Sei weiterhin $\gamma<\lambda$. Dann existiert $\beta$ mit $\langle X,\gamma\rangle=\langle X_\beta,\gamma_\beta\rangle$.
+		Aber $s_\beta\in ^\omega X$ und nach Definition ist $F(s_\beta)=\gamma_\beta=\gamma$.
+
+{\bf Satz 13 (Kunen):} Sei $j\colon V\to M$ elementar mit $M$ transitiv, $\kappa=\cp(j)$.
+	Definiere rekursiv $\kappa_0=\kappa$, $\kappa_{n+1} = j(\kappa_n)$.
+	Setze $\lambda=\sup_n \kappa_n$.
+	Dann gilt $\mathfrak P(\lambda)\not\subseteq M$.
+	Also speziell $M\neq V$.
+
+	{\bf Beweis:} Annahme: $\mathfrak P(\lambda)\subseteq M$. 
+		Durch Induktion folgt dann: Jedes $\kappa_n$ ist unerreichbar.
+		Also ist $\lambda$ eine starke Limeskardinalzahl, d.h. insbesondere gilt $2^{<\lambda}=\sup\{2^\tau\mid\tau<\lambda\}=\lambda$.
+		Wegen $\cf(\lambda)=\omega$ ist aber dann $2^\lambda=\lambda^\omega$.
+		Sei $f\colon\bigcup_{n\in\omega}\mathcal P(\kappa_n)\to\lambda$ injektiv.
+		Definiere $g\colon \mathcal P(\lambda)\to ^\omega X$ durch $g(A)(n)=f(A\cap\kappa_n)$ ist injektiv.
+
+		Sei dann $F$ wie in Lemma 12.
+		Setze $G=j(F)$.
+		Dann gilt wegen $j(\lambda)=\lambda$ $M\models \mbox{ für alle $X\subseteq \lambda$ mit $|X|=\lambda $ist$ {G''}^\omega X=\lambda$}$.
+		Betrachte speziell $X\in M$ und natürlich $|X|=\lambda$ in $M$.
+		Also existiert $s\in ^\omega X$ mit $G(s)=\kappa$.
+		Sei $s(n)=j(t(n))$ für $n\in\omega$.
+		Also $t\colon\omega\to\lambda$.
+		Dann ist $j(t)=s$.
+		Also $\kappa=G(s)=j(F)(j(t))=j(F(t))\in\rng(j)$. Widerspruch.
+
+% Sivic: übersetzung unbeweisbarer aussagen in diophantische gleichungen?
+
+% Schlussbemerkungen
+% \begin{itemize}
+%		\item Große Kardinalzahlen sind natürlich, da bereits 'einfache' kombinatorische Fragestellungen (auch schon im unteren Bereich der Mengenhierarchie) zu großen Kardinalzahlen führen bsp.: $\neg\Box_{\omega_1}\to \omega_2$ ist Mahlo in $L$
+%
+%			Wenn $\ZFC + \exists\kappa (\kappa \mbox{ ist Mahlo})$ konsistent, so ist auch $\ZFC+\neg\Box_{\omega_1}$ konsistent (Stärkere Aussagen lassen sich hierzu überhaupt nicht zeigen)
+%		\item Große Kardinalzahlen beantworten eine Fragen der klassischen Analysis (insb. \emph{deskriptive Mengenlehre}. (Untersuchung ''definierbarer'' Teilmengen der reellen Zahlen, z.b. projektive Mengen = stetiger Abschluss der Borel-Mengen unter Bildern und Komplementen)
+%
+%			Bekanntes Resultat: Mittels Großer Kardinalzahlen (etwa Woodin) lässt sich zeigen, dass alle projektiven Mengen Lebesque-messbar sind. Dies lässt sich NUR mittels großer Kardinalzahlen zeigen (Konsistenz der Aussage folgt aus $\exists\kappa \kappa \mbox{unerreichbar}$, Implikation $\exists\kappa \kappa\mbox{ woodin}$.)
+%	\end{itemize}
 
 
 
